@@ -1,1 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Artifact 001: When the Internet Pretended to Be a Phone Call | Operational Archeology</title>
+  <meta name="description" content="Primary Artifact from June 2002: Sprint LTD / AOL dial-up trunk routing sheet. Uncovering glare avoidance, Most Idle hunting, and the physics of systems under pressure." />
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.operationalarcheology.com/artifact-001.html" />
+  <meta property="og:title" content="Artifact 001: When the Internet Pretended to Be a Phone Call" />
+  <meta property="og:description" content="Dial up was not slow because of modems. It was slow because the network behind them was doing things it was never designed to survive." />
+  <meta property="og:image" content="https://www.operationalarcheology.com/image.jpg" />
+  <meta name="author" content="Rob Surls" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#080b10',
+              card: '#111620',
+              border: '#1f2937',
+              borderLight: '#2e3d52',
+              amber: '#d19a5b',
+              amberLight: '#e5b075',
+              slate: '#8b9bb4',
+              muted: '#52627a',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            serif: ['Cinzel', 'Georgia', 'serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #080b10;
+      color: #e2e8f0;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+    .bg-grid-pattern {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    }
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #f8dfaa 0%, #d19a5b 50%, #9e6f36 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen bg-grid-pattern text-slate-200 antialiased selection:bg-brand-amber selection:text-black">
+
+  <!-- TOP NAVIGATION -->
+  <header class="border-b border-brand-border/60 bg-brand-dark/90 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+      
+      <a href="./index.html" class="flex items-center space-x-3 group">
+        <div class="w-9 h-9 rounded-full border border-brand-amber/40 flex items-center justify-center bg-brand-card group-hover:border-brand-amber transition-colors">
+          <svg class="w-5 h-5 text-brand-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <circle cx="12" cy="12" r="9"/>
+            <polygon points="12 3 14.5 9.5 21 12 14.5 14.5 12 21 9.5 14.5 3 12 9.5 9.5 12 3" stroke-width="1.2" fill="rgba(209,154,91,0.15)"/>
+            <circle cx="12" cy="12" r="2.5" fill="currentColor"/>
+          </svg>
+        </div>
+        <div class="leading-tight">
+          <span class="block text-[11px] uppercase tracking-[0.25em] text-brand-slate font-medium">Operational</span>
+          <span class="block text-xs uppercase tracking-[0.2em] text-brand-amber font-semibold font-serif">Archeology</span>
+        </div>
+      </a>
+
+      <a href="./index.html#artifacts" class="inline-flex items-center space-x-2 text-xs uppercase tracking-[0.2em] font-semibold text-brand-amber hover:text-brand-amberLight transition-colors">
+        <span>&larr;</span>
+        <span>Back to Artifacts</span>
+      </a>
+
+    </div>
+  </header>
+
+  <!-- ARTIFACT DOSSIER CONTAINER -->
+  <main class="py-16 sm:py-24 max-w-4xl mx-auto px-4 sm:px-6 space-y-12">
+    
+    <!-- Meta Header -->
+    <div class="space-y-4 border-b border-brand-border/80 pb-10">
+      
+      <div class="flex items-center space-x-3">
+        <span class="px-2.5 py-1 rounded text-[10px] font-mono font-bold bg-brand-amber text-black uppercase tracking-wider">
+          Primary Artifact 001
+        </span>
+        <span class="text-xs font-mono text-brand-slate">
+          Stratum: June 2002 &bull; Carrier Dial-IP Routing
+        </span>
+      </div>
+
+      <h1 class="text-3xl sm:text-5xl font-bold font-serif uppercase tracking-tight text-white leading-tight">
+        When the Internet Pretended to Be a <span class="gold-gradient-text">Phone Call</span>
+      </h1>
+
+      <p class="text-lg text-slate-300 font-sans leading-relaxed">
+        The 2002 Sprint LTD / AOL dial-up trunk routing sheets—glare avoidance, “Most Idle” hunting, and the scars of a voice network forced to carry the web.
+      </p>
+
+      <div class="pt-2 flex items-center justify-between text-xs font-mono text-brand-slate">
+        <span>Excavated & Documented by Rob Surls</span>
+        <span>Sprint Dial IP / Interconnection</span>
+      </div>
+
+    </div>
+
+    <!-- PRIMARY ARTIFACT TRANSCRIPTION / TELEMETRY BOX -->
+    <div class="rounded-xl border border-brand-amber/40 bg-[#0c1017] p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+      <div class="absolute top-0 right-0 px-3 py-1 bg-brand-amber/20 border-b border-l border-brand-amber/40 rounded-bl text-[10px] font-mono text-brand-amber font-semibold uppercase tracking-wider">
+        Source Artifact: 424 -Sprint LTD AOL 16 & 17-1.xls
+      </div>
+
+      <div class="text-xs font-mono text-brand-amber uppercase tracking-widest font-semibold mb-4 flex items-center">
+        <span class="w-2 h-2 rounded-full bg-brand-amber mr-2"></span>
+        Excavated Engineering Telemetry &bull; June 5, 2002
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs font-mono mb-6">
+        <div class="bg-[#121824] p-3 rounded border border-brand-border">
+          <span class="block text-brand-slate text-[10px] uppercase">Customer</span>
+          <span class="text-white font-semibold">AOL Aug 16 & 17</span>
+        </div>
+        <div class="bg-[#121824] p-3 rounded border border-brand-border">
+          <span class="block text-brand-slate text-[10px] uppercase">Modem Count</span>
+          <span class="text-brand-amber font-semibold">528 (480 AOL 16 / 48 AOL 17)</span>
+        </div>
+        <div class="bg-[#121824] p-3 rounded border border-brand-border">
+          <span class="block text-brand-slate text-[10px] uppercase">LATA / Carrier</span>
+          <span class="text-white font-semibold">424 &bull; Sprint LTD</span>
+        </div>
+        <div class="bg-[#121824] p-3 rounded border border-brand-border">
+          <span class="block text-brand-slate text-[10px] uppercase">Hunting Strategy</span>
+          <span class="text-emerald-400 font-semibold">Most Idle (Glare Avoidance)</span>
+        </div>
+      </div>
+
+      <!-- Real Routing Table Extract -->
+      <div class="overflow-x-auto">
+        <table class="w-full text-left font-mono text-xs border-collapse">
+          <thead>
+            <tr class="border-b border-brand-border text-brand-slate text-[11px] uppercase">
+              <th class="py-2.5 px-3">Tandem / Switch</th>
+              <th class="py-2.5 px-3">Hunting</th>
+              <th class="py-2.5 px-3">Rate Center</th>
+              <th class="py-2.5 px-3">Point Code</th>
+              <th class="py-2.5 px-3">Signaling</th>
+              <th class="py-2.5 px-3">Trunks</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-brand-border/60 text-slate-300">
+            <tr>
+              <td class="py-2.5 px-3 font-semibold text-white">ELKNNCXA03T (Access)</td>
+              <td class="py-2.5 px-3 text-brand-amber">Most Idle</td>
+              <td class="py-2.5 px-3">NOWILKESBO 336-566</td>
+              <td class="py-2.5 px-3">230-052-201</td>
+              <td class="py-2.5 px-3">SS7 / B8ZS</td>
+              <td class="py-2.5 px-3">24 (1 T1)</td>
+            </tr>
+            <tr>
+              <td class="py-2.5 px-3 font-semibold text-white">ELKNNCXA03T (Local)</td>
+              <td class="py-2.5 px-3 text-brand-amber">Most Idle</td>
+              <td class="py-2.5 px-3">NOWILKESBO 336-566</td>
+              <td class="py-2.5 px-3">230-052-201</td>
+              <td class="py-2.5 px-3">SS7 / B8ZS</td>
+              <td class="py-2.5 px-3">240 (10 T1)</td>
+            </tr>
+            <tr>
+              <td class="py-2.5 px-3 font-semibold text-white">ASBONCXA02T (Tandem)</td>
+              <td class="py-2.5 px-3 text-brand-amber">Most Idle</td>
+              <td class="py-2.5 px-3">WINSTON-SALEM 336-283</td>
+              <td class="py-2.5 px-3">230-051-201</td>
+              <td class="py-2.5 px-3">SS7 / B8ZS</td>
+              <td class="py-2.5 px-3">48 (2 T1)</td>
+            </tr>
+            <tr class="bg-red-950/20 text-red-300">
+              <td class="py-2.5 px-3 font-semibold" colspan="6">
+                &bull; Revision #1 Note: "Disconnect ELKNNCXADS0 120 trunks not Local to North Wilkesboro, Per Sprint LTD."
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <!-- MAIN FIELD NARRATIVE -->
+    <article class="space-y-8 text-slate-300 text-base sm:text-lg leading-relaxed font-sans">
+      
+      <p>
+        There was a moment when the public internet was still pretending to be a phone call, and the phone network was pretending it was not collapsing under the weight of millions of people trying to get online through infrastructure that had never been designed for anything beyond voice.
+      </p>
+
+      <p>
+        This was 2002. AOL was still a national load generator pushing regional carriers into roles they never expected, and Sprint LTD was running voice grade tandems that suddenly had to support the explosion of dial up traffic. Look at the customer, the modem counts, the tandem choices, the disconnect orders and the little engineering notes. None of it looks particularly dramatic until you understand what was happening underneath it. Every modem had to become traffic through a network already under pressure, and every routing decision had consequences.
+      </p>
+
+      <!-- Section: Glare Avoidance -->
+      <div class="my-10 p-6 sm:p-8 rounded-xl bg-brand-card border border-brand-borderLight space-y-4">
+        <h3 class="text-xl font-serif text-white uppercase tracking-wide">
+          The Physics of "Most Idle": Load Balancing as Survival
+        </h3>
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+          The <strong class="text-brand-amber">Most Idle</strong> entries are one of my favorite artifacts because they tell you what the clean architecture diagram never could. Load balancing was partly engineering and partly survival.
+        </p>
+        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+          The glare avoidance logic was basically the original internet highway pileup, where two switches could grab the same trunk group at the exact same millisecond and suddenly nobody was going anywhere. Most Idle was not a convenience. It was an operational tactic designed to steer traffic toward the path least likely to explode.
+        </p>
+      </div>
+
+      <p>
+        You can also see the disconnect orders where someone finally documented that a trunk was not actually local, and the rate center boundaries that mattered right up until capacity demands made those boundaries increasingly irrelevant.
+      </p>
+
+      <p>
+        That is why this old spreadsheet matters to me now. It shows the same physics we are dealing with in AI orchestration, just wearing different clothes. The diagram says one thing, while the system under pressure does something else entirely. The truth lives in the artifacts left behind by engineers trying to keep the system alive long enough for the next request to succeed.
+      </p>
+
+      <!-- The Parallel Card -->
+      <div class="my-10 p-8 rounded-xl bg-gradient-to-b from-[#121824] to-[#090d14] border border-brand-amber/50 shadow-2xl space-y-4">
+        <div class="text-xs uppercase tracking-[0.25em] font-mono text-brand-amber font-semibold">
+          The Architectural Translation &bull; 2002 to 2026
+        </div>
+        <blockquote class="text-xl font-serif text-white italic leading-snug">
+          &ldquo;Dial up was not slow because of the modems. It was slow because the network behind the modems was doing things it was never designed to survive.&rdquo;
+        </blockquote>
+        <p class="text-sm text-slate-300 font-sans leading-relaxed">
+          AI orchestration is repeating that story with different tools, different terminology, and dramatically faster consequences.
+        </p>
+        <div class="pt-2 text-xs font-mono text-brand-amber font-semibold uppercase tracking-widest">
+          Same Physics. Different Layer. That is Operational Archeology.
+        </div>
+      </div>
+
+      <p>
+        Once you learn to read those artifacts, you stop believing the clean version of the system and start looking for the scars, revisions, routing decisions, hidden dependencies, and quiet notes that reveal what was actually happening when nobody was looking.
+      </p>
+
+    </article>
+
+    <!-- Postscript Author Card -->
+    <div class="mt-16 pt-10 border-t border-brand-border/80 bg-brand-card/70 border border-brand-border rounded-xl p-8 space-y-6">
+      <div class="flex items-center space-x-4">
+        <div class="w-12 h-12 rounded-full border border-brand-amber/40 flex items-center justify-center bg-[#151c28] text-brand-amber font-serif font-bold text-lg">
+          RS
+        </div>
+        <div>
+          <h3 class="text-base font-semibold text-white font-serif">Rob Surls</h3>
+          <p class="text-xs font-mono text-brand-amber">Founder, TexttASKAI &bull; Operational Archeology</p>
+        </div>
+      </div>
+      <p class="text-xs text-brand-slate leading-relaxed">
+        Two decades inside carrier network routing, translations, and multi-vendor integrations (Sprint, Ericsson). Applying operational physics to multi-agent AI orchestration.
+      </p>
+      <div class="pt-2 flex items-center space-x-4">
+        <a href="https://www.linkedin.com/in/rob-surls-1b912ab" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 px-4 py-2 bg-[#0a66c2] hover:bg-[#004182] text-white text-xs font-semibold uppercase tracking-wider rounded transition-colors">
+          <span>Connect on LinkedIn</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+        <a href="./send-it-to-translations.html" class="text-xs font-mono text-brand-amber hover:text-brand-amberLight">
+          Read Next: Send It to Translations &rarr;
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-brand-border/80 bg-brand-dark py-12 text-xs text-center text-brand-slate font-mono">
+    <div class="max-w-5xl mx-auto px-4">
+      &copy; 2024 OPERATIONAL ARCHEOLOGY &bull; EXCAVATE. UNDERSTAND. OPERATE.
+    </div>
+  </footer>
+
+</body>
+</html>
 
