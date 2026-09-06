@@ -1,1 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Send It to Translations | Operational Archeology</title>
+  <meta name="description" content="When everything is green in isolation, but wrong when it all connects. Tracing the window right before the alarms across carrier routing and AI orchestration." />
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.operationalarcheology.com/send-it-to-translations.html" />
+  <meta property="og:title" content="Send It to Translations | Operational Archeology" />
+  <meta property="og:description" content="When everything is green in isolation, but wrong when it all connects. Tracing the window right before the alarms." />
+  <meta property="og:image" content="https://www.operationalarcheology.com/image.jpg" />
+  <meta name="author" content="Rob Surls" />
 
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#080b10',
+              card: '#111620',
+              border: '#1f2937',
+              borderLight: '#2e3d52',
+              amber: '#d19a5b',
+              amberLight: '#e5b075',
+              slate: '#8b9bb4',
+              muted: '#52627a',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            serif: ['Cinzel', 'Georgia', 'serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #080b10;
+      color: #e2e8f0;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+    .bg-grid-pattern {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    }
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #f8dfaa 0%, #d19a5b 50%, #9e6f36 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen bg-grid-pattern text-slate-200 antialiased selection:bg-brand-amber selection:text-black">
+
+  <!-- TOP NAVIGATION -->
+  <header class="border-b border-brand-border/60 bg-brand-dark/90 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+      
+      <a href="./index.html" class="flex items-center space-x-3 group">
+        <div class="w-9 h-9 rounded-full border border-brand-amber/40 flex items-center justify-center bg-brand-card group-hover:border-brand-amber transition-colors">
+          <svg class="w-5 h-5 text-brand-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <circle cx="12" cy="12" r="9"/>
+            <polygon points="12 3 14.5 9.5 21 12 14.5 14.5 12 21 9.5 14.5 3 12 9.5 9.5 12 3" stroke-width="1.2" fill="rgba(209,154,91,0.15)"/>
+            <circle cx="12" cy="12" r="2.5" fill="currentColor"/>
+          </svg>
+        </div>
+        <div class="leading-tight">
+          <span class="block text-[11px] uppercase tracking-[0.25em] text-brand-slate font-medium">Operational</span>
+          <span class="block text-xs uppercase tracking-[0.2em] text-brand-amber font-semibold font-serif">Archeology</span>
+        </div>
+      </a>
+
+      <a href="./index.html" class="inline-flex items-center space-x-2 text-xs uppercase tracking-[0.2em] font-semibold text-brand-amber hover:text-brand-amberLight transition-colors">
+        <span>&larr;</span>
+        <span>Back to Dig Site</span>
+      </a>
+
+    </div>
+  </header>
+
+  <!-- ARTICLE CONTENT -->
+  <main class="py-16 sm:py-24 max-w-3xl mx-auto px-4 sm:px-6">
+    
+    <!-- Meta Header -->
+    <div class="space-y-4 border-b border-brand-border/80 pb-10 mb-12">
+      
+      <div class="flex items-center space-x-3">
+        <span class="px-2.5 py-1 rounded text-[10px] font-mono font-bold bg-brand-amber text-black uppercase tracking-wider">
+          Field Note
+        </span>
+        <span class="text-xs font-mono text-brand-slate">
+          Primary Dispatch &bull; 3 min read
+        </span>
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl font-bold font-serif uppercase tracking-tight text-white leading-tight">
+        Send It to <span class="gold-gradient-text">Translations</span>
+      </h1>
+
+      <p class="text-lg text-slate-300 font-sans leading-relaxed">
+        The window right before the alarms—when every vendor is green and the system is still failing.
+      </p>
+
+      <div class="pt-2 flex items-center justify-between text-xs font-mono text-brand-slate">
+        <span>By Rob Surls</span>
+        <span>Operational Archeology</span>
+      </div>
+
+    </div>
+
+    <!-- Article Body -->
+    <article class="space-y-8 text-slate-300 text-base sm:text-lg leading-relaxed font-sans">
+      
+      <p>
+        There were nights when the screens behind you told one story and the network told another... weather blowing up in one region, traffic surging where it wasn't supposed to in another, mass calling events pushing the boundaries.
+      </p>
+
+      <p>
+        In the middle of all that, somebody on Tier 3 would yell across the floor. That usually meant the problem had crossed out of the hardware and into my lane...
+      </p>
+
+      <!-- Callout -->
+      <div class="my-10 p-6 sm:p-8 rounded-xl bg-[#111622] border-l-4 border-brand-amber border-r border-t border-b border-brand-border/60 shadow-xl">
+        <p class="text-2xl sm:text-3xl font-serif text-white uppercase tracking-wide leading-snug">
+          &ldquo;Send it to translations!&rdquo;
+        </p>
+      </div>
+
+      <p>
+        If you've ever been anywhere near telecom, you already know... this isn't about the big outage everyone sees. It's about that window right before it, when everything technically still works.
+      </p>
+
+      <p>
+        Each vendor is green. Each system is doing exactly what it was designed to do.
+      </p>
+
+      <p>
+        And yet calls start taking paths they shouldn't, SMS starts behaving just a little off, routing decisions stack in ways nobody planned for. You're staring at STPs, GTT, number ranges, vendor handoffs... and you can feel it before you can prove it &mdash; <strong class="text-white">something is lining up wrong across systems that were never designed to see the whole picture.</strong>
+      </p>
+
+      <!-- Architecture Box -->
+      <div class="my-8 p-6 rounded-xl bg-[#0d121b] border border-brand-border/80 space-y-3">
+        <div class="text-xs uppercase tracking-[0.2em] font-mono text-brand-amber font-semibold">
+          The Architectural Residue
+        </div>
+        <ul class="text-sm space-y-2 text-slate-300 font-mono">
+          <li>&bull; <strong class="text-brand-slate">Signal Transfer Points (STPs):</strong> Routing traffic without global state visibility.</li>
+          <li>&bull; <strong class="text-brand-slate">Global Title Translation (GTT):</strong> Address resolution operating on local assumptions.</li>
+          <li>&bull; <strong class="text-brand-slate">Vendor Boundaries:</strong> Every individual dashboard shows green while the transaction dies.</li>
+        </ul>
+      </div>
+
+      <p>
+        AI feels familiar to me because I've seen this pattern before. When everything is &ldquo;right&rdquo; in isolation, but wrong when it all connects. When speed hides the problem instead of solving it.
+      </p>
+
+      <p>
+        The real work isn't reacting after it breaks &mdash; it's catching it while it still looks normal... and knowing where to look before it turns into something nobody can unwind in real time.
+      </p>
+
+    </article>
+
+    <!-- Postscript Author Card -->
+    <div class="mt-16 pt-10 border-t border-brand-border/80 bg-brand-card/70 border border-brand-border rounded-xl p-8 space-y-6">
+      <div class="flex items-center space-x-4">
+        <div class="w-12 h-12 rounded-full border border-brand-amber/40 flex items-center justify-center bg-[#151c28] text-brand-amber font-serif font-bold text-lg">
+          RS
+        </div>
+        <div>
+          <h3 class="text-base font-semibold text-white font-serif">Rob Surls</h3>
+          <p class="text-xs font-mono text-brand-amber">Founder, TexttASKAI &bull; Operational Archeology</p>
+        </div>
+      </div>
+      <p class="text-xs text-brand-slate leading-relaxed">
+        Two decades inside carrier network routing, translations, and multi-vendor integrations (Sprint, Ericsson). Applying operational physics to multi-agent AI orchestration.
+      </p>
+      <div class="pt-2">
+        <a href="https://www.linkedin.com/in/rob-surls-1b912ab" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 px-4 py-2 bg-[#0a66c2] hover:bg-[#004182] text-white text-xs font-semibold uppercase tracking-wider rounded transition-colors">
+          <span>Connect on LinkedIn</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-brand-border/80 bg-brand-dark py-12 text-xs text-center text-brand-slate font-mono">
+    <div class="max-w-4xl mx-auto px-4">
+      &copy; 2024 OPERATIONAL ARCHEOLOGY &bull; EXCAVATE. UNDERSTAND. OPERATE.
+    </div>
+  </footer>
+
+</body>
+</html>
