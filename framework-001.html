@@ -1,1 +1,346 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Framework 001: The Five Jurisdictional Lanes | Operational Archeology</title>
+  <meta name="description" content="A deterministic, multi-lane routing model for AI systems inspired by appellate judicial review. Advocate, Challenger, Sandbox, Risk, and Emotionless Analysis." />
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.operationalarcheology.com/framework-001.html" />
+  <meta property="og:title" content="Framework 001: The Five Jurisdictional Lanes | Operational Archeology" />
+  <meta property="og:description" content="Architectural governance for multi-agent AI systems and distributed model pipelines." />
+  <meta property="og:image" content="https://www.operationalarcheology.com/image.jpg" />
+  <meta name="author" content="Rob Surls" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#080b10',
+              card: '#111620',
+              border: '#1f2937',
+              borderLight: '#2e3d52',
+              amber: '#d19a5b',
+              amberLight: '#e5b075',
+              slate: '#8b9bb4',
+              muted: '#52627a',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            serif: ['Cinzel', 'Georgia', 'serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #080b10;
+      color: #e2e8f0;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+    .bg-grid-pattern {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    }
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #f8dfaa 0%, #d19a5b 50%, #9e6f36 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen bg-grid-pattern text-slate-200 antialiased selection:bg-brand-amber selection:text-black">
+
+  <!-- TOP NAVIGATION -->
+  <header class="border-b border-brand-border/60 bg-brand-dark/90 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+      
+      <a href="./index.html" class="flex items-center space-x-3 group">
+        <div class="w-9 h-9 rounded-full border border-brand-amber/40 flex items-center justify-center bg-brand-card group-hover:border-brand-amber transition-colors">
+          <svg class="w-5 h-5 text-brand-amber" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <circle cx="12" cy="12" r="9"/>
+            <polygon points="12 3 14.5 9.5 21 12 14.5 14.5 12 21 9.5 14.5 3 12 9.5 9.5 12 3" stroke-width="1.2" fill="rgba(209,154,91,0.15)"/>
+            <circle cx="12" cy="12" r="2.5" fill="currentColor"/>
+          </svg>
+        </div>
+        <div class="leading-tight">
+          <span class="block text-[11px] uppercase tracking-[0.25em] text-brand-slate font-medium">Operational</span>
+          <span class="block text-xs uppercase tracking-[0.2em] text-brand-amber font-semibold font-serif">Archeology</span>
+        </div>
+      </a>
+
+      <a href="./index.html#frameworks" class="inline-flex items-center space-x-2 text-xs uppercase tracking-[0.2em] font-semibold text-brand-amber hover:text-brand-amberLight transition-colors">
+        <span>&larr;</span>
+        <span>Back to Frameworks</span>
+      </a>
+
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="py-16 sm:py-24 max-w-4xl mx-auto px-4 sm:px-6 space-y-12">
+    
+    <!-- Meta Header -->
+    <div class="space-y-4 border-b border-brand-border/80 pb-10">
+      
+      <div class="flex items-center space-x-3">
+        <span class="px-2.5 py-1 rounded text-[10px] font-mono font-bold bg-brand-amber text-black uppercase tracking-wider">
+          Framework 001
+        </span>
+        <span class="text-xs font-mono text-brand-slate">
+          Governance Architecture &bull; 5 min read
+        </span>
+      </div>
+
+      <h1 class="text-3xl sm:text-5xl font-bold font-serif uppercase tracking-tight text-white leading-tight">
+        The Five <span class="gold-gradient-text">Jurisdictional Lanes</span>
+      </h1>
+
+      <p class="text-lg text-slate-300 font-sans leading-relaxed">
+        Architectural governance for multi-agent AI systems, distributed model pipelines, and deterministic state routing.
+      </p>
+
+      <div class="pt-2 flex items-center justify-between text-xs font-mono text-brand-slate">
+        <span>By Rob Surls</span>
+        <span>Operational Archeology &bull; Systems Architecture</span>
+      </div>
+
+    </div>
+
+    <!-- Intro Thesis -->
+    <div class="space-y-6 text-slate-300 text-base sm:text-lg leading-relaxed font-sans">
+      <p>
+        When orchestrating autonomous agents and multi-model pipelines, decision-making cannot rely on subjective prompt checks or single-model self-evaluation.
+      </p>
+      <p>
+        This framework establishes a deterministic, multi-lane routing model inspired by appellate judicial review. Every system state change, autonomous tool invocation, and cross-model handoff is routed through five independent evaluation lanes before execution or promotion to production.
+      </p>
+    </div>
+
+    <!-- THE FIVE OPERATIONAL LANES (DEEP DIVE CARDS) -->
+    <div class="space-y-6 pt-4">
+      
+      <div class="text-xs uppercase tracking-[0.2em] font-mono text-brand-amber font-semibold flex items-center">
+        <span class="w-2 h-2 rounded-full bg-brand-amber mr-2"></span>
+        The Five Operational Lanes
+      </div>
+
+      <!-- Lane 1: Advocate -->
+      <div class="p-6 sm:p-7 rounded-xl bg-brand-card border border-brand-borderLight/80 shadow-lg space-y-4">
+        <div class="flex items-baseline justify-between border-b border-brand-border/60 pb-3">
+          <div class="flex items-center space-x-3">
+            <span class="text-xs font-mono font-bold text-emerald-400 bg-emerald-950/40 px-2 py-0.5 rounded">01</span>
+            <h3 class="text-lg font-serif font-bold text-white uppercase">Advocate Lane</h3>
+          </div>
+          <span class="text-xs font-mono text-brand-slate">Affirmative Intent &bull; Optimization</span>
+        </div>
+        <p class="text-sm text-slate-300 font-sans leading-relaxed">
+          <strong class="text-white font-semibold">Operational Mandate:</strong> Evaluates whether the proposed action satisfies the primary mission and maximizes user utility without artificial friction.
+        </p>
+        <div class="space-y-2 text-xs font-mono text-slate-300 bg-[#0c1017] p-4 rounded-lg border border-brand-border/60">
+          <span class="text-brand-amber font-semibold block uppercase tracking-wider text-[10px]">Evaluation Criteria:</span>
+          <div>&bull; <strong class="text-slate-200">Task Alignment:</strong> Does the output directly fulfill the user's operational objective?</div>
+          <div>&bull; <strong class="text-slate-200">Throughput Efficiency:</strong> Is the system choosing the most direct execution path?</div>
+          <div>&bull; <strong class="text-slate-200">Capability Maximization:</strong> Are model capabilities being fully leveraged rather than retreating into generic fallback?</div>
+        </div>
+        <div class="text-xs font-mono text-emerald-400">
+          <strong>Failure State:</strong> Rejects passive failure (unnecessary refusals, repetitive stalling, or degraded partial answers).
+        </div>
+      </div>
+
+      <!-- Lane 2: Challenger -->
+      <div class="p-6 sm:p-7 rounded-xl bg-brand-card border border-brand-borderLight/80 shadow-lg space-y-4">
+        <div class="flex items-baseline justify-between border-b border-brand-border/60 pb-3">
+          <div class="flex items-center space-x-3">
+            <span class="text-xs font-mono font-bold text-amber-400 bg-amber-950/40 px-2 py-0.5 rounded">02</span>
+            <h3 class="text-lg font-serif font-bold text-white uppercase">Challenger Lane</h3>
+          </div>
+          <span class="text-xs font-mono text-brand-slate">Adversarial Audit &bull; Red-Teaming</span>
+        </div>
+        <p class="text-sm text-slate-300 font-sans leading-relaxed">
+          <strong class="text-white font-semibold">Operational Mandate:</strong> Acts as the dedicated opposition party to stress-test assumptions and probe boundary edges.
+        </p>
+        <div class="space-y-2 text-xs font-mono text-slate-300 bg-[#0c1017] p-4 rounded-lg border border-brand-border/60">
+          <span class="text-brand-amber font-semibold block uppercase tracking-wider text-[10px]">Evaluation Criteria:</span>
+          <div>&bull; <strong class="text-slate-200">Grounding Audit:</strong> Does every factual claim link to verifiable external state or hard logs?</div>
+          <div>&bull; <strong class="text-slate-200">Contradiction Detection:</strong> Does this output contradict prior turns, system state, or source records?</div>
+          <div>&bull; <strong class="text-slate-200">Edge-Case Pressure:</strong> How does the logic hold when input parameters are malformed or inverted?</div>
+        </div>
+        <div class="text-xs font-mono text-amber-400">
+          <strong>Failure State:</strong> Catches false consensus, cognitive drift, and silent model overconfidence.
+        </div>
+      </div>
+
+      <!-- Lane 3: Sandbox -->
+      <div class="p-6 sm:p-7 rounded-xl bg-brand-card border border-brand-borderLight/80 shadow-lg space-y-4">
+        <div class="flex items-baseline justify-between border-b border-brand-border/60 pb-3">
+          <div class="flex items-center space-x-3">
+            <span class="text-xs font-mono font-bold text-sky-400 bg-sky-950/40 px-2 py-0.5 rounded">03</span>
+            <h3 class="text-lg font-serif font-bold text-white uppercase">Sandbox Lane</h3>
+          </div>
+          <span class="text-xs font-mono text-brand-slate">Containment &bull; Drift Simulation</span>
+        </div>
+        <p class="text-sm text-slate-300 font-sans leading-relaxed">
+          <strong class="text-white font-semibold">Operational Mandate:</strong> Provides isolated execution to observe non-deterministic behavior before committing irreversible state mutations.
+        </p>
+        <div class="space-y-2 text-xs font-mono text-slate-300 bg-[#0c1017] p-4 rounded-lg border border-brand-border/60">
+          <span class="text-brand-amber font-semibold block uppercase tracking-wider text-[10px]">Evaluation Criteria:</span>
+          <div>&bull; <strong class="text-slate-200">Context Leakage:</strong> Does the agent leak private memory across session boundaries?</div>
+          <div>&bull; <strong class="text-slate-200">Rollback Verification:</strong> Can the proposed mutation (file change, API dispatch, database write) be cleanly unwound?</div>
+          <div>&bull; <strong class="text-slate-200">Behavioral Drift:</strong> In repeated runs with identical inputs, what is the variance in decision logic?</div>
+        </div>
+        <div class="text-xs font-mono text-sky-400">
+          <strong>Failure State:</strong> Prevents uncontained mutations and state corruptions in production.
+        </div>
+      </div>
+
+      <!-- Lane 4: Risk -->
+      <div class="p-6 sm:p-7 rounded-xl bg-brand-card border border-brand-borderLight/80 shadow-lg space-y-4">
+        <div class="flex items-baseline justify-between border-b border-brand-border/60 pb-3">
+          <div class="flex items-center space-x-3">
+            <span class="text-xs font-mono font-bold text-rose-400 bg-rose-950/40 px-2 py-0.5 rounded">04</span>
+            <h3 class="text-lg font-serif font-bold text-white uppercase">Risk Lane</h3>
+          </div>
+          <span class="text-xs font-mono text-brand-slate">Blast Radius &bull; Dependency Mapping</span>
+        </div>
+        <p class="text-sm text-slate-300 font-sans leading-relaxed">
+          <strong class="text-white font-semibold">Operational Mandate:</strong> Maps external dependencies, structural liabilities, and cascading systemic failure modes.
+        </p>
+        <div class="space-y-2 text-xs font-mono text-slate-300 bg-[#0c1017] p-4 rounded-lg border border-brand-border/60">
+          <span class="text-brand-amber font-semibold block uppercase tracking-wider text-[10px]">Evaluation Criteria:</span>
+          <div>&bull; <strong class="text-slate-200">Blast Radius Calculation:</strong> If this downstream dependency fails or returns a 500, what else collapses?</div>
+          <div>&bull; <strong class="text-slate-200">Resource Budgets:</strong> Does execution exceed token ceilings, rate limits, or latency thresholds?</div>
+          <div>&bull; <strong class="text-slate-200">Statutory Compliance:</strong> Does the payload touch sensitive personal data, regulatory bounds, or access rules?</div>
+        </div>
+        <div class="text-xs font-mono text-rose-400">
+          <strong>Failure State:</strong> Holds absolute veto power over actions with unbounded failure cascades.
+        </div>
+      </div>
+
+      <!-- Lane 5: Emotionless -->
+      <div class="p-6 sm:p-7 rounded-xl bg-brand-card border border-brand-borderLight/80 shadow-lg space-y-4">
+        <div class="flex items-baseline justify-between border-b border-brand-border/60 pb-3">
+          <div class="flex items-center space-x-3">
+            <span class="text-xs font-mono font-bold text-violet-400 bg-violet-950/40 px-2 py-0.5 rounded">05</span>
+            <h3 class="text-lg font-serif font-bold text-white uppercase">Emotionless Analysis Lane</h3>
+          </div>
+          <span class="text-xs font-mono text-brand-slate">Cold Empirical Telemetry</span>
+        </div>
+        <p class="text-sm text-slate-300 font-sans leading-relaxed">
+          <strong class="text-white font-semibold">Operational Mandate:</strong> Strips all linguistic narrative, marketing personas, and qualitative claims down to unweighted telemetry.
+        </p>
+        <div class="space-y-2 text-xs font-mono text-slate-300 bg-[#0c1017] p-4 rounded-lg border border-brand-border/60">
+          <span class="text-brand-amber font-semibold block uppercase tracking-wider text-[10px]">Evaluation Criteria:</span>
+          <div>&bull; <strong class="text-slate-200">Raw Telemetry Diffs:</strong> Exact request/response latency, packet bytes, and token in/out ratios.</div>
+          <div>&bull; <strong class="text-slate-200">Hard Schema Validation:</strong> Strict JSON schema verification, type enforcement, and interface contract compliance.</div>
+          <div>&bull; <strong class="text-slate-200">Temporal Deltas:</strong> Timestamps between trigger, model reasoning steps, and network transport.</div>
+        </div>
+        <div class="text-xs font-mono text-violet-400">
+          <strong>Failure State:</strong> Rejects any claim that cannot be empirically proven directly from machine logs.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ROUTING MECHANICS & DEADLOCK SECTION -->
+    <div class="space-y-8 pt-8 border-t border-brand-border/80">
+      
+      <h2 class="text-2xl sm:text-3xl font-serif text-white uppercase tracking-tight">
+        Routing Mechanics: Quorum, Veto &amp; Deadlock
+      </h2>
+
+      <div class="space-y-6 text-slate-300 text-sm sm:text-base leading-relaxed font-sans">
+        
+        <div class="p-6 rounded-xl bg-[#111622] border border-brand-border space-y-2">
+          <h4 class="text-base font-serif text-brand-amber font-semibold uppercase">1. Quorum Synthesis (Standard Execution)</h4>
+          <p class="text-slate-300">
+            A valid transition requires a <strong class="text-white">4/1</strong> or <strong class="text-white">3/2 majority synthesis</strong> across the five lanes. The prevailing operational path proceeds, but the dissenting lane's findings are formally recorded in the execution trace. Forced consensus is prohibited because it produces silent failures.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-xl bg-[#111622] border border-brand-border space-y-2">
+          <h4 class="text-base font-serif text-rose-400 font-semibold uppercase">2. The Hard Veto</h4>
+          <p class="text-slate-300">
+            If either the <strong class="text-white">Risk Lane</strong> (unbounded blast radius or statutory violation) or <strong class="text-white">Challenger Lane</strong> (unmitigated contradiction) returns a structural block, execution is halted immediately—even if Advocate and Sandbox vote to proceed.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-xl bg-[#111622] border border-brand-border space-y-2">
+          <h4 class="text-base font-serif text-amber-400 font-semibold uppercase">3. The Deadlock Condition (50/50 Parity)</h4>
+          <p class="text-slate-300">
+            When the framework encounters an unresolvable structural split—such as <strong class="text-white">Performance Optimization (Merit)</strong> directly conflicting with <strong class="text-white">Statutory Enforcement (Compliance)</strong>—the framework prohibits automated guesswork. The action is held, the governance black box is flagged, and the full evidentiary residue is surfaced for architectural intervention.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- FOOTNOTE / HISTORICAL PRECEDENT -->
+    <div class="pt-8 border-t border-brand-border/80 text-xs font-mono text-brand-slate space-y-2">
+      <div class="text-brand-amber uppercase tracking-wider font-semibold">Footnote &bull; Historical Precedent:</div>
+      <p class="leading-relaxed">
+        &sup1; <strong class="text-slate-300">Arthur Samuel (1959):</strong> Coined the term <em>machine learning</em> at IBM while programming a computer to play checkers. Samuel famously realized that complex systems cannot be governed by hardcoding every conceivable future rule in advance; they must learn from the operational artifacts and board states left behind by previous games. In modern AI orchestration, the principle remains unchanged: <em>The clean diagram tells you what was planned. The artifacts tell you what survived.</em>
+      </p>
+    </div>
+
+    <!-- Postscript Author Card -->
+    <div class="mt-16 pt-10 border-t border-brand-border/80 bg-brand-card/70 border border-brand-border rounded-xl p-8 space-y-6">
+      <div class="flex items-center space-x-4">
+        <div class="w-12 h-12 rounded-full border border-brand-amber/40 flex items-center justify-center bg-[#151c28] text-brand-amber font-serif font-bold text-lg">
+          RS
+        </div>
+        <div>
+          <h3 class="text-base font-semibold text-white font-serif">Rob Surls</h3>
+          <p class="text-xs font-mono text-brand-amber">Founder, TexttASKAI &bull; Operational Archeology</p>
+        </div>
+      </div>
+      <p class="text-xs text-brand-slate leading-relaxed">
+        Two decades inside carrier network routing, translations, and multi-vendor integrations (Sprint, Ericsson). Applying operational physics to multi-agent AI orchestration.
+      </p>
+      <div class="pt-2 flex flex-wrap gap-4 items-center">
+        <a href="https://www.linkedin.com/in/rob-surls-1b912ab" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 px-4 py-2 bg-[#0a66c2] hover:bg-[#004182] text-white text-xs font-semibold uppercase tracking-wider rounded transition-colors">
+          <span>Connect on LinkedIn</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+        <a href="./artifact-001.html" class="text-xs font-mono text-brand-amber hover:text-brand-amberLight">
+          Explore Artifact 001 &rarr;
+        </a>
+        <a href="./send-it-to-translations.html" class="text-xs font-mono text-brand-slate hover:text-white">
+          Read: Send It to Translations &rarr;
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-brand-border/80 bg-brand-dark py-12 text-xs text-center text-brand-slate font-mono">
+    <div class="max-w-5xl mx-auto px-4">
+      &copy; 2024 OPERATIONAL ARCHEOLOGY &bull; EXCAVATE. UNDERSTAND. OPERATE.
+    </div>
+  </footer>
+
+</body>
+</html>
 
