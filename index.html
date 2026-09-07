@@ -247,10 +247,8 @@
           
           <div class="relative w-full rounded-2xl overflow-hidden border border-white/[0.08] bg-[#060912] shadow-2xl p-6 sm:p-8">
             
-            <!-- Dual Glow Background in Card -->
             <div class="absolute inset-0 bg-gradient-to-tr from-[#2a1e0f]/40 via-transparent to-[#00f0ff]/10 pointer-events-none"></div>
 
-            <!-- Top Header of Nexus -->
             <div class="flex items-center justify-between border-b border-white/[0.08] pb-4 mb-6 font-mono text-xs">
               <div class="flex items-center space-x-2">
                 <span class="w-2 h-2 rounded-full bg-brand-goldDated shadow-[0_0_8px_#c59b27]"></span>
@@ -263,17 +261,15 @@
               </div>
             </div>
 
-            <!-- Isometric Nexus SVG Illustration -->
             <div class="relative w-full aspect-[4/3] flex items-center justify-center">
               <svg viewBox="0 0 600 450" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
                 
-                <!-- Background Geometric Grid Lines -->
                 <g stroke="#1a2538" stroke-width="0.75" opacity="0.4">
                   <path d="M50 50 L550 50 M50 150 L550 150 M50 250 L550 250 M50 350 L550 350"/>
                   <path d="M100 20 L100 430 M250 20 L250 430 M400 20 L400 430 M500 20 L500 430"/>
                 </g>
 
-                <!-- LEFT SIDE: DATED ARCHEOLOGY (Weathered Gear, Copper Trunks, Parchment) -->
+                <!-- LEFT SIDE: DATED ARCHEOLOGY -->
                 <g transform="translate(40, 60)">
                   <circle cx="110" cy="160" r="100" fill="url(#dirtGradient)" opacity="0.25"/>
                   
@@ -287,7 +283,7 @@
                   <text x="32" y="306" fill="#8b9bb4" font-family="JetBrains Mono" font-size="8.5">528 MODEMS &bull; HUNT: MOST IDLE</text>
                 </g>
 
-                <!-- CENTER CONDUIT: BRILLIANT FIBER OPTIC CONVERGENCE -->
+                <!-- CENTER CONDUIT: NEON FIBER OPTIC CONVERGENCE -->
                 <g class="conduit-active">
                   <path d="M185 220 C240 220, 270 170, 340 170" stroke="#c59b27" stroke-width="2.5"/>
                   <path d="M340 170 C380 170, 390 140, 440 140" stroke="#00f0ff" stroke-width="3" filter="drop-shadow(0 0 8px #00f0ff)"/>
@@ -301,10 +297,9 @@
                   <circle cx="370" cy="300" r="4" fill="#818cf8"/>
                 </g>
 
-                <!-- RIGHT SIDE: FUTURE AI ORCHESTRATION STACK (Neon Glass Tower, MoE Node Clusters) -->
+                <!-- RIGHT SIDE: FUTURE AI ORCHESTRATION STACK -->
                 <g transform="translate(390, 40)">
                   
-                  <!-- Cube 1: Orchestration Core -->
                   <g transform="translate(40, 40)">
                     <polygon points="50,10 90,30 50,50 10,30" fill="rgba(0,240,255,0.2)" stroke="#00f0ff" stroke-width="1.5"/>
                     <polygon points="10,30 50,50 50,90 10,70" fill="rgba(2,132,199,0.3)" stroke="#00f0ff" stroke-width="1.2"/>
@@ -312,7 +307,6 @@
                     <circle cx="50" cy="50" r="3" fill="#ffffff" filter="drop-shadow(0 0 8px #00f0ff)"/>
                   </g>
 
-                  <!-- Cube 2: Model Inference Stack -->
                   <g transform="translate(40, 120)">
                     <polygon points="50,10 90,30 50,50 10,30" fill="rgba(129,140,248,0.2)" stroke="#818cf8" stroke-width="1.5"/>
                     <polygon points="10,30 50,50 50,90 10,70" fill="rgba(99,102,241,0.3)" stroke="#818cf8" stroke-width="1.2"/>
@@ -320,7 +314,6 @@
                     <circle cx="50" cy="50" r="3" fill="#ffffff" filter="drop-shadow(0 0 8px #818cf8)"/>
                   </g>
 
-                  <!-- Cube 3: Tool & Memory Bus -->
                   <g transform="translate(40, 200)">
                     <polygon points="50,10 90,30 50,50 10,30" fill="rgba(16,185,129,0.2)" stroke="#10b981" stroke-width="1.5"/>
                     <polygon points="10,30 50,50 50,90 10,70" fill="rgba(5,150,105,0.3)" stroke="#10b981" stroke-width="1.2"/>
@@ -328,14 +321,12 @@
                     <circle cx="50" cy="50" r="3" fill="#ffffff" filter="drop-shadow(0 0 8px #10b981)"/>
                   </g>
 
-                  <!-- Live Telemetry Floating Module -->
                   <rect x="10" y="300" width="160" height="42" rx="4" fill="#040a14" stroke="#00f0ff" stroke-width="1" filter="drop-shadow(0 0 10px rgba(0,240,255,0.2))"/>
                   <text x="22" y="318" fill="#00f0ff" font-family="JetBrains Mono" font-size="9" font-weight="700">CIRCUIT CLOSED &bull; 100%</text>
                   <text x="22" y="332" fill="#10b981" font-family="JetBrains Mono" font-size="8.5">P95: 842ms &bull; TRACE: PASS</text>
 
                 </g>
 
-                <!-- Gradient Defs -->
                 <defs>
                   <radialGradient id="dirtGradient" cx="50%" cy="50%" r="50%">
                     <stop offset="0%" stop-color="#c59b27" stop-opacity="0.6"/>
@@ -347,7 +338,6 @@
               </svg>
             </div>
 
-            <!-- Bottom Center Status -->
             <div class="mt-4 pt-4 border-t border-white/[0.08] flex items-center justify-between text-xs font-mono">
               <span class="text-brand-goldDated">&larr; Excavate Legacy Artifacts</span>
               <span class="text-brand-neonCyan font-semibold">Operate Real-Time AI &rarr;</span>
@@ -431,7 +421,7 @@
           </div>
         </div>
 
-        <!-- STRATUM 03: FRAMEWORKS (Future Neon Core) -->
+        <!-- STRATUM 03: FRAMEWORKS -->
         <div class="neon-card-future rounded-xl p-6 flex flex-col justify-between group">
           <div class="space-y-4">
             <div class="flex items-center justify-between border-b border-brand-neonCyan/30 pb-3">
@@ -456,7 +446,7 @@
           </div>
         </div>
 
-        <!-- STRATUM 04: SYSTEM MAP (Future Neon Topology) -->
+        <!-- STRATUM 04: SYSTEM MAP -->
         <div id="system-map" class="neon-card-future rounded-xl p-6 flex flex-col justify-between group">
           <div class="space-y-4">
             <div class="flex items-center justify-between border-b border-brand-neonCyan/30 pb-3">
@@ -482,7 +472,7 @@
           </div>
         </div>
 
-        <!-- STRATUM 05: LIBRARY (Dated Telephony Vault) -->
+        <!-- STRATUM 05: LIBRARY -->
         <div id="library" class="relic-card-dated rounded-xl p-6 flex flex-col justify-between group">
           <div class="space-y-4">
             <div class="flex items-center justify-between border-b border-brand-goldDated/30 pb-3">
@@ -516,7 +506,7 @@
   <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-white/[0.06]">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
 
-      <!-- LEFT: OPERATOR TESTIMONY (Dated Wood / Bronze Frame) -->
+      <!-- LEFT: OPERATOR TESTIMONY -->
       <div class="lg:col-span-6 relic-card-dated rounded-2xl p-8 sm:p-12 flex flex-col justify-between relative overflow-hidden">
         <div class="absolute top-4 left-6 text-brand-goldDated/10 text-9xl font-serif select-none pointer-events-none leading-none">
           “
@@ -546,7 +536,7 @@
         </div>
       </div>
 
-      <!-- RIGHT: NEON DISPATCH FEED (Future Operations Terminal) -->
+      <!-- RIGHT: NEON DISPATCH FEED -->
       <div class="lg:col-span-6 neon-card-future rounded-2xl p-8 sm:p-12 flex flex-col justify-between">
         
         <div>
@@ -577,7 +567,7 @@
               </p>
             </a>
 
-            <!-- Send It to Translations Note (With War Room Thumbnail) -->
+            <!-- Send It to Translations Note -->
             <a href="./send-it-to-translations.html" class="block group p-4 rounded-lg bg-[#09101a] border border-brand-neonCyan/30 hover:border-brand-neonCyan transition-all shadow-md overflow-hidden">
               <div class="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
                 <div class="sm:col-span-4 rounded overflow-hidden border border-brand-neonCyan/30 aspect-video sm:aspect-auto sm:h-20 bg-[#05080e]">
@@ -749,7 +739,7 @@
       <div class="flex items-center space-x-6 tracking-wider text-[11px] uppercase">
         <a href="https://www.linkedin.com/in/rob-surls-1b912ab" target="_blank" rel="noopener noreferrer" class="hover:text-brand-neonCyan transition-colors flex items-center space-x-1.5">
           <svg class="w-3.5 h-3.5 fill-current text-[#0a66c2]" viewBox="0 0 24 24">
-            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.63 1.63 0 1 0 0-3.26 1.63 1.6.63 0 1 0 0-3.26 1.63 1.63 0 0 0 0 3.26m1.4 9.74V10.13H5.06v8.37h2.8z"/>
+            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.63 1.63 0 1 0 0-3.26 1.63 1.63 0 0 0 0 3.26m1.4 9.74V10.13H5.06v8.37h2.8z"/>
           </svg>
           <span>LinkedIn</span>
         </a>
@@ -762,13 +752,3 @@
 
 </body>
 </html>
-"""
-
-with open("/working_dir/c_6459da40d848d598/site/index.html", "w") as f:
-    f.write(html_content)
-
-print("Master cinematic index.html built successfully!")
-EOF
-python3 /working_dir/c_6459da40d848d598/build_cinematic_neon_index.py
-wc -l /working_dir/c_6459da40d848d598/site/index.html
-}}
