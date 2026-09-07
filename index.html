@@ -4,24 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Operational Archeology | Excavate. Understand. Operate.</title>
-  <meta name="description" content="Uncovering carrier-grade systems physics to architect future AI orchestration. Ancient routing bedrock meets modern neural telemetry." />
+  <meta name="description" content="From dial-up chaos to AI orchestration: Different technology, same operational physics. Uncovering carrier-grade systems mechanics to build resilient AI orchestration." />
   
   <!-- Open Graph / LinkedIn Social Preview -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.operationalarcheology.com/" />
   <meta property="og:title" content="Operational Archeology | Excavate. Understand. Operate." />
   <meta property="og:description" content="Different technology, same operational physics. From dial-up chaos to luminous AI orchestration." />
-  <meta property="og:image" content="https://www.operationalarcheology.com/image.jpg" />
+  <meta property="og:image" content="https://www.operationalarcheology.com/hero.jpg" />
   <meta name="author" content="Rob Surls" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Operational Archeology | Excavate. Understand. Operate." />
-  <meta name="twitter:description" content="Ancient routing bedrock meets modern neural telemetry." />
-  <meta name="twitter:image" content="https://www.operationalarcheology.com/image.jpg" />
+  <meta name="twitter:description" content="Different technology, same operational physics." />
+  <meta name="twitter:image" content="https://www.operationalarcheology.com/hero.jpg" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -33,8 +33,8 @@
             brand: {
               void: '#030509',
               dark: '#070a12',
-              card: '#0b101d',
-              cardGlass: 'rgba(11, 16, 29, 0.75)',
+              card: '#0c111e',
+              cardGlass: 'rgba(12, 17, 30, 0.8)',
               borderDated: '#3d2e1c',
               borderNeon: '#00f0ff',
               goldDated: '#c59b27',
@@ -43,8 +43,6 @@
               parchment: '#e6ccb2',
               neonCyan: '#00f0ff',
               neonBlue: '#38bdf8',
-              neonViolet: '#818cf8',
-              neonGlow: 'rgba(0, 240, 255, 0.35)',
               slate: '#8b9bb4',
               muted: '#4a5970',
             }
@@ -53,7 +51,6 @@
             sans: ['Inter', 'system-ui', 'sans-serif'],
             serif: ['Cinzel', 'Georgia', 'serif'],
             mono: ['JetBrains Mono', 'monospace'],
-            display: ['Space Grotesk', 'sans-serif'],
           }
         }
       }
@@ -68,81 +65,66 @@
       overflow-x: hidden;
     }
 
-    /* Cinematic Stage Lighting */
+    /* Ambient Dual-Glow Background */
     .cinematic-stage {
       background: 
-        radial-gradient(ellipse at 15% 15%, rgba(197, 155, 39, 0.14) 0%, transparent 45%),
-        radial-gradient(ellipse at 85% 25%, rgba(0, 240, 255, 0.16) 0%, transparent 50%),
-        radial-gradient(ellipse at 70% 60%, rgba(99, 102, 241, 0.12) 0%, transparent 55%),
-        radial-gradient(ellipse at 50% 90%, rgba(140, 98, 57, 0.10) 0%, transparent 50%);
+        radial-gradient(ellipse at 15% 15%, rgba(197, 155, 39, 0.12) 0%, transparent 45%),
+        radial-gradient(ellipse at 85% 25%, rgba(0, 240, 255, 0.14) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 85%, rgba(2, 132, 199, 0.08) 0%, transparent 60%);
     }
 
-    /* Subtle Architectural Floor Grid */
-    .floor-grid {
+    .bg-telemetry-grid {
       background-size: 50px 50px;
       background-image: 
         linear-gradient(to right, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
     }
 
-    /* Dated Bronze / Brass Textures */
-    .text-gold-gradient {
+    .gold-gradient-text {
       background: linear-gradient(135deg, #fcebc2 0%, #d4af37 40%, #8c6239 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    /* Future Neon Cyan Gradient */
-    .text-neon-cyan {
+    .cyan-gradient-text {
       background: linear-gradient(135deg, #ffffff 0%, #38bdf8 40%, #00f0ff 80%, #0284c7 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 30px rgba(0, 240, 255, 0.4);
+      text-shadow: 0 0 25px rgba(0, 240, 255, 0.35);
     }
 
-    /* Neon Glow Boxes */
     .neon-card-future {
-      background: rgba(8, 14, 26, 0.7);
+      background: rgba(8, 14, 26, 0.75);
       backdrop-filter: blur(20px);
       border: 1px solid rgba(0, 240, 255, 0.25);
-      box-shadow: 0 0 35px -5px rgba(0, 240, 255, 0.12), inset 0 0 20px rgba(0, 240, 255, 0.04);
+      box-shadow: 0 0 35px -5px rgba(0, 240, 255, 0.12);
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .neon-card-future:hover {
       border-color: rgba(0, 240, 255, 0.6);
-      box-shadow: 0 0 50px -5px rgba(0, 240, 255, 0.25), inset 0 0 30px rgba(0, 240, 255, 0.08);
+      box-shadow: 0 0 50px -5px rgba(0, 240, 255, 0.25);
       transform: translateY(-2px);
     }
 
-    /* Dated Relic Card */
     .relic-card-dated {
-      background: rgba(14, 11, 8, 0.75);
+      background: rgba(14, 11, 8, 0.8);
       backdrop-filter: blur(16px);
       border: 1px solid rgba(197, 155, 39, 0.3);
-      box-shadow: 0 10px 35px -5px rgba(0, 0, 0, 0.6), inset 0 0 25px rgba(140, 98, 57, 0.08);
+      box-shadow: 0 10px 35px -5px rgba(0, 0, 0, 0.6);
       transition: all 0.3s ease;
     }
     .relic-card-dated:hover {
       border-color: rgba(243, 199, 102, 0.6);
-      box-shadow: 0 15px 45px -5px rgba(197, 155, 39, 0.2), inset 0 0 35px rgba(140, 98, 57, 0.15);
+      box-shadow: 0 15px 45px -5px rgba(197, 155, 39, 0.2);
       transform: translateY(-2px);
-    }
-
-    /* Pulse animation */
-    @keyframes conduitPulse {
-      0%, 100% { opacity: 0.6; filter: drop-shadow(0 0 4px #00f0ff); }
-      50% { opacity: 1; filter: drop-shadow(0 0 12px #00f0ff); }
-    }
-    .conduit-active {
-      animation: conduitPulse 3s infinite ease-in-out;
     }
   </style>
 </head>
 
-<body class="min-h-screen cinematic-stage floor-grid antialiased selection:bg-brand-neonCyan selection:text-black">
+<body class="min-h-screen cinematic-stage bg-telemetry-grid antialiased selection:bg-brand-neonCyan selection:text-black">
 
-  <!-- CINEMATIC NAVIGATION -->
-  <header class="border-b border-white/[0.06] bg-[#04060b]/85 backdrop-blur-xl sticky top-0 z-50">
+  <!-- TOP NAVIGATION -->
+  <header class="border-b border-white/[0.08] bg-[#04060b]/85 backdrop-blur-xl sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
       <!-- Brand Logo -->
@@ -162,18 +144,18 @@
 
       <!-- Navigation Links -->
       <nav class="hidden md:flex items-center space-x-8 text-xs font-semibold tracking-[0.2em] uppercase font-sans">
-        <a href="./index.html" class="text-brand-goldDated border-b-2 border-brand-goldDated pb-1">Dig Site</a>
+        <a href="./index.html" class="text-brand-goldDated border-b-2 border-brand-goldDated pb-1">Home</a>
         <a href="./artifact-001.html" class="text-slate-400 hover:text-brand-neonCyan transition-colors">Artifacts</a>
         <a href="./send-it-to-translations.html" class="text-slate-400 hover:text-brand-neonCyan transition-colors">Field Notes</a>
         <a href="./framework-001.html" class="text-slate-400 hover:text-brand-neonCyan transition-colors">Frameworks</a>
         <a href="#system-map" class="text-slate-400 hover:text-brand-neonCyan transition-colors">System Map</a>
-        <a href="#library" class="text-slate-400 hover:text-brand-neonCyan transition-colors">Archive</a>
+        <a href="#library" class="text-slate-400 hover:text-brand-neonCyan transition-colors">Library</a>
         <a href="#archeologist" class="text-slate-400 hover:text-brand-neonCyan transition-colors">About</a>
       </nav>
 
-      <!-- Right Header Actions -->
-      <div class="flex items-center space-x-3">
-        <a href="https://www.linkedin.com/in/rob-surls-1b912ab" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full text-xs font-mono bg-[#080d17] border border-brand-neonCyan/30 text-brand-neonCyan hover:bg-brand-neonCyan hover:text-black transition-all shadow-[0_0_15px_rgba(0,240,255,0.15)]">
+      <!-- Right Actions: LinkedIn + NOC Status -->
+      <div class="flex items-center space-x-3 font-mono">
+        <a href="https://www.linkedin.com/in/rob-surls-1b912ab" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full text-xs bg-[#080d17] border border-brand-neonCyan/30 text-brand-neonCyan hover:bg-brand-neonCyan hover:text-black transition-all shadow-[0_0_15px_rgba(0,240,255,0.15)]">
           <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
             <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.63 1.63 0 1 0 0-3.26 1.63 1.63 0 0 0 0 3.26m1.4 9.74V10.13H5.06v8.37h2.8z"/>
           </svg>
@@ -184,167 +166,79 @@
     </div>
   </header>
 
-  <!-- CINEMATIC HERO: THE COLLISION OF TWO ERAS -->
-  <main id="home" class="relative pt-12 pb-24 border-b border-white/[0.06]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- HERO SECTION: THE 3D ISOMETRIC NEXUS -->
+  <main id="home" class="relative pt-8 pb-20 border-b border-white/[0.08]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
       
-      <!-- Top Eyebrow Tag -->
-      <div class="flex items-center space-x-3 mb-6">
-        <span class="px-3 py-1 rounded-full text-[10px] font-mono tracking-widest uppercase border border-brand-goldDated/50 bg-[#140f09] text-brand-goldGlow">
-          Excavation Stratum: 1999 &bull; Dial-Up Bedrock
-        </span>
-        <span class="text-slate-500 font-mono text-xs">&mdash;&mdash;&bull;&mdash;&mdash;</span>
-        <span class="px-3 py-1 rounded-full text-[10px] font-mono tracking-widest uppercase border border-brand-neonCyan/40 bg-[#06141f] text-brand-neonCyan shadow-[0_0_12px_rgba(0,240,255,0.2)]">
-          Execution Horizon: Present &bull; Multi-Agent Bus
-        </span>
+      <!-- Top Pills -->
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <div class="flex items-center space-x-3">
+          <span class="px-3 py-1 rounded-full text-[10px] font-mono tracking-widest uppercase border border-brand-goldDated/50 bg-[#140f09] text-brand-goldGlow">
+            Stratum: 1999 &bull; Carrier Bedrock
+          </span>
+          <span class="text-slate-500 font-mono text-xs">&rarr;</span>
+          <span class="px-3 py-1 rounded-full text-[10px] font-mono tracking-widest uppercase border border-brand-neonCyan/40 bg-[#06141f] text-brand-neonCyan shadow-[0_0_12px_rgba(0,240,255,0.2)]">
+            Horizon: Present &bull; Multi-Agent Bus
+          </span>
+        </div>
+        <div class="text-[11px] font-mono text-brand-slate uppercase tracking-wider hidden sm:block">
+          Different Technology &bull; Same Operational Physics
+        </div>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <!-- FULL-BLEED CINEMATIC HERO IMAGE BANNER -->
+      <div class="rounded-2xl overflow-hidden border border-brand-neonCyan/40 shadow-[0_0_50px_rgba(0,240,255,0.18)] bg-[#040812] relative group">
         
-        <!-- Left: Dramatic Operational Narrative -->
-        <div class="lg:col-span-6 space-y-8">
-          
-          <div class="space-y-3">
-            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight font-serif uppercase leading-[1.05]">
-              <span class="text-white block">Excavate.</span>
-              <span class="text-white block">Understand.</span>
-              <span class="text-neon-cyan block">Operate.</span>
-            </h1>
-          </div>
+        <img 
+          src="./hero.jpg" 
+          alt="From Dial-Up Chaos To AI Orchestration - Operational Archeology Reference Map" 
+          class="w-full h-auto object-cover object-center"
+          loading="eager"
+        />
 
-          <p class="text-lg sm:text-xl text-slate-300 font-normal leading-relaxed max-w-xl">
-            We uncover the physical mechanics buried beneath 25 years of telecom routing to architect resilient, deterministic AI orchestration.
-          </p>
+        <!-- Subtle Gradient Overlay for Contrast -->
+        <div class="absolute inset-0 bg-gradient-to-t from-[#030509] via-transparent to-transparent opacity-60 pointer-events-none"></div>
 
-          <!-- The Live Traffic Law Callout -->
-          <div class="p-5 rounded-xl border-l-2 border-brand-goldDated bg-gradient-to-r from-[#17120a] to-[#0a0e17] border-r border-t border-b border-white/[0.05] space-y-2">
-            <div class="text-[10px] font-mono text-brand-goldDated uppercase tracking-widest font-semibold flex items-center">
-              <span>First Law of Operational Physics</span>
-            </div>
-            <p class="text-sm text-slate-200 font-serif italic leading-relaxed">
-              &ldquo;Systems never fail according to clean architectural diagrams. They fail at the seams where vendors collide, transport leaks state, and no single model sees the whole wire.&rdquo;
+        <!-- Integrated Floating Bottom Bar -->
+        <div class="absolute bottom-0 inset-x-0 p-4 sm:p-6 bg-gradient-to-t from-[#040711] via-[#040711]/90 to-transparent flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div class="space-y-1">
+            <span class="text-[10px] font-mono font-bold text-brand-neonCyan uppercase tracking-widest flex items-center">
+              <span class="w-2 h-2 rounded-full bg-cyan-400 mr-2 shadow-[0_0_8px_#00f0ff] animate-pulse"></span>
+              Primary Reference Map // Operational Nexus
+            </span>
+            <p class="text-xs sm:text-sm text-slate-200 font-serif">
+              Excavating 2002 Sprint PSTN routing tables to architect deterministic 2026 AI orchestration.
             </p>
           </div>
-
-          <!-- Action Buttons -->
-          <div class="flex flex-wrap gap-4 pt-2">
-            <a href="#dig-site" class="inline-flex items-center space-x-3 px-8 py-4 bg-gradient-to-r from-brand-goldDated to-amber-600 hover:from-brand-goldGlow hover:to-amber-500 text-black font-bold uppercase text-xs tracking-[0.2em] rounded-sm transition-all duration-300 shadow-[0_0_30px_rgba(197,155,39,0.3)]">
-              <span>Enter The Dig Site</span>
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </a>
-
-            <a href="#system-map" class="inline-flex items-center space-x-3 px-7 py-4 border border-brand-neonCyan/50 hover:border-brand-neonCyan bg-[#050f18]/80 hover:bg-[#081827] text-brand-neonCyan font-semibold uppercase text-xs tracking-[0.2em] rounded-sm transition-all duration-300 shadow-[0_0_25px_rgba(0,240,255,0.15)]">
-              <span>Inspect The Horizon Map</span>
+          <div class="flex items-center space-x-3 shrink-0 font-mono text-xs">
+            <a href="#dig-site" class="px-5 py-2.5 bg-gradient-to-r from-brand-goldDated to-amber-600 hover:from-brand-goldGlow hover:to-amber-500 text-black font-bold uppercase tracking-wider rounded transition-all shadow-lg">
+              Enter The Dig Site &rarr;
             </a>
           </div>
-
         </div>
 
-        <!-- Right: The Cinematic Nexus (Archaeological Excavation meets Glowing Neon Bus) -->
-        <div class="lg:col-span-6 relative">
-          
-          <div class="relative w-full rounded-2xl overflow-hidden border border-white/[0.08] bg-[#060912] shadow-2xl p-6 sm:p-8">
-            
-            <div class="absolute inset-0 bg-gradient-to-tr from-[#2a1e0f]/40 via-transparent to-[#00f0ff]/10 pointer-events-none"></div>
+      </div>
 
-            <div class="flex items-center justify-between border-b border-white/[0.08] pb-4 mb-6 font-mono text-xs">
-              <div class="flex items-center space-x-2">
-                <span class="w-2 h-2 rounded-full bg-brand-goldDated shadow-[0_0_8px_#c59b27]"></span>
-                <span class="text-brand-parchment uppercase tracking-wider text-[11px]">Relic // 2002 Sprint PSTN</span>
-              </div>
-              <div class="text-slate-500">&bull;&bull;&bull;</div>
-              <div class="flex items-center space-x-2">
-                <span class="w-2 h-2 rounded-full bg-brand-neonCyan shadow-[0_0_8px_#00f0ff] animate-pulse"></span>
-                <span class="text-brand-neonCyan uppercase tracking-wider text-[11px]">Horizon // 2026 Agent Bus</span>
-              </div>
-            </div>
+      <!-- Headline & The First Law of Operational Physics -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-4">
+        
+        <div class="lg:col-span-7 space-y-4">
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-serif uppercase tracking-tight text-white leading-tight">
+            Excavate. Understand. <br />
+            <span class="cyan-gradient-text">Operate.</span>
+          </h1>
+          <p class="text-base sm:text-lg text-slate-300 font-sans leading-relaxed max-w-2xl">
+            We uncover the real mechanics beneath the surface so better systems can be designed and built. Live traffic teaches lessons that clean architectural diagrams never will.
+          </p>
+        </div>
 
-            <div class="relative w-full aspect-[4/3] flex items-center justify-center">
-              <svg viewBox="0 0 600 450" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
-                
-                <g stroke="#1a2538" stroke-width="0.75" opacity="0.4">
-                  <path d="M50 50 L550 50 M50 150 L550 150 M50 250 L550 250 M50 350 L550 350"/>
-                  <path d="M100 20 L100 430 M250 20 L250 430 M400 20 L400 430 M500 20 L500 430"/>
-                </g>
-
-                <!-- LEFT SIDE: DATED ARCHEOLOGY -->
-                <g transform="translate(40, 60)">
-                  <circle cx="110" cy="160" r="100" fill="url(#dirtGradient)" opacity="0.25"/>
-                  
-                  <circle cx="110" cy="160" r="68" stroke="#8c6239" stroke-width="2.5" stroke-dasharray="8 4"/>
-                  <circle cx="110" cy="160" r="50" stroke="#c59b27" stroke-width="1.5"/>
-                  <circle cx="110" cy="160" r="20" fill="#140f09" stroke="#c59b27" stroke-width="2"/>
-                  <circle cx="110" cy="160" r="6" fill="#fcebc2"/>
-
-                  <rect x="20" y="270" width="180" height="48" rx="4" fill="#0d0a06" stroke="#8c6239" stroke-width="1"/>
-                  <text x="32" y="290" fill="#c59b27" font-family="JetBrains Mono" font-size="9" font-weight="700" letter-spacing="1">SPRINT POP 710 FRONT ST</text>
-                  <text x="32" y="306" fill="#8b9bb4" font-family="JetBrains Mono" font-size="8.5">528 MODEMS &bull; HUNT: MOST IDLE</text>
-                </g>
-
-                <!-- CENTER CONDUIT: NEON FIBER OPTIC CONVERGENCE -->
-                <g class="conduit-active">
-                  <path d="M185 220 C240 220, 270 170, 340 170" stroke="#c59b27" stroke-width="2.5"/>
-                  <path d="M340 170 C380 170, 390 140, 440 140" stroke="#00f0ff" stroke-width="3" filter="drop-shadow(0 0 8px #00f0ff)"/>
-                  <path d="M185 240 C250 240, 280 230, 350 230" stroke="#8c6239" stroke-width="2"/>
-                  <path d="M350 230 C400 230, 410 210, 450 210" stroke="#38bdf8" stroke-width="2.5" filter="drop-shadow(0 0 8px #38bdf8)"/>
-                  <path d="M185 260 C260 260, 290 300, 370 300" stroke="#8c6239" stroke-width="1.5"/>
-                  <path d="M370 300 C410 300, 420 280, 460 280" stroke="#818cf8" stroke-width="2.5" filter="drop-shadow(0 0 8px #818cf8)"/>
-
-                  <circle cx="340" cy="170" r="5" fill="#ffffff" filter="drop-shadow(0 0 10px #00f0ff)"/>
-                  <circle cx="350" cy="230" r="4" fill="#38bdf8"/>
-                  <circle cx="370" cy="300" r="4" fill="#818cf8"/>
-                </g>
-
-                <!-- RIGHT SIDE: FUTURE AI ORCHESTRATION STACK -->
-                <g transform="translate(390, 40)">
-                  
-                  <g transform="translate(40, 40)">
-                    <polygon points="50,10 90,30 50,50 10,30" fill="rgba(0,240,255,0.2)" stroke="#00f0ff" stroke-width="1.5"/>
-                    <polygon points="10,30 50,50 50,90 10,70" fill="rgba(2,132,199,0.3)" stroke="#00f0ff" stroke-width="1.2"/>
-                    <polygon points="50,50 90,30 90,70 50,90" fill="rgba(14,165,233,0.4)" stroke="#00f0ff" stroke-width="1.2"/>
-                    <circle cx="50" cy="50" r="3" fill="#ffffff" filter="drop-shadow(0 0 8px #00f0ff)"/>
-                  </g>
-
-                  <g transform="translate(40, 120)">
-                    <polygon points="50,10 90,30 50,50 10,30" fill="rgba(129,140,248,0.2)" stroke="#818cf8" stroke-width="1.5"/>
-                    <polygon points="10,30 50,50 50,90 10,70" fill="rgba(99,102,241,0.3)" stroke="#818cf8" stroke-width="1.2"/>
-                    <polygon points="50,50 90,30 90,70 50,90" fill="rgba(79,70,229,0.4)" stroke="#818cf8" stroke-width="1.2"/>
-                    <circle cx="50" cy="50" r="3" fill="#ffffff" filter="drop-shadow(0 0 8px #818cf8)"/>
-                  </g>
-
-                  <g transform="translate(40, 200)">
-                    <polygon points="50,10 90,30 50,50 10,30" fill="rgba(16,185,129,0.2)" stroke="#10b981" stroke-width="1.5"/>
-                    <polygon points="10,30 50,50 50,90 10,70" fill="rgba(5,150,105,0.3)" stroke="#10b981" stroke-width="1.2"/>
-                    <polygon points="50,50 90,30 90,70 50,90" fill="rgba(4,120,87,0.4)" stroke="#10b981" stroke-width="1.2"/>
-                    <circle cx="50" cy="50" r="3" fill="#ffffff" filter="drop-shadow(0 0 8px #10b981)"/>
-                  </g>
-
-                  <rect x="10" y="300" width="160" height="42" rx="4" fill="#040a14" stroke="#00f0ff" stroke-width="1" filter="drop-shadow(0 0 10px rgba(0,240,255,0.2))"/>
-                  <text x="22" y="318" fill="#00f0ff" font-family="JetBrains Mono" font-size="9" font-weight="700">CIRCUIT CLOSED &bull; 100%</text>
-                  <text x="22" y="332" fill="#10b981" font-family="JetBrains Mono" font-size="8.5">P95: 842ms &bull; TRACE: PASS</text>
-
-                </g>
-
-                <defs>
-                  <radialGradient id="dirtGradient" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stop-color="#c59b27" stop-opacity="0.6"/>
-                    <stop offset="60%" stop-color="#8c6239" stop-opacity="0.3"/>
-                    <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
-                  </radialGradient>
-                </defs>
-
-              </svg>
-            </div>
-
-            <div class="mt-4 pt-4 border-t border-white/[0.08] flex items-center justify-between text-xs font-mono">
-              <span class="text-brand-goldDated">&larr; Excavate Legacy Artifacts</span>
-              <span class="text-brand-neonCyan font-semibold">Operate Real-Time AI &rarr;</span>
-            </div>
-
-          </div>
-
+        <div class="lg:col-span-5 p-5 rounded-xl border-l-4 border-brand-goldDated bg-gradient-to-r from-[#17120a] to-[#0a0e17] border-r border-t border-b border-white/[0.06] space-y-2">
+          <span class="text-[10px] font-mono text-brand-goldDated uppercase tracking-widest font-bold block">
+            First Law of Operational Physics
+          </span>
+          <p class="text-xs sm:text-sm text-slate-200 font-serif italic leading-relaxed">
+            &ldquo;Systems never fail according to clean diagrams. They fail at the seams where vendors collide, transport leaks state, and no single model sees the whole wire.&rdquo;
+          </p>
         </div>
 
       </div>
@@ -352,8 +246,57 @@
     </div>
   </main>
 
+  <!-- THREE OPERATIONAL PILLARS -->
+  <section class="py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-white/[0.08]">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <!-- Mission -->
+      <div class="p-6 rounded-xl bg-[#080d17] border border-white/[0.08] space-y-3">
+        <div class="flex items-center space-x-3">
+          <span class="w-3 h-3 rounded-full bg-emerald-400 shadow-[0_0_10px_#10b981]"></span>
+          <h3 class="text-xs uppercase tracking-[0.2em] font-bold text-white font-serif">Mission</h3>
+        </div>
+        <p class="text-sm font-semibold text-slate-200 font-sans">
+          Uncover the operational truths buried in plain sight.
+        </p>
+        <p class="text-xs text-brand-slate leading-relaxed font-sans">
+          Skip the PowerPoint. Inspect the config files, translation tables, and error logs where reality actually lives.
+        </p>
+      </div>
+
+      <!-- Approach -->
+      <div class="p-6 rounded-xl bg-[#080d17] border border-white/[0.08] space-y-3">
+        <div class="flex items-center space-x-3">
+          <span class="w-3 h-3 rounded-full bg-cyan-400 shadow-[0_0_10px_#00f0ff]"></span>
+          <h3 class="text-xs uppercase tracking-[0.2em] font-bold text-white font-serif">Approach</h3>
+        </div>
+        <p class="text-sm font-semibold text-slate-200 font-sans">
+          Evidence first. Patterns over opinions. Systems over symptoms.
+        </p>
+        <p class="text-xs text-brand-slate leading-relaxed font-sans">
+          If a single missing point code in New York can halt a factory in Michigan, your multi-agent AI pipeline has the exact same vulnerability.
+        </p>
+      </div>
+
+      <!-- Outcome -->
+      <div class="p-6 rounded-xl bg-[#080d17] border border-white/[0.08] space-y-3">
+        <div class="flex items-center space-x-3">
+          <span class="w-3 h-3 rounded-full bg-amber-400 shadow-[0_0_10px_#d19a5b]"></span>
+          <h3 class="text-xs uppercase tracking-[0.2em] font-bold text-white font-serif">Outcome</h3>
+        </div>
+        <p class="text-sm font-semibold text-slate-200 font-sans">
+          Design better systems. Build what lasts.
+        </p>
+        <p class="text-xs text-brand-slate leading-relaxed font-sans">
+          Route intelligently. Avoid glare collisions. Handle failure modes and close the loop end-to-end.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
   <!-- THE DIG SITE: 5 STRATUM PASSAGES -->
-  <section id="dig-site" class="py-24 border-b border-white/[0.06] relative">
+  <section id="dig-site" class="py-24 border-b border-white/[0.08]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="mb-14 flex flex-col md:flex-row md:items-end justify-between gap-4">
@@ -368,10 +311,10 @@
         </p>
       </div>
 
-      <!-- 5-Column Relic Grid -->
+      <!-- 5-Column Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
 
-        <!-- STRATUM 01: ARTIFACTS -->
+        <!-- 1. ARTIFACTS -->
         <div class="relic-card-dated rounded-xl p-6 flex flex-col justify-between group">
           <div class="space-y-4">
             <div class="flex items-center justify-between border-b border-brand-goldDated/30 pb-3">
@@ -396,7 +339,7 @@
           </div>
         </div>
 
-        <!-- STRATUM 02: FIELD NOTES -->
+        <!-- 2. FIELD NOTES -->
         <div class="relic-card-dated rounded-xl p-6 flex flex-col justify-between group">
           <div class="space-y-4">
             <div class="flex items-center justify-between border-b border-brand-goldDated/30 pb-3">
@@ -421,7 +364,7 @@
           </div>
         </div>
 
-        <!-- STRATUM 03: FRAMEWORKS -->
+        <!-- 3. FRAMEWORKS -->
         <div class="neon-card-future rounded-xl p-6 flex flex-col justify-between group">
           <div class="space-y-4">
             <div class="flex items-center justify-between border-b border-brand-neonCyan/30 pb-3">
@@ -446,7 +389,7 @@
           </div>
         </div>
 
-        <!-- STRATUM 04: SYSTEM MAP -->
+        <!-- 4. SYSTEM MAP -->
         <div id="system-map" class="neon-card-future rounded-xl p-6 flex flex-col justify-between group">
           <div class="space-y-4">
             <div class="flex items-center justify-between border-b border-brand-neonCyan/30 pb-3">
@@ -472,7 +415,7 @@
           </div>
         </div>
 
-        <!-- STRATUM 05: LIBRARY -->
+        <!-- 5. LIBRARY -->
         <div id="library" class="relic-card-dated rounded-xl p-6 flex flex-col justify-between group">
           <div class="space-y-4">
             <div class="flex items-center justify-between border-b border-brand-goldDated/30 pb-3">
@@ -503,7 +446,7 @@
   </section>
 
   <!-- SPLIT SECTION: OPERATOR MANIFESTO & DISPATCH FEED -->
-  <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-white/[0.06]">
+  <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-white/[0.08]">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
 
       <!-- LEFT: OPERATOR TESTIMONY -->
