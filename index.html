@@ -533,6 +533,43 @@
                   <p class="font-mono text-[9px] uppercase tracking-[.18em] text-slate-500">Decision Posture</p>
                   <p id="oaPosture" class="mt-2 text-sm leading-relaxed text-white"></p>
                 </div>
+
+                <div class="mt-6 rounded-lg border border-oa-cyan/15 bg-[#03070d] p-4">
+                  <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p class="font-mono text-[9px] uppercase tracking-[.18em] text-oa-cyan">Execution Receipt</p>
+                      <p class="mt-1 font-mono text-[9px] text-slate-600">OA CONTRACT / V1.0</p>
+                    </div>
+                    <div class="flex gap-2">
+                      <button id="oaToggleReceipt"
+                        class="rounded border border-oa-cyan/25 px-3 py-2 font-mono text-[9px] uppercase tracking-wider text-oa-cyan transition hover:border-oa-cyan hover:text-white">
+                        View JSON
+                      </button>
+                      <button id="oaDownloadReceipt"
+                        class="rounded border border-oa-brass/25 px-3 py-2 font-mono text-[9px] uppercase tracking-wider text-oa-brassLight transition hover:border-oa-brass hover:text-white">
+                        Download Receipt
+                      </button>
+                    </div>
+                  </div>
+
+                  <div id="oaReceiptSummary" class="mt-4 grid gap-3 sm:grid-cols-3">
+                    <div class="rounded border border-white/[.06] bg-[#050912] p-3">
+                      <p class="font-mono text-[8px] uppercase tracking-wider text-slate-600">Contract</p>
+                      <p class="mt-1 font-mono text-[10px] text-slate-300">oa.framework.001.v1</p>
+                    </div>
+                    <div class="rounded border border-white/[.06] bg-[#050912] p-3">
+                      <p class="font-mono text-[8px] uppercase tracking-wider text-slate-600">Lane Count</p>
+                      <p class="mt-1 font-mono text-[10px] text-slate-300">5 / 5</p>
+                    </div>
+                    <div class="rounded border border-white/[.06] bg-[#050912] p-3">
+                      <p class="font-mono text-[8px] uppercase tracking-wider text-slate-600">Dissent</p>
+                      <p class="mt-1 font-mono text-[10px] text-amber-400">Required</p>
+                    </div>
+                  </div>
+
+                  <pre id="oaReceiptJson"
+                    class="mt-4 hidden max-h-[420px] overflow-auto rounded border border-white/[.06] bg-black/40 p-4 font-mono text-[10px] leading-relaxed text-slate-400"></pre>
+                </div>
               </div>
 
             </div>
@@ -735,6 +772,48 @@
 
 <script>
 (() => {
+  /*
+    OPERATIONAL ARCHEOLOGY FRAMEWORK 001
+    RESPONSE CONTRACT V1.0
+
+    This object shape is intentionally the future TexttASKAI API contract.
+
+    {
+      "contract": "oa.framework.001.v1",
+      "case": {
+        "title": "string",
+        "problem": "string",
+        "source": "preset | custom"
+      },
+      "lanes": {
+        "advocate": "string",
+        "challenger": "string",
+        "sandbox": "string",
+        "risk": "string",
+        "emotionless_analysis": "string"
+      },
+      "synthesis": {
+        "majority": "string",
+        "dissent": "string",
+        "decision_posture": "string"
+      },
+      "state_path": [
+        "evidence",
+        "conflict",
+        "hypothesis",
+        "test",
+        "risk",
+        "decision"
+      ]
+    }
+
+    V2 only needs TexttASKAI to return this exact shape.
+    The page renderer does not need to change.
+  */
+
+  const CONTRACT = "oa.framework.001.v1";
+  const STATE_PATH = ["evidence","conflict","hypothesis","test","risk","decision"];
+
   const scenarios = {
     "ai-inconsistent": {
       title: "AI gives inconsistent answers",
@@ -744,11 +823,13 @@
         challenger: "Treat inconsistency as a reliability defect until proven otherwise. Repeated user intent should not produce materially different policy outcomes without an explicit reason.",
         sandbox: "Replay the same request across controlled sessions. Freeze source documents, prompt version, retrieval set, temperature, tool availability, and conversation history. Change one variable at a time.",
         risk: "Primary risk is silent policy drift reaching customers. Secondary risks include compliance exposure, loss of trust, escalation load, and bad downstream actions triggered by inconsistent guidance.",
-        emotionless: "Known: outputs differ. Unknown: which upstream variable causes the difference. Do not label the model unstable until retrieval, prompt state, and source ambiguity are isolated."
+        emotionless_analysis: "Known: outputs differ. Unknown: which upstream variable causes the difference. Do not label the model unstable until retrieval, prompt state, and source ambiguity are isolated."
       },
-      synthesis: "Freeze the environment, reproduce the divergence, then identify the smallest changing variable that explains the output shift.",
-      dissent: "A perfectly repeatable answer can still be wrong. Consistency alone is not proof of correctness.",
-      posture: "Contain first. Reproduce second. Change one dependency at a time."
+      synthesis: {
+        majority: "Freeze the environment, reproduce the divergence, then identify the smallest changing variable that explains the output shift.",
+        dissent: "A perfectly repeatable answer can still be wrong. Consistency alone is not proof of correctness.",
+        decision_posture: "Contain first. Reproduce second. Change one dependency at a time."
+      }
     },
 
     "workflow-intermittent": {
@@ -759,11 +840,13 @@
         challenger: "Intermittent success is not reliability. The system may be masking contention, timeout stacking, race conditions, stale locks, or an upstream dependency that only fails under load.",
         sandbox: "Replay production-like traffic with controlled concurrency. Capture queue depth, latency, retries, locks, external API timing, and state transitions before and during failure.",
         risk: "Retries can amplify load and turn a localized delay into cascading contention. Partial completion may also leave downstream systems in conflicting states.",
-        emotionless: "Known: failure correlates with heavier traffic. Unknown: whether traffic is causal or merely coincident with another scheduled dependency."
+        emotionless_analysis: "Known: failure correlates with heavier traffic. Unknown: whether traffic is causal or merely coincident with another scheduled dependency."
       },
-      synthesis: "Instrument the boundary conditions around failure and test load, concurrency, timeout, and retry behavior independently.",
-      dissent: "Load may be a false lead. A scheduled job, token refresh, cache expiry, or external service cycle could share the same timing pattern.",
-      posture: "Do not tune blindly. Capture the failure envelope first."
+      synthesis: {
+        majority: "Instrument the boundary conditions around failure and test load, concurrency, timeout, and retry behavior independently.",
+        dissent: "Load may be a false lead. A scheduled job, token refresh, cache expiry, or external service cycle could share the same timing pattern.",
+        decision_posture: "Do not tune blindly. Capture the failure envelope first."
+      }
     },
 
     "state-disagreement": {
@@ -774,11 +857,13 @@
         challenger: "A user-visible completion state that does not represent the actual business outcome is a broken contract, even if every intermediate component behaved as designed.",
         sandbox: "Trace one transaction end to end. Record request ID, handoff timestamps, acknowledgements, downstream commit state, retry behavior, and the exact point where the two systems diverge.",
         risk: "False completion creates duplicate actions, customer confusion, reconciliation work, and potentially irreversible downstream mistakes.",
-        emotionless: "Known: local and downstream states diverge. Unknown: whether the interface contract is wrong, the acknowledgement is premature, or final-state telemetry is missing."
+        emotionless_analysis: "Known: local and downstream states diverge. Unknown: whether the interface contract is wrong, the acknowledgement is premature, or final-state telemetry is missing."
       },
-      synthesis: "Redefine success around verified final state, not intermediate acknowledgement, and make the transaction traceable across every boundary.",
-      dissent: "End-to-end confirmation may add latency or coupling. The right answer may be an explicit pending state rather than blocking for final completion.",
-      posture: "The circuit is not closed until the state contract is explicit."
+      synthesis: {
+        majority: "Redefine success around verified final state, not intermediate acknowledgement, and make the transaction traceable across every boundary.",
+        dissent: "End-to-end confirmation may add latency or coupling. The right answer may be an explicit pending state rather than blocking for final completion.",
+        decision_posture: "The circuit is not closed until the state contract is explicit."
+      }
     },
 
     "vendor-green": {
@@ -789,11 +874,13 @@
         challenger: "Component health is being mistaken for service health. The evidence already says the monitoring model does not cover the actual failure domain.",
         sandbox: "Start from one failed customer transaction and trace it across every ownership boundary. Compare the real path with the path represented by each vendor dashboard.",
         risk: "The largest risk is false confidence. Green component telemetry can delay escalation while customer impact grows outside every team's declared boundary.",
-        emotionless: "Known: customers experience failure while component telemetry is healthy. Therefore at least one relevant dependency, handoff, state transition, or service-level check is not being observed."
+        emotionless_analysis: "Known: customers experience failure while component telemetry is healthy. Therefore at least one relevant dependency, handoff, state transition, or service-level check is not being observed."
       },
-      synthesis: "Stop asking which box is red. Reconstruct the failed transaction across the seams between boxes.",
-      dissent: "Customer reports can also be incomplete or environmental. Confirm a reproducible failure before redesigning observability.",
-      posture: "Follow the transaction, not the dashboard."
+      synthesis: {
+        majority: "Stop asking which box is red. Reconstruct the failed transaction across the seams between boxes.",
+        dissent: "Customer reports can also be incomplete or environmental. Confirm a reproducible failure before redesigning observability.",
+        decision_posture: "Follow the transaction, not the dashboard."
+      }
     }
   };
 
@@ -802,7 +889,7 @@
     ["challenger", "CHALLENGER", "Try to break the case", "text-red-400", "border-red-400/30"],
     ["sandbox", "SANDBOX", "Test competing explanations", "text-cyan-400", "border-cyan-400/30"],
     ["risk", "RISK", "Map propagation and consequence", "text-amber-400", "border-amber-400/30"],
-    ["emotionless", "EMOTIONLESS ANALYSIS", "Separate evidence from attachment", "text-slate-300", "border-slate-400/30"]
+    ["emotionless_analysis", "EMOTIONLESS ANALYSIS", "Separate evidence from attachment", "text-slate-300", "border-slate-400/30"]
   ];
 
   const scenario = document.getElementById("oaScenario");
@@ -812,6 +899,11 @@
   const empty = document.getElementById("oaEmptyState");
   const results = document.getElementById("oaResults");
   const laneGrid = document.getElementById("oaLaneGrid");
+  const toggleReceipt = document.getElementById("oaToggleReceipt");
+  const downloadReceipt = document.getElementById("oaDownloadReceipt");
+  const receiptJson = document.getElementById("oaReceiptJson");
+
+  let activeReceipt = null;
 
   if (!scenario || !problem || !run || !reset || !empty || !results || !laneGrid) return;
 
@@ -833,15 +925,41 @@
         challenger: "Assume the obvious explanation is incomplete. Look for conflicting evidence, missing ownership boundaries, hidden dependencies, and conditions that would make the current story false.",
         sandbox: "Create the smallest safe reproduction of the problem. Freeze what can be frozen, isolate one dependency at a time, and record what changes the observed behavior.",
         risk: "Map what can propagate, what can become irreversible, who or what is downstream, and which failure deserves containment before diagnosis is complete.",
-        emotionless: "Separate directly supported evidence from interpretation. Do not allow confidence, title, vendor reputation, or preferred outcome to cross between the two."
+        emotionless_analysis: "Separate directly supported evidence from interpretation. Do not allow confidence, title, vendor reputation, or preferred outcome to cross between the two."
       },
-      synthesis: "V1 does not infer domain facts from free text. It demonstrates the jurisdictional sequence: strongest case, strongest contradiction, controlled test, consequence map, then evidence-only synthesis.",
-      dissent: "A framework can organize reasoning without discovering facts. The quality of the result is still bounded by the quality of the evidence supplied.",
-      posture: "Do not force certainty. Improve the evidence until the decision becomes defensible."
+      synthesis: {
+        majority: "V1 does not infer domain facts from free text. It demonstrates the jurisdictional sequence: strongest case, strongest contradiction, controlled test, consequence map, then evidence-only synthesis.",
+        dissent: "A framework can organize reasoning without discovering facts. The quality of the result is still bounded by the quality of the evidence supplied.",
+        decision_posture: "Do not force certainty. Improve the evidence until the decision becomes defensible."
+      }
     };
   }
 
-  function renderCase(data) {
+  function toReceipt(data, source) {
+    return {
+      contract: CONTRACT,
+      case: {
+        title: data.title,
+        problem: data.problem,
+        source
+      },
+      lanes: {
+        advocate: data.lanes.advocate,
+        challenger: data.lanes.challenger,
+        sandbox: data.lanes.sandbox,
+        risk: data.lanes.risk,
+        emotionless_analysis: data.lanes.emotionless_analysis
+      },
+      synthesis: {
+        majority: data.synthesis.majority,
+        dissent: data.synthesis.dissent,
+        decision_posture: data.synthesis.decision_posture
+      },
+      state_path: STATE_PATH
+    };
+  }
+
+  function renderCase(data, source) {
     document.getElementById("oaCaseTitle").textContent = data.title;
     document.getElementById("oaCaseProblem").textContent = data.problem;
     laneGrid.innerHTML = "";
@@ -849,6 +967,7 @@
     laneMeta.forEach(([key, name, purpose, textClass, borderClass]) => {
       const card = document.createElement("article");
       card.className = `rounded-xl border ${borderClass} bg-[#080d17] p-5 transition hover:-translate-y-0.5`;
+
       const header = document.createElement("div");
       header.className = `font-mono text-[10px] font-bold uppercase tracking-[.18em] ${textClass}`;
       header.textContent = name;
@@ -873,9 +992,14 @@
       '<span class="text-slate-500">RISK</span> <span class="text-oa-cyan">→</span> ' +
       '<span class="text-white">DECISION</span>';
 
-    document.getElementById("oaSynthesis").textContent = data.synthesis;
-    document.getElementById("oaDissent").textContent = data.dissent;
-    document.getElementById("oaPosture").textContent = data.posture;
+    document.getElementById("oaSynthesis").textContent = data.synthesis.majority;
+    document.getElementById("oaDissent").textContent = data.synthesis.dissent;
+    document.getElementById("oaPosture").textContent = data.synthesis.decision_posture;
+
+    activeReceipt = toReceipt(data, source);
+    receiptJson.textContent = JSON.stringify(activeReceipt, null, 2);
+    receiptJson.classList.add("hidden");
+    if (toggleReceipt) toggleReceipt.textContent = "View JSON";
 
     empty.classList.add("hidden");
     results.classList.remove("hidden");
@@ -883,6 +1007,7 @@
 
   run.addEventListener("click", () => {
     const text = problem.value.trim();
+
     if (!text) {
       problem.focus();
       problem.classList.add("border-red-400");
@@ -890,21 +1015,48 @@
       return;
     }
 
-    renderCase(
-      scenario.value === "custom"
-        ? customCase(text)
-        : scenarios[scenario.value]
-    );
+    const isCustom = scenario.value === "custom";
+    const data = isCustom ? customCase(text) : scenarios[scenario.value];
+
+    renderCase(data, isCustom ? "custom" : "preset");
   });
 
   reset.addEventListener("click", () => {
     scenario.value = "ai-inconsistent";
     loadScenario();
+    activeReceipt = null;
+    receiptJson.textContent = "";
+    receiptJson.classList.add("hidden");
     results.classList.add("hidden");
     empty.classList.remove("hidden");
   });
 
   scenario.addEventListener("change", loadScenario);
+
+  if (toggleReceipt) {
+    toggleReceipt.addEventListener("click", () => {
+      if (!activeReceipt) return;
+      const hidden = receiptJson.classList.contains("hidden");
+      receiptJson.classList.toggle("hidden");
+      toggleReceipt.textContent = hidden ? "Hide JSON" : "View JSON";
+    });
+  }
+
+  if (downloadReceipt) {
+    downloadReceipt.addEventListener("click", () => {
+      if (!activeReceipt) return;
+      const blob = new Blob([JSON.stringify(activeReceipt, null, 2)], {type: "application/json"});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "oa-framework-001-receipt.json";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    });
+  }
+
   loadScenario();
 })();
 </script>
