@@ -772,48 +772,40 @@
 
 <script>
 (() => {
-  /*
-    OPERATIONAL ARCHEOLOGY FRAMEWORK 001
-    RESPONSE CONTRACT V1.0
+let OA_FRAMEWORK_CONTRACT = null;
 
-    This object shape is intentionally the future TexttASKAI API contract.
+async function loadFrameworkContract() {
+  try {
+    const response = await fetch('./framework-court.json', {
+      cache: 'no-store'
+    });
 
-    {
-      "contract": "oa.framework.001.v1",
-      "case": {
-        "title": "string",
-        "problem": "string",
-        "source": "preset | custom"
-      },
-      "lanes": {
-        "advocate": "string",
-        "challenger": "string",
-        "sandbox": "string",
-        "risk": "string",
-        "emotionless_analysis": "string"
-      },
-      "synthesis": {
-        "majority": "string",
-        "dissent": "string",
-        "decision_posture": "string"
-      },
-      "state_path": [
-        "evidence",
-        "conflict",
-        "hypothesis",
-        "test",
-        "risk",
-        "decision"
-      ]
+    if (!response.ok) {
+      throw new Error(`Framework contract load failed: ${response.status}`);
     }
 
-    V2 only needs TexttASKAI to return this exact shape.
-    The page renderer does not need to change.
-  */
+    OA_FRAMEWORK_CONTRACT = await response.json();
 
-  const CONTRACT = "oa.framework.001.v1";
+    console.log(
+      'Operational Archeology framework loaded:',
+      OA_FRAMEWORK_CONTRACT.framework?.id,
+      OA_FRAMEWORK_CONTRACT.framework?.version
+    );
+
+    return OA_FRAMEWORK_CONTRACT;
+  } catch (error) {
+    console.error('Unable to load framework-court.json', error);
+    return null;
+  }
+} 
+
+  let CONTRACT = "oa.framework.001.v1";
   const STATE_PATH = ["evidence","conflict","hypothesis","test","risk","decision"];
-
+loadFrameworkContract().then((framework) => {
+  if (framework?.framework?.id) {
+    CONTRACT = framework.framework.id;
+  }
+});
   const scenarios = {
     "ai-inconsistent": {
       title: "AI gives inconsistent answers",
