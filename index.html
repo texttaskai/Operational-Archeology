@@ -168,7 +168,7 @@
         <a href="./index.html" class="border-b border-oa-brass pb-1 text-oa-brassLight">Home</a>
         <a href="./artifact-001.html" class="text-slate-400 transition hover:text-oa-cyan">Artifacts</a>
         <a href="./send-it-to-translations.html" class="text-slate-400 transition hover:text-oa-cyan">Field Notes</a>
-        <a href="#framework-sandbox" class="text-slate-400 transition hover:text-oa-cyan">Frameworks</a>
+        <a href="#framework-" class="text-slate-400 transition hover:text-oa-cyan">Frameworks</a>
         <a href="#system-map" class="text-slate-400 transition hover:text-oa-cyan">System Map</a>
         <a href="#archeologist" class="text-slate-400 transition hover:text-oa-cyan">Rob Surls</a>
       </nav>
@@ -356,8 +356,8 @@
               </p>
             </div>
             <div class="mt-6 border-t border-white/[.06] pt-5 space-y-3">
-              <a href="#framework-sandbox" class="flex justify-between font-mono text-[10px] font-bold uppercase tracking-wider text-oa-cyan transition hover:text-white">
-                <span>Enter Sandbox Mode</span><span>↓</span>
+              <a href="#framework-" class="flex justify-between font-mono text-[10px] font-bold uppercase tracking-wider text-oa-cyan transition hover:text-white">
+                <span>Enter  Mode</span><span>↓</span>
               </a>
               <a href="./framework-001.html" class="flex justify-between font-mono text-[9px] uppercase tracking-wider text-slate-600 transition hover:text-oa-brassLight">
                 <span>Read Framework 001</span><span>→</span>
@@ -408,13 +408,13 @@
     </section>
 
 
-    <!-- FRAMEWORK 001 / LIVE SANDBOX V1 -->
-    <section id="framework-sandbox" class="border-b border-white/[.08] py-24">
+    <!-- FRAMEWORK 001 / LIVE  V1 -->
+    <section id="framework-" class="border-b border-white/[.08] py-24">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         <div class="mb-10 grid gap-7 lg:grid-cols-12 lg:items-end">
           <div class="lg:col-span-8">
-            <p class="eyebrow mb-3 font-bold text-oa-cyan">Framework 001 / Sandbox Mode</p>
+            <p class="eyebrow mb-3 font-bold text-oa-cyan">Framework 001 /  Mode</p>
             <h2 class="font-serif text-3xl font-bold uppercase leading-tight text-white sm:text-5xl">
               Give the system a problem.<br>
               <span class="cyan-text">Watch the lanes disagree.</span>
@@ -473,9 +473,9 @@
             </div>
 
             <div class="relic mt-6 rounded-lg p-4">
-              <p class="eyebrow text-oa-brassLight">Sandbox Rule</p>
+              <p class="eyebrow text-oa-brassLight"> Rule</p>
               <p class="mt-2 text-xs leading-relaxed text-oa-parchment/80">
-                Sandbox is not the answer. It is where competing explanations survive long enough to be tested without contaminating the operating system.
+                 is not the answer. It is where competing explanations survive long enough to be tested without contaminating the operating system.
               </p>
             </div>
           </div>
@@ -827,7 +827,7 @@ loadFrameworkContract().then((framework) => {
       lanes: {
         advocate: "Assume the current behavior may be explainable. Variation could come from context differences, retrieval freshness, prompt state, or legitimate ambiguity in the source policy.",
         challenger: "Treat inconsistency as a reliability defect until proven otherwise. Repeated user intent should not produce materially different policy outcomes without an explicit reason.",
-        sandbox: "Replay the same request across controlled sessions. Freeze source documents, prompt version, retrieval set, temperature, tool availability, and conversation history. Change one variable at a time.",
+       assumption: "Create the smallest safe reproduction of the problem. Freeze what can be frozen, change one variable at a time, and surface the strongest relevant WHAT IF.",
         risk: "Primary risk is silent policy drift reaching customers. Secondary risks include compliance exposure, loss of trust, escalation load, and bad downstream actions triggered by inconsistent guidance.",
         emotionless_analysis: "Known: outputs differ. Unknown: which upstream variable causes the difference. Do not label the model unstable until retrieval, prompt state, and source ambiguity are isolated."
       },
@@ -844,7 +844,7 @@ loadFrameworkContract().then((framework) => {
       lanes: {
         advocate: "The workflow is fundamentally viable because successful executions prove the path can complete. The failure may be a capacity or timing condition rather than broken business logic.",
         challenger: "Intermittent success is not reliability. The system may be masking contention, timeout stacking, race conditions, stale locks, or an upstream dependency that only fails under load.",
-        sandbox: "Replay production-like traffic with controlled concurrency. Capture queue depth, latency, retries, locks, external API timing, and state transitions before and during failure.",
+        : "Replay production-like traffic with controlled concurrency. Capture queue depth, latency, retries, locks, external API timing, and state transitions before and during failure.",
         risk: "Retries can amplify load and turn a localized delay into cascading contention. Partial completion may also leave downstream systems in conflicting states.",
         emotionless_analysis: "Known: failure correlates with heavier traffic. Unknown: whether traffic is causal or merely coincident with another scheduled dependency."
       },
@@ -861,7 +861,7 @@ loadFrameworkContract().then((framework) => {
       lanes: {
         advocate: "The front-end may be accurately reporting local completion. Its contract may end when the request is accepted rather than when the downstream action is fully committed.",
         challenger: "A user-visible completion state that does not represent the actual business outcome is a broken contract, even if every intermediate component behaved as designed.",
-        sandbox: "Trace one transaction end to end. Record request ID, handoff timestamps, acknowledgements, downstream commit state, retry behavior, and the exact point where the two systems diverge.",
+        : "Trace one transaction end to end. Record request ID, handoff timestamps, acknowledgements, downstream commit state, retry behavior, and the exact point where the two systems diverge.",
         risk: "False completion creates duplicate actions, customer confusion, reconciliation work, and potentially irreversible downstream mistakes.",
         emotionless_analysis: "Known: local and downstream states diverge. Unknown: whether the interface contract is wrong, the acknowledgement is premature, or final-state telemetry is missing."
       },
@@ -878,7 +878,7 @@ loadFrameworkContract().then((framework) => {
       lanes: {
         advocate: "Each vendor may be truthfully reporting the health of its own component. The individual systems can all be green while the end-to-end service remains broken.",
         challenger: "Component health is being mistaken for service health. The evidence already says the monitoring model does not cover the actual failure domain.",
-        sandbox: "Start from one failed customer transaction and trace it across every ownership boundary. Compare the real path with the path represented by each vendor dashboard.",
+        : "Start from one failed customer transaction and trace it across every ownership boundary. Compare the real path with the path represented by each vendor dashboard.",
         risk: "The largest risk is false confidence. Green component telemetry can delay escalation while customer impact grows outside every team's declared boundary.",
         emotionless_analysis: "Known: customers experience failure while component telemetry is healthy. Therefore at least one relevant dependency, handoff, state transition, or service-level check is not being observed."
       },
@@ -891,12 +891,12 @@ loadFrameworkContract().then((framework) => {
   };
 
   const laneMeta = [
-    ["advocate", "ADVOCATE", "Build the strongest case", "text-emerald-400", "border-emerald-400/30"],
-    ["challenger", "CHALLENGER", "Try to break the case", "text-red-400", "border-red-400/30"],
-    ["sandbox", "SANDBOX", "Test competing explanations", "text-cyan-400", "border-cyan-400/30"],
-    ["risk", "RISK", "Map propagation and consequence", "text-amber-400", "border-amber-400/30"],
-    ["emotionless_analysis", "EMOTIONLESS ANALYSIS", "Separate evidence from attachment", "text-slate-300", "border-slate-400/30"]
-  ];
+  ["advocate", "ADVOCATE", "Strongest conventional AI answer", "text-emerald-400", "border-emerald-400/30"],
+  ["challenger", "CHALLENGER", "Strongest principled values position", "text-red-400", "border-red-400/30"],
+  ["risk", "RISK", "Single most material inward risk", "text-amber-400", "border-amber-400/30"],
+  ["assumption", "ASSUMPTION", "One best relevant WHAT IF", "text-cyan-400", "border-cyan-400/30"],
+  ["emotionless_analysis", "EMOTIONLESS ANALYSIS", "Bias-stripped architectural reliability", "text-slate-300", "border-slate-400/30"]
+];
 
   const scenario = document.getElementById("oaScenario");
   const problem = document.getElementById("oaProblem");
@@ -929,7 +929,7 @@ loadFrameworkContract().then((framework) => {
       lanes: {
         advocate: "Assume there is a coherent reason the system reached this state. Build the strongest explanation that preserves the current architecture before proposing change.",
         challenger: "Assume the obvious explanation is incomplete. Look for conflicting evidence, missing ownership boundaries, hidden dependencies, and conditions that would make the current story false.",
-        sandbox: "Create the smallest safe reproduction of the problem. Freeze what can be frozen, isolate one dependency at a time, and record what changes the observed behavior.",
+        assumption: "Create the smallest safe reproduction of the problem. Freeze what can be frozen, change one variable at a time, and surface the strongest relevant WHAT IF.",
         risk: "Map what can propagate, what can become irreversible, who or what is downstream, and which failure deserves containment before diagnosis is complete.",
         emotionless_analysis: "Separate directly supported evidence from interpretation. Do not allow confidence, title, vendor reputation, or preferred outcome to cross between the two."
       },
@@ -952,7 +952,7 @@ loadFrameworkContract().then((framework) => {
       lanes: {
         advocate: data.lanes.advocate,
         challenger: data.lanes.challenger,
-        sandbox: data.lanes.sandbox,
+        assumption: data.lanes.assumption,
         risk: data.lanes.risk,
         emotionless_analysis: data.lanes.emotionless_analysis
       },
