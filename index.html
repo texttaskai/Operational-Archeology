@@ -3,54 +3,50 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Operational Archeology | Excavate. Understand. Operate.</title>
-  <meta name="description" content="From dial-up chaos to AI orchestration: Different technology, same operational physics. Uncovering carrier-grade systems mechanics to build resilient AI orchestration." />
-  
-  <!-- Open Graph / LinkedIn Social Preview -->
+
+  <title>Operational Archeology | Different Technology. Same Operational Physics.</title>
+  <meta name="description" content="Operational Archeology by Rob Surls. Excavating the operational evidence beneath complex systems, from carrier networks to modern AI orchestration." />
+  <meta name="author" content="Rob Surls" />
+
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.operationalarcheology.com/" />
-  <meta property="og:title" content="Operational Archeology | Excavate. Understand. Operate." />
-  <meta property="og:description" content="Different technology, same operational physics. From dial-up chaos to luminous AI orchestration." />
+  <meta property="og:title" content="Operational Archeology | Different Technology. Same Operational Physics." />
+  <meta property="og:description" content="Different technology. Same operational physics. Excavating what complex systems actually do when they meet the live wire." />
   <meta property="og:image" content="https://www.operationalarcheology.com/hero.jpg" />
-  <meta name="author" content="Rob Surls" />
+
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Operational Archeology | Excavate. Understand. Operate." />
-  <meta name="twitter:description" content="Different technology, same operational physics." />
+  <meta name="twitter:title" content="Operational Archeology" />
+  <meta name="twitter:description" content="Different technology. Same operational physics." />
   <meta name="twitter:image" content="https://www.operationalarcheology.com/hero.jpg" />
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            brand: {
+            oa: {
               void: '#030509',
               dark: '#070a12',
-              card: '#0c111e',
-              cardGlass: 'rgba(12, 17, 30, 0.8)',
-              borderDated: '#3d2e1c',
-              borderNeon: '#00f0ff',
-              goldDated: '#c59b27',
-              goldGlow: '#f3c766',
+              panel: '#0b101a',
+              brass: '#c59b27',
+              brassLight: '#f0cf7a',
               bronze: '#8c6239',
               parchment: '#e6ccb2',
-              neonCyan: '#00f0ff',
-              neonBlue: '#38bdf8',
-              slate: '#8b9bb4',
-              muted: '#4a5970',
+              cyan: '#00f0ff',
+              blue: '#38bdf8',
+              slate: '#91a0b5',
+              muted: '#526078'
             }
           },
           fontFamily: {
             sans: ['Inter', 'system-ui', 'sans-serif'],
             serif: ['Cinzel', 'Georgia', 'serif'],
-            mono: ['JetBrains Mono', 'monospace'],
+            mono: ['JetBrains Mono', 'monospace']
           }
         }
       }
@@ -58,638 +54,532 @@
   </script>
 
   <style>
+    :root {
+      --void:#030509;
+      --cyan:#00f0ff;
+      --brass:#c59b27;
+    }
+
     body {
-      background-color: #030509;
-      color: #e2e8f0;
-      font-family: 'Inter', system-ui, sans-serif;
-      overflow-x: hidden;
+      background:
+        radial-gradient(ellipse at 15% 10%, rgba(197,155,39,.10), transparent 42%),
+        radial-gradient(ellipse at 88% 18%, rgba(0,240,255,.10), transparent 45%),
+        radial-gradient(ellipse at 50% 100%, rgba(2,132,199,.07), transparent 55%),
+        var(--void);
+      color:#e2e8f0;
+      font-family:Inter,system-ui,sans-serif;
+      overflow-x:hidden;
     }
 
-    /* Ambient Dual-Glow Background */
-    .cinematic-stage {
-      background: 
-        radial-gradient(ellipse at 15% 15%, rgba(197, 155, 39, 0.12) 0%, transparent 45%),
-        radial-gradient(ellipse at 85% 25%, rgba(0, 240, 255, 0.14) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 85%, rgba(2, 132, 199, 0.08) 0%, transparent 60%);
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+      background-size:50px 50px;
     }
 
-    .bg-telemetry-grid {
-      background-size: 50px 50px;
-      background-image: 
-        linear-gradient(to right, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+    .brass-text {
+      background:linear-gradient(135deg,#f7e5b3 0%,#d4af37 42%,#8c6239 100%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      -webkit-text-fill-color:transparent;
     }
 
-    .gold-gradient-text {
-      background: linear-gradient(135deg, #fcebc2 0%, #d4af37 40%, #8c6239 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .cyan-text {
+      background:linear-gradient(135deg,#fff 0%,#7dd3fc 35%,#00f0ff 80%,#0284c7 100%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      -webkit-text-fill-color:transparent;
     }
 
-    .cyan-gradient-text {
-      background: linear-gradient(135deg, #ffffff 0%, #38bdf8 40%, #00f0ff 80%, #0284c7 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 25px rgba(0, 240, 255, 0.35);
+    .relic {
+      background:rgba(14,11,8,.78);
+      border:1px solid rgba(197,155,39,.28);
+      box-shadow:0 12px 35px rgba(0,0,0,.45);
+      transition:.25s ease;
+    }
+    .relic:hover {
+      border-color:rgba(243,199,102,.62);
+      transform:translateY(-2px);
+      box-shadow:0 18px 45px rgba(197,155,39,.12);
     }
 
-    .neon-card-future {
-      background: rgba(8, 14, 26, 0.75);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(0, 240, 255, 0.25);
-      box-shadow: 0 0 35px -5px rgba(0, 240, 255, 0.12);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    .future {
+      background:rgba(7,14,25,.78);
+      border:1px solid rgba(0,240,255,.24);
+      box-shadow:0 0 35px rgba(0,240,255,.08);
+      transition:.25s ease;
     }
-    .neon-card-future:hover {
-      border-color: rgba(0, 240, 255, 0.6);
-      box-shadow: 0 0 50px -5px rgba(0, 240, 255, 0.25);
-      transform: translateY(-2px);
+    .future:hover {
+      border-color:rgba(0,240,255,.58);
+      transform:translateY(-2px);
+      box-shadow:0 0 45px rgba(0,240,255,.16);
     }
 
-    .relic-card-dated {
-      background: rgba(14, 11, 8, 0.8);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(197, 155, 39, 0.3);
-      box-shadow: 0 10px 35px -5px rgba(0, 0, 0, 0.6);
-      transition: all 0.3s ease;
+    .scanline {
+      position:relative;
     }
-    .relic-card-dated:hover {
-      border-color: rgba(243, 199, 102, 0.6);
-      box-shadow: 0 15px 45px -5px rgba(197, 155, 39, 0.2);
-      transform: translateY(-2px);
+    .scanline::after {
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      top:50%;
+      height:1px;
+      background:linear-gradient(90deg,transparent,rgba(0,240,255,.24),transparent);
+      pointer-events:none;
+    }
+
+    .eyebrow {
+      font-family:'JetBrains Mono',monospace;
+      font-size:10px;
+      letter-spacing:.24em;
+      text-transform:uppercase;
+    }
+
+    @media (max-width:767px) {
+      .mobile-scroll { overflow-x:auto; scrollbar-width:none; }
+      .mobile-scroll::-webkit-scrollbar { display:none; }
     }
   </style>
 </head>
 
-<body class="min-h-screen cinematic-stage bg-telemetry-grid antialiased selection:bg-brand-neonCyan selection:text-black">
+<body class="grid-bg antialiased selection:bg-cyan-400 selection:text-black">
 
-  <!-- TOP NAVIGATION -->
-  <header class="border-b border-white/[0.08] bg-[#04060b]/85 backdrop-blur-xl sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-      
-      <!-- Brand Logo -->
-      <a href="./index.html" class="flex items-center space-x-3.5 group">
-        <div class="w-10 h-10 rounded-full border border-brand-goldDated/50 flex items-center justify-center bg-black shadow-[0_0_20px_rgba(197,155,39,0.25)] group-hover:border-brand-neonCyan group-hover:shadow-[0_0_25px_rgba(0,240,255,0.4)] transition-all duration-300">
-          <svg class="w-5 h-5 text-brand-goldDated group-hover:text-brand-neonCyan transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-            <circle cx="12" cy="12" r="9"/>
-            <polygon points="12 3 14.5 9.5 21 12 14.5 14.5 12 21 9.5 14.5 3 12 9.5 9.5 12 3" stroke-width="1.2" fill="rgba(197,155,39,0.15)"/>
-            <circle cx="12" cy="12" r="2.5" fill="currentColor"/>
+  <!-- NAV -->
+  <header class="sticky top-0 z-50 border-b border-white/[.08] bg-[#04060b]/90 backdrop-blur-xl">
+    <div class="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+
+      <a href="./index.html" class="group flex items-center gap-3.5">
+        <div class="flex h-10 w-10 items-center justify-center rounded-full border border-oa-brass/50 bg-black shadow-[0_0_20px_rgba(197,155,39,.18)] transition group-hover:border-oa-cyan group-hover:shadow-[0_0_25px_rgba(0,240,255,.25)]">
+          <svg class="h-5 w-5 text-oa-brass transition group-hover:text-oa-cyan" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="9" stroke-width="1.5"/>
+            <path d="M12 3l2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5L12 3Z" stroke-width="1.1"/>
+            <circle cx="12" cy="12" r="2.3" fill="currentColor" stroke="none"/>
           </svg>
         </div>
         <div class="leading-tight">
-          <span class="block text-[10px] uppercase tracking-[0.3em] text-brand-slate font-mono">Operational</span>
-          <span class="block text-sm uppercase tracking-[0.22em] text-white font-serif font-bold group-hover:text-brand-goldGlow transition-colors">Archeology</span>
+          <span class="block font-mono text-[9px] uppercase tracking-[.32em] text-oa-slate">Operational</span>
+          <span class="block font-serif text-sm font-bold uppercase tracking-[.18em] text-white group-hover:text-oa-brassLight">Archeology</span>
         </div>
       </a>
 
-      <!-- Navigation Links -->
-      <nav class="hidden md:flex items-center space-x-8 text-xs font-semibold tracking-[0.2em] uppercase font-sans">
-        <a href="./index.html" class="text-brand-goldDated border-b-2 border-brand-goldDated pb-1">Home</a>
-        <a href="./artifact-001.html" class="text-slate-400 hover:text-brand-neonCyan transition-colors">Artifacts</a>
-        <a href="./send-it-to-translations.html" class="text-slate-400 hover:text-brand-neonCyan transition-colors">Field Notes</a>
-        <a href="./framework-001.html" class="text-slate-400 hover:text-brand-neonCyan transition-colors">Frameworks</a>
-        <a href="#system-map" class="text-slate-400 hover:text-brand-neonCyan transition-colors">System Map</a>
-        <a href="#library" class="text-slate-400 hover:text-brand-neonCyan transition-colors">Library</a>
-        <a href="#archeologist" class="text-slate-400 hover:text-brand-neonCyan transition-colors">About</a>
+      <nav class="hidden items-center gap-7 font-mono text-[10px] font-semibold uppercase tracking-[.18em] md:flex">
+        <a href="./index.html" class="border-b border-oa-brass pb-1 text-oa-brassLight">Home</a>
+        <a href="./artifact-001.html" class="text-slate-400 transition hover:text-oa-cyan">Artifacts</a>
+        <a href="./send-it-to-translations.html" class="text-slate-400 transition hover:text-oa-cyan">Field Notes</a>
+        <a href="./framework-001.html" class="text-slate-400 transition hover:text-oa-cyan">Frameworks</a>
+        <a href="#system-map" class="text-slate-400 transition hover:text-oa-cyan">System Map</a>
+        <a href="#archeologist" class="text-slate-400 transition hover:text-oa-cyan">Rob Surls</a>
       </nav>
 
-      <!-- Right Actions: LinkedIn + NOC Status -->
-      <div class="flex items-center space-x-3 font-mono">
-        <a href="https://www.linkedin.com/in/rob-surls-1b912ab" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full text-xs bg-[#080d17] border border-brand-neonCyan/30 text-brand-neonCyan hover:bg-brand-neonCyan hover:text-black transition-all shadow-[0_0_15px_rgba(0,240,255,0.15)]">
-          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.63 1.63 0 1 0 0-3.26 1.63 1.63 0 0 0 0 3.26m1.4 9.74V10.13H5.06v8.37h2.8z"/>
-          </svg>
-          <span class="hidden sm:inline font-sans font-medium">Connect</span>
-        </a>
-      </div>
-
+      <a href="https://www.linkedin.com/in/rob-surls-1b912ab" target="_blank" rel="noopener noreferrer"
+         class="inline-flex items-center gap-2 rounded-full border border-oa-cyan/30 bg-[#080d17] px-3.5 py-2 font-mono text-[10px] uppercase tracking-wider text-oa-cyan transition hover:bg-oa-cyan hover:text-black">
+        <span class="hidden sm:inline">Connect</span>
+        <span>↗</span>
+      </a>
     </div>
   </header>
 
-  <!-- HERO SECTION: THE 3D ISOMETRIC NEXUS -->
-  <main id="home" class="relative pt-8 pb-20 border-b border-white/[0.08]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-      
-      <!-- Top Pills -->
-      <div class="flex flex-wrap items-center justify-between gap-4">
-        <div class="flex items-center space-x-3">
-          <span class="px-3 py-1 rounded-full text-[10px] font-mono tracking-widest uppercase border border-brand-goldDated/50 bg-[#140f09] text-brand-goldGlow">
-            Stratum: 1999 &bull; Carrier Bedrock
-          </span>
-          <span class="text-slate-500 font-mono text-xs">&rarr;</span>
-          <span class="px-3 py-1 rounded-full text-[10px] font-mono tracking-widest uppercase border border-brand-neonCyan/40 bg-[#06141f] text-brand-neonCyan shadow-[0_0_12px_rgba(0,240,255,0.2)]">
-            Horizon: Present &bull; Multi-Agent Bus
-          </span>
-        </div>
-        <div class="text-[11px] font-mono text-brand-slate uppercase tracking-wider hidden sm:block">
-          Different Technology &bull; Same Operational Physics
-        </div>
-      </div>
+  <main>
 
-      <!-- FULL-BLEED CINEMATIC HERO IMAGE BANNER -->
-      <div class="rounded-2xl overflow-hidden border border-brand-neonCyan/40 shadow-[0_0_50px_rgba(0,240,255,0.18)] bg-[#040812] relative group">
-        
-        <img 
-          src="./hero.jpg" 
-          alt="From Dial-Up Chaos To AI Orchestration - Operational Archeology Reference Map" 
-          class="w-full h-auto object-cover object-center"
-          loading="eager"
-        />
+    <!-- HERO -->
+    <section class="border-b border-white/[.08] pt-8 pb-20">
+      <div class="mx-auto max-w-7xl space-y-10 px-4 sm:px-6 lg:px-8">
 
-        <!-- Subtle Gradient Overlay for Contrast -->
-        <div class="absolute inset-0 bg-gradient-to-t from-[#030509] via-transparent to-transparent opacity-60 pointer-events-none"></div>
-
-        <!-- Integrated Floating Bottom Bar -->
-        <div class="absolute bottom-0 inset-x-0 p-4 sm:p-6 bg-gradient-to-t from-[#040711] via-[#040711]/90 to-transparent flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div class="space-y-1">
-            <span class="text-[10px] font-mono font-bold text-brand-neonCyan uppercase tracking-widest flex items-center">
-              <span class="w-2 h-2 rounded-full bg-cyan-400 mr-2 shadow-[0_0_8px_#00f0ff] animate-pulse"></span>
-              Primary Reference Map // Operational Nexus
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <div class="flex flex-wrap items-center gap-3">
+            <span class="rounded-full border border-oa-brass/45 bg-[#140f09] px-3 py-1 font-mono text-[9px] uppercase tracking-[.18em] text-oa-brassLight">
+              Stratum 01 · Carrier Bedrock
             </span>
-            <p class="text-xs sm:text-sm text-slate-200 font-serif">
-              Excavating 2002 Sprint PSTN routing tables to architect deterministic 2026 AI orchestration.
-            </p>
+            <span class="font-mono text-xs text-slate-600">→</span>
+            <span class="rounded-full border border-oa-cyan/35 bg-[#06141f] px-3 py-1 font-mono text-[9px] uppercase tracking-[.18em] text-oa-cyan">
+              Present · AI Orchestration
+            </span>
           </div>
-          <div class="flex items-center space-x-3 shrink-0 font-mono text-xs">
-            <a href="#dig-site" class="px-5 py-2.5 bg-gradient-to-r from-brand-goldDated to-amber-600 hover:from-brand-goldGlow hover:to-amber-500 text-black font-bold uppercase tracking-wider rounded transition-all shadow-lg">
-              Enter The Dig Site &rarr;
-            </a>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Headline & The First Law of Operational Physics -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-4">
-        
-        <div class="lg:col-span-7 space-y-4">
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-serif uppercase tracking-tight text-white leading-tight">
-            Excavate. Understand. <br />
-            <span class="cyan-gradient-text">Operate.</span>
-          </h1>
-          <p class="text-base sm:text-lg text-slate-300 font-sans leading-relaxed max-w-2xl">
-            We uncover the real mechanics beneath the surface so better systems can be designed and built. Live traffic teaches lessons that clean architectural diagrams never will.
-          </p>
-        </div>
-
-        <div class="lg:col-span-5 p-5 rounded-xl border-l-4 border-brand-goldDated bg-gradient-to-r from-[#17120a] to-[#0a0e17] border-r border-t border-b border-white/[0.06] space-y-2">
-          <span class="text-[10px] font-mono text-brand-goldDated uppercase tracking-widest font-bold block">
-            First Law of Operational Physics
-          </span>
-          <p class="text-xs sm:text-sm text-slate-200 font-serif italic leading-relaxed">
-            &ldquo;Systems never fail according to clean diagrams. They fail at the seams where vendors collide, transport leaks state, and no single model sees the whole wire.&rdquo;
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-  </main>
-
-  <!-- THREE OPERATIONAL PILLARS -->
-  <section class="py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-white/[0.08]">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      
-      <!-- Mission -->
-      <div class="p-6 rounded-xl bg-[#080d17] border border-white/[0.08] space-y-3">
-        <div class="flex items-center space-x-3">
-          <span class="w-3 h-3 rounded-full bg-emerald-400 shadow-[0_0_10px_#10b981]"></span>
-          <h3 class="text-xs uppercase tracking-[0.2em] font-bold text-white font-serif">Mission</h3>
-        </div>
-        <p class="text-sm font-semibold text-slate-200 font-sans">
-          Uncover the operational truths buried in plain sight.
-        </p>
-        <p class="text-xs text-brand-slate leading-relaxed font-sans">
-          Skip the PowerPoint. Inspect the config files, translation tables, and error logs where reality actually lives.
-        </p>
-      </div>
-
-      <!-- Approach -->
-      <div class="p-6 rounded-xl bg-[#080d17] border border-white/[0.08] space-y-3">
-        <div class="flex items-center space-x-3">
-          <span class="w-3 h-3 rounded-full bg-cyan-400 shadow-[0_0_10px_#00f0ff]"></span>
-          <h3 class="text-xs uppercase tracking-[0.2em] font-bold text-white font-serif">Approach</h3>
-        </div>
-        <p class="text-sm font-semibold text-slate-200 font-sans">
-          Evidence first. Patterns over opinions. Systems over symptoms.
-        </p>
-        <p class="text-xs text-brand-slate leading-relaxed font-sans">
-          If a single missing point code in New York can halt a factory in Michigan, your multi-agent AI pipeline has the exact same vulnerability.
-        </p>
-      </div>
-
-      <!-- Outcome -->
-      <div class="p-6 rounded-xl bg-[#080d17] border border-white/[0.08] space-y-3">
-        <div class="flex items-center space-x-3">
-          <span class="w-3 h-3 rounded-full bg-amber-400 shadow-[0_0_10px_#d19a5b]"></span>
-          <h3 class="text-xs uppercase tracking-[0.2em] font-bold text-white font-serif">Outcome</h3>
-        </div>
-        <p class="text-sm font-semibold text-slate-200 font-sans">
-          Design better systems. Build what lasts.
-        </p>
-        <p class="text-xs text-brand-slate leading-relaxed font-sans">
-          Route intelligently. Avoid glare collisions. Handle failure modes and close the loop end-to-end.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- THE DIG SITE: 5 STRATUM PASSAGES -->
-  <section id="dig-site" class="py-24 border-b border-white/[0.08]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="mb-14 flex flex-col md:flex-row md:items-end justify-between gap-4">
-        <div>
-          <span class="text-xs font-mono uppercase tracking-[0.3em] text-brand-goldDated font-bold block mb-2">The Excavation Grid</span>
-          <h2 class="text-3xl sm:text-4xl font-serif uppercase tracking-tight text-white font-bold">
-            Five Strata of Operating Truth
-          </h2>
-        </div>
-        <p class="text-xs font-mono text-slate-400 max-w-md">
-          Peeling back modern AI declarations to expose the physical routing laws, boundary failure modes, and architectural residue beneath.
-        </p>
-      </div>
-
-      <!-- 5-Column Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-
-        <!-- 1. ARTIFACTS -->
-        <div class="relic-card-dated rounded-xl p-6 flex flex-col justify-between group">
-          <div class="space-y-4">
-            <div class="flex items-center justify-between border-b border-brand-goldDated/30 pb-3">
-              <span class="text-[10px] font-mono font-bold text-brand-goldDated uppercase tracking-widest">Stratum 01</span>
-              <span class="text-[10px] font-mono text-brand-parchment">June 2002</span>
-            </div>
-            <div class="w-12 h-12 rounded-lg bg-[#1a140d] border border-brand-goldDated/50 flex items-center justify-center text-brand-goldDated shadow-[0_0_15px_rgba(197,155,39,0.2)]">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-              </svg>
-            </div>
-            <h3 class="text-base font-serif font-bold text-brand-goldGlow uppercase">Artifacts</h3>
-            <p class="text-xs text-brand-parchment/80 leading-relaxed font-sans">
-              Primary excavated records. 2002 Sprint LTD / AOL dial-up routing sheets, modem counts, and Most Idle hunting rules.
-            </p>
-          </div>
-          <div class="pt-6">
-            <a href="./artifact-001.html" class="inline-flex items-center justify-between w-full text-xs font-mono font-bold uppercase tracking-wider text-brand-goldDated group-hover:text-brand-goldGlow transition-colors">
-              <span>Inspect Artifact 001</span>
-              <span>&rarr;</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- 2. FIELD NOTES -->
-        <div class="relic-card-dated rounded-xl p-6 flex flex-col justify-between group">
-          <div class="space-y-4">
-            <div class="flex items-center justify-between border-b border-brand-goldDated/30 pb-3">
-              <span class="text-[10px] font-mono font-bold text-brand-goldDated uppercase tracking-widest">Stratum 02</span>
-              <span class="text-[10px] font-mono text-brand-parchment">Live NOC</span>
-            </div>
-            <div class="w-12 h-12 rounded-lg bg-[#1a140d] border border-brand-goldDated/50 flex items-center justify-center text-brand-goldDated shadow-[0_0_15px_rgba(197,155,39,0.2)]">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-              </svg>
-            </div>
-            <h3 class="text-base font-serif font-bold text-brand-goldGlow uppercase">Field Notes</h3>
-            <p class="text-xs text-brand-parchment/80 leading-relaxed font-sans">
-              "Send it to translations!" Firsthand dispatches from 2 AM carrier escalations when every vendor dashboard is green.
-            </p>
-          </div>
-          <div class="pt-6">
-            <a href="./send-it-to-translations.html" class="inline-flex items-center justify-between w-full text-xs font-mono font-bold uppercase tracking-wider text-brand-goldDated group-hover:text-brand-goldGlow transition-colors">
-              <span>Read Dispatch</span>
-              <span>&rarr;</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- 3. FRAMEWORKS -->
-        <div class="neon-card-future rounded-xl p-6 flex flex-col justify-between group">
-          <div class="space-y-4">
-            <div class="flex items-center justify-between border-b border-brand-neonCyan/30 pb-3">
-              <span class="text-[10px] font-mono font-bold text-brand-neonCyan uppercase tracking-widest">Stratum 03</span>
-              <span class="text-[10px] font-mono text-emerald-400">Governance</span>
-            </div>
-            <div class="w-12 h-12 rounded-lg bg-[#071724] border border-brand-neonCyan/60 flex items-center justify-center text-brand-neonCyan shadow-[0_0_20px_rgba(0,240,255,0.3)]">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 5a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM14 5a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1V5zM9 14a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4zM7 10v2a1 1 0 001 1h2m4 0h2a1 1 0 001-1v-2"/>
-              </svg>
-            </div>
-            <h3 class="text-base font-serif font-bold text-white uppercase group-hover:text-brand-neonCyan transition-colors">Frameworks</h3>
-            <p class="text-xs text-slate-300 leading-relaxed font-sans">
-              The Five Jurisdictional Lanes: Advocate, Challenger, Sandbox, Risk, and Emotionless Analysis. 
-            </p>
-          </div>
-          <div class="pt-6">
-            <a href="./framework-001.html" class="inline-flex items-center justify-between w-full text-xs font-mono font-bold uppercase tracking-wider text-brand-neonCyan group-hover:text-white transition-colors">
-              <span>Explore Framework 001</span>
-              <span>&rarr;</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- 4. SYSTEM MAP -->
-        <div id="system-map" class="neon-card-future rounded-xl p-6 flex flex-col justify-between group">
-          <div class="space-y-4">
-            <div class="flex items-center justify-between border-b border-brand-neonCyan/30 pb-3">
-              <span class="text-[10px] font-mono font-bold text-brand-neonCyan uppercase tracking-widest">Stratum 04</span>
-              <span class="text-[10px] font-mono text-cyan-400">Topology</span>
-            </div>
-            <div class="w-12 h-12 rounded-lg bg-[#071724] border border-brand-neonCyan/60 flex items-center justify-center text-brand-neonCyan shadow-[0_0_20px_rgba(0,240,255,0.3)]">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-              </svg>
-            </div>
-            <h3 class="text-base font-serif font-bold text-white uppercase group-hover:text-brand-neonCyan transition-colors">System Map</h3>
-            <p class="text-xs text-slate-300 leading-relaxed font-sans">
-              Follow the flows. Tracing voice tandem circuits directly to modern multi-agent LLM execution buses.
-            </p>
-          </div>
-          <div class="pt-6">
-            <a href="#home" class="inline-flex items-center justify-between w-full text-xs font-mono font-bold uppercase tracking-wider text-brand-neonCyan group-hover:text-white transition-colors">
-              <span>Live Topology</span>
-              <span>&rarr;</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- 5. LIBRARY -->
-        <div id="library" class="relic-card-dated rounded-xl p-6 flex flex-col justify-between group">
-          <div class="space-y-4">
-            <div class="flex items-center justify-between border-b border-brand-goldDated/30 pb-3">
-              <span class="text-[10px] font-mono font-bold text-brand-goldDated uppercase tracking-widest">Stratum 05</span>
-              <span class="text-[10px] font-mono text-brand-parchment">Archive</span>
-            </div>
-            <div class="w-12 h-12 rounded-lg bg-[#1a140d] border border-brand-goldDated/50 flex items-center justify-center text-brand-goldDated shadow-[0_0_15px_rgba(197,155,39,0.2)]">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/>
-              </svg>
-            </div>
-            <h3 class="text-base font-serif font-bold text-brand-goldGlow uppercase">Archive Vault</h3>
-            <p class="text-xs text-brand-parchment/80 leading-relaxed font-sans">
-              Deeper reads. SS7 technical standards, Bellcore archives, and thirty years of carrier interconnect logic.
-            </p>
-          </div>
-          <div class="pt-6">
-            <a href="#library" class="inline-flex items-center justify-between w-full text-xs font-mono font-bold uppercase tracking-wider text-brand-goldDated group-hover:text-brand-goldGlow transition-colors">
-              <span>Browse Vault</span>
-              <span>&rarr;</span>
-            </a>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- SPLIT SECTION: OPERATOR MANIFESTO & DISPATCH FEED -->
-  <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-white/[0.08]">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
-
-      <!-- LEFT: OPERATOR TESTIMONY -->
-      <div class="lg:col-span-6 relic-card-dated rounded-2xl p-8 sm:p-12 flex flex-col justify-between relative overflow-hidden">
-        <div class="absolute top-4 left-6 text-brand-goldDated/10 text-9xl font-serif select-none pointer-events-none leading-none">
-          “
-        </div>
-        
-        <div class="relative z-10 pt-4 space-y-6">
-          <blockquote class="text-2xl sm:text-3xl font-serif text-white font-medium leading-snug">
-            &ldquo;The objective is not to find blame, but to find truth. When we understand the system, we can change it.&rdquo;
-          </blockquote>
-          <p class="text-xs sm:text-sm text-brand-parchment/90 font-sans leading-relaxed">
-            Blame is the emotional reaction of an operator looking at a surface symptom. Truth is what remains after you dig past vendor claims and examine the physical routing table.
-          </p>
-        </div>
-
-        <div class="relative z-10 mt-10 pt-6 border-t border-brand-goldDated/30 flex items-center justify-between">
-          <div>
-            <div class="text-xs uppercase tracking-[0.25em] font-bold text-brand-goldGlow font-serif">
-              &mdash; Rob Surls
-            </div>
-            <div class="text-[11px] font-mono text-brand-slate mt-0.5">
-              Founder, TexttASKAI &bull; Systems Architecture
-            </div>
-          </div>
-          <span class="text-[10px] font-mono text-brand-goldDated px-2.5 py-1 rounded border border-brand-goldDated/40 bg-[#171109]">
-            EXCAVATION RULE
+          <span class="hidden font-mono text-[9px] uppercase tracking-[.18em] text-oa-slate sm:block">
+            Different technology · same operational physics
           </span>
         </div>
-      </div>
 
-      <!-- RIGHT: NEON DISPATCH FEED -->
-      <div class="lg:col-span-6 neon-card-future rounded-2xl p-8 sm:p-12 flex flex-col justify-between">
-        
-        <div>
-          <div class="flex items-center justify-between pb-4 border-b border-brand-neonCyan/30 mb-6">
-            <h3 class="text-xs uppercase tracking-[0.2em] font-bold text-brand-neonCyan font-mono flex items-center">
-              <span class="w-2 h-2 rounded-full bg-brand-neonCyan mr-2 shadow-[0_0_8px_#00f0ff] animate-pulse"></span>
-              Live Dispatch Feed
-            </h3>
-            <span class="text-[10px] font-mono text-slate-400">TELEMETRY VERIFIED</span>
-          </div>
+        <div class="scanline group relative overflow-hidden rounded-2xl border border-oa-cyan/30 bg-[#040812] shadow-[0_0_55px_rgba(0,240,255,.12)]">
+          <img src="./hero.jpg"
+               alt="Operational Archeology reference map"
+               class="h-auto w-full object-cover"
+               loading="eager" />
 
-          <!-- Entries List -->
-          <div class="space-y-4">
-            
-            <!-- Lead Case Study -->
-            <a href="https://www.linkedin.com/pulse/operational-archaeology-first-highfidelity-case-rob-surls-jswne" target="_blank" rel="noopener noreferrer" class="block p-4 rounded-lg bg-[#0b1422] border border-brand-neonCyan/40 hover:border-brand-neonCyan transition-all group shadow-md">
-              <div class="flex items-baseline justify-between mb-1.5">
-                <div class="flex items-center space-x-2">
-                  <span class="px-1.5 py-0.5 rounded text-[9px] font-mono font-bold bg-brand-neonCyan text-black uppercase tracking-wider">Primary Case</span>
-                  <h4 class="text-sm font-semibold text-white group-hover:text-brand-neonCyan transition-colors font-sans">
-                    The First High-Fidelity Verification Case
-                  </h4>
-                </div>
-                <span class="text-[11px] font-mono text-brand-neonCyan shrink-0 ml-3">Dispatch &rarr;</span>
+          <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#030509] via-transparent to-transparent opacity-70"></div>
+
+          <div class="absolute inset-x-0 bottom-0 flex flex-col justify-between gap-4 bg-gradient-to-t from-[#040711] via-[#040711]/90 to-transparent p-5 sm:flex-row sm:items-end sm:p-7">
+            <div class="space-y-2">
+              <div class="eyebrow flex items-center font-bold text-oa-cyan">
+                <span class="mr-2 h-2 w-2 animate-pulse rounded-full bg-oa-cyan shadow-[0_0_8px_#00f0ff]"></span>
+                Primary Reference Map
               </div>
-              <p class="text-xs text-slate-400 line-clamp-2 font-mono">
-                Field Case &bull; Applying operational excavation to AI pipeline orchestration, behavioral drift, and verifiable execution contracts.
+              <p class="max-w-2xl font-serif text-xs leading-relaxed text-slate-200 sm:text-sm">
+                The trail runs from carrier routing tables and translation logic to the orchestration problems showing up in AI today.
               </p>
+            </div>
+            <a href="#dig-site" class="shrink-0 rounded border border-oa-brass/60 bg-oa-brass px-5 py-2.5 font-mono text-[10px] font-bold uppercase tracking-[.15em] text-black transition hover:bg-oa-brassLight">
+              Enter the dig site →
+            </a>
+          </div>
+        </div>
+
+        <div class="grid items-center gap-8 pt-2 lg:grid-cols-12">
+          <div class="space-y-5 lg:col-span-7">
+            <p class="eyebrow text-oa-brassLight">Operational Archeology</p>
+            <h1 class="font-serif text-4xl font-bold uppercase leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
+              The system left<br />
+              <span class="cyan-text">evidence.</span>
+            </h1>
+            <p class="max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
+              Before there were AI agents, there were live networks, ugly failure modes, vendor boundaries and engineers trying to figure out what actually happened.
+            </p>
+            <p class="max-w-2xl text-sm leading-relaxed text-slate-400">
+              Operational Archeology is the practice of digging through that evidence. Not the clean diagram. Not the marketing slide. The thing that happened on the wire.
+            </p>
+          </div>
+
+          <div class="relic border-l-4 border-l-oa-brass p-6 lg:col-span-5">
+            <p class="eyebrow mb-3 font-bold text-oa-brassLight">The First Law</p>
+            <p class="font-serif text-base italic leading-relaxed text-slate-200 sm:text-lg">
+              “Systems don't fail according to clean diagrams. They fail at the seams where the pieces meet.”
+            </p>
+            <p class="mt-4 font-mono text-[10px] uppercase tracking-wider text-oa-slate">
+              — operational physics
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THREE TRUTHS -->
+    <section class="border-b border-white/[.08] py-14">
+      <div class="mx-auto grid max-w-7xl gap-6 px-4 sm:px-6 md:grid-cols-3 lg:px-8">
+
+        <article class="rounded-xl border border-white/[.08] bg-[#080d17] p-6">
+          <p class="eyebrow mb-4 text-emerald-400">01 · Evidence</p>
+          <h2 class="font-serif text-lg font-bold uppercase text-white">Go where reality lives.</h2>
+          <p class="mt-3 text-sm leading-relaxed text-slate-400">
+            Configuration files. Translation tables. Routing decisions. Error logs. Traffic. The evidence is usually there long after the explanation has changed.
+          </p>
+        </article>
+
+        <article class="rounded-xl border border-white/[.08] bg-[#080d17] p-6">
+          <p class="eyebrow mb-4 text-oa-cyan">02 · Pattern</p>
+          <h2 class="font-serif text-lg font-bold uppercase text-white">Patterns survive technology.</h2>
+          <p class="mt-3 text-sm leading-relaxed text-slate-400">
+            A missing point code can break a call across a carrier network. A missing contract can break an AI workflow. Different vocabulary. Same boundary problem.
+          </p>
+        </article>
+
+        <article class="rounded-xl border border-white/[.08] bg-[#080d17] p-6">
+          <p class="eyebrow mb-4 text-amber-400">03 · Operation</p>
+          <h2 class="font-serif text-lg font-bold uppercase text-white">Build from what happened.</h2>
+          <p class="mt-3 text-sm leading-relaxed text-slate-400">
+            Better systems come from understanding failure, state, transport, ownership and the ugly little details that never make it into the architecture diagram.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- DIG SITE -->
+    <section id="dig-site" class="border-b border-white/[.08] py-24">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+        <div class="mb-12 flex flex-col justify-between gap-5 md:flex-row md:items-end">
+          <div>
+            <p class="eyebrow mb-2 font-bold text-oa-brassLight">The excavation grid</p>
+            <h2 class="font-serif text-3xl font-bold uppercase text-white sm:text-4xl">
+              Five places to dig
+            </h2>
+          </div>
+          <p class="max-w-md font-mono text-[10px] leading-relaxed text-slate-500">
+            Start with the artifacts. Follow the field notes. Then look at the frameworks that connect the old problems to the new ones.
+          </p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-5">
+
+          <article class="relic flex min-h-[330px] flex-col justify-between rounded-xl p-6">
+            <div>
+              <div class="mb-5 flex items-center justify-between border-b border-oa-brass/25 pb-3">
+                <span class="eyebrow font-bold text-oa-brass">Stratum 01</span>
+                <span class="font-mono text-[9px] text-oa-parchment">June 2002</span>
+              </div>
+              <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-lg border border-oa-brass/45 bg-[#1a140d] text-oa-brass">
+                <span class="font-serif text-xl">01</span>
+              </div>
+              <h3 class="font-serif text-base font-bold uppercase text-oa-brassLight">Artifacts</h3>
+              <p class="mt-3 text-xs leading-relaxed text-oa-parchment/75">
+                Primary excavated records. Sprint LTD / AOL routing sheets, modem counts, Most Idle hunting and the mechanics underneath the traffic.
+              </p>
+            </div>
+            <a href="./artifact-001.html" class="mt-6 flex justify-between border-t border-white/[.06] pt-5 font-mono text-[10px] font-bold uppercase tracking-wider text-oa-brass transition hover:text-oa-brassLight">
+              <span>Inspect Artifact 001</span><span>→</span>
+            </a>
+          </article>
+
+          <article class="relic flex min-h-[330px] flex-col justify-between rounded-xl p-6">
+            <div>
+              <div class="mb-5 flex items-center justify-between border-b border-oa-brass/25 pb-3">
+                <span class="eyebrow font-bold text-oa-brass">Stratum 02</span>
+                <span class="font-mono text-[9px] text-oa-parchment">Live NOC</span>
+              </div>
+              <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-lg border border-oa-brass/45 bg-[#1a140d] text-oa-brass">
+                <span class="font-serif text-xl">02</span>
+              </div>
+              <h3 class="font-serif text-base font-bold uppercase text-oa-brassLight">Field Notes</h3>
+              <p class="mt-3 text-xs leading-relaxed text-oa-parchment/75">
+                Firsthand dispatches from the part of operations where every dashboard can be green and the system can still be broken.
+              </p>
+            </div>
+            <a href="./send-it-to-translations.html" class="mt-6 flex justify-between border-t border-white/[.06] pt-5 font-mono text-[10px] font-bold uppercase tracking-wider text-oa-brass transition hover:text-oa-brassLight">
+              <span>Read the dispatch</span><span>→</span>
+            </a>
+          </article>
+
+          <article class="future flex min-h-[330px] flex-col justify-between rounded-xl p-6">
+            <div>
+              <div class="mb-5 flex items-center justify-between border-b border-oa-cyan/25 pb-3">
+                <span class="eyebrow font-bold text-oa-cyan">Stratum 03</span>
+                <span class="font-mono text-[9px] text-emerald-400">Governance</span>
+              </div>
+              <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-lg border border-oa-cyan/55 bg-[#071724] text-oa-cyan">
+                <span class="font-serif text-xl">03</span>
+              </div>
+              <h3 class="font-serif text-base font-bold uppercase text-white">Frameworks</h3>
+              <p class="mt-3 text-xs leading-relaxed text-slate-300">
+                The operating models that keep complex systems understandable when multiple actors, boundaries and failure modes collide.
+              </p>
+            </div>
+            <a href="./framework-001.html" class="mt-6 flex justify-between border-t border-white/[.06] pt-5 font-mono text-[10px] font-bold uppercase tracking-wider text-oa-cyan transition hover:text-white">
+              <span>Explore Framework 001</span><span>→</span>
+            </a>
+          </article>
+
+          <article id="system-map" class="future flex min-h-[330px] flex-col justify-between rounded-xl p-6">
+            <div>
+              <div class="mb-5 flex items-center justify-between border-b border-oa-cyan/25 pb-3">
+                <span class="eyebrow font-bold text-oa-cyan">Stratum 04</span>
+                <span class="font-mono text-[9px] text-cyan-400">Topology</span>
+              </div>
+              <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-lg border border-oa-cyan/55 bg-[#071724] text-oa-cyan">
+                <span class="font-serif text-xl">04</span>
+              </div>
+              <h3 class="font-serif text-base font-bold uppercase text-white">System Map</h3>
+              <p class="mt-3 text-xs leading-relaxed text-slate-300">
+                The map between carrier routing, signaling boundaries and today's multi-agent execution buses. This is the workbench, not a dashboard.
+              </p>
+            </div>
+            <a href="#system-map" class="mt-6 flex justify-between border-t border-white/[.06] pt-5 font-mono text-[10px] font-bold uppercase tracking-wider text-oa-cyan transition hover:text-white">
+              <span>Topology · in progress</span><span>↓</span>
+            </a>
+          </article>
+
+          <article class="relic flex min-h-[330px] flex-col justify-between rounded-xl p-6">
+            <div>
+              <div class="mb-5 flex items-center justify-between border-b border-oa-brass/25 pb-3">
+                <span class="eyebrow font-bold text-oa-brass">Stratum 05</span>
+                <span class="font-mono text-[9px] text-oa-parchment">Archive</span>
+              </div>
+              <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-lg border border-oa-brass/45 bg-[#1a140d] text-oa-brass">
+                <span class="font-serif text-xl">05</span>
+              </div>
+              <h3 class="font-serif text-base font-bold uppercase text-oa-brassLight">Archive</h3>
+              <p class="mt-3 text-xs leading-relaxed text-oa-parchment/75">
+                Standards, old carrier logic, technical residue and the material that shaped how large systems actually behave.
+              </p>
+            </div>
+            <div class="mt-6 border-t border-white/[.06] pt-5 font-mono text-[10px] uppercase tracking-wider text-slate-600">
+              Archive vault · being excavated
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- DISPATCH + MANIFESTO -->
+    <section class="border-b border-white/[.08] py-24">
+      <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
+
+        <article class="relic relative overflow-hidden rounded-2xl p-8 sm:p-12 lg:col-span-6">
+          <div class="pointer-events-none absolute -left-3 top-0 font-serif text-[180px] leading-none text-oa-brass/[.06]">“</div>
+          <div class="relative z-10">
+            <p class="eyebrow mb-6 text-oa-brassLight">Operator's note</p>
+            <blockquote class="font-serif text-2xl leading-snug text-white sm:text-3xl">
+              The objective isn't to find blame. It's to find what actually happened.
+            </blockquote>
+            <p class="mt-6 max-w-xl text-sm leading-relaxed text-oa-parchment/80">
+              Blame is usually the first story we tell ourselves when a system behaves badly. The useful story starts later, after somebody digs past the surface symptom and follows the state, the routing, the boundary and the evidence.
+            </p>
+            <div class="mt-10 border-t border-oa-brass/25 pt-6">
+              <p class="font-serif text-xs font-bold uppercase tracking-[.22em] text-oa-brassLight">— Rob Surls</p>
+              <p class="mt-1 font-mono text-[10px] text-oa-slate">Systems architecture · telecom · AI orchestration</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="future rounded-2xl p-8 sm:p-12 lg:col-span-6">
+          <div class="mb-6 flex items-center justify-between border-b border-oa-cyan/25 pb-4">
+            <p class="eyebrow flex items-center font-bold text-oa-cyan">
+              <span class="mr-2 h-2 w-2 animate-pulse rounded-full bg-oa-cyan shadow-[0_0_8px_#00f0ff]"></span>
+              Field dispatches
+            </p>
+            <span class="font-mono text-[9px] text-slate-500">VERIFIED / IN THE FIELD</span>
+          </div>
+
+          <div class="space-y-4">
+
+            <a href="https://www.linkedin.com/pulse/operational-archaeology-first-highfidelity-case-rob-surls-jswne"
+               target="_blank" rel="noopener noreferrer"
+               class="group block rounded-lg border border-oa-cyan/35 bg-[#0b1422] p-4 transition hover:border-oa-cyan">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <span class="font-mono text-[9px] font-bold uppercase tracking-wider text-oa-cyan">Primary case</span>
+                  <h3 class="mt-1 text-sm font-semibold text-white transition group-hover:text-oa-cyan">The First High-Fidelity Verification Case</h3>
+                  <p class="mt-2 font-mono text-[10px] leading-relaxed text-slate-500">
+                    Applying operational excavation to AI orchestration, behavioral drift and verifiable execution contracts.
+                  </p>
+                </div>
+                <span class="font-mono text-[10px] text-oa-cyan">↗</span>
+              </div>
             </a>
 
-            <!-- Send It to Translations Note -->
-            <a href="./send-it-to-translations.html" class="block group p-4 rounded-lg bg-[#09101a] border border-brand-neonCyan/30 hover:border-brand-neonCyan transition-all shadow-md overflow-hidden">
-              <div class="grid grid-cols-1 sm:grid-cols-12 gap-4 items-center">
-                <div class="sm:col-span-4 rounded overflow-hidden border border-brand-neonCyan/30 aspect-video sm:aspect-auto sm:h-20 bg-[#05080e]">
-                  <img src="./translations.jpg" alt="Send to Translations War Room" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+            <a href="./send-it-to-translations.html"
+               class="group block rounded-lg border border-oa-cyan/25 bg-[#09101a] p-4 transition hover:border-oa-cyan">
+              <div class="grid gap-4 sm:grid-cols-12 sm:items-center">
+                <div class="overflow-hidden rounded border border-oa-cyan/25 sm:col-span-4">
+                  <img src="./translations.jpg" alt="Send It to Translations field note" class="aspect-video h-full w-full object-cover transition duration-300 group-hover:scale-105" loading="lazy" />
                 </div>
-                <div class="sm:col-span-8 space-y-1">
+                <div class="sm:col-span-8">
                   <div class="flex items-center justify-between">
-                    <span class="px-1.5 py-0.5 rounded text-[9px] font-mono font-bold bg-cyan-950 text-cyan-300 uppercase tracking-wider border border-cyan-800/60">Field Note</span>
-                    <span class="text-[11px] font-mono text-brand-neonCyan font-semibold">Read &rarr;</span>
+                    <span class="font-mono text-[9px] font-bold uppercase tracking-wider text-cyan-300">Field note</span>
+                    <span class="font-mono text-[10px] text-oa-cyan">Read →</span>
                   </div>
-                  <h4 class="text-sm font-semibold text-white group-hover:text-brand-neonCyan transition-colors font-sans">
-                    Send It to Translations
-                  </h4>
-                  <p class="text-[11px] text-slate-400 line-clamp-2 font-mono">
-                    When every vendor is green and the system is still failing. Tracing the window right before the alarms.
+                  <h3 class="mt-1 text-sm font-semibold text-white group-hover:text-oa-cyan">Send It to Translations</h3>
+                  <p class="mt-2 font-mono text-[10px] leading-relaxed text-slate-500">
+                    When every vendor is green and the system is still failing.
                   </p>
                 </div>
               </div>
             </a>
 
-            <!-- Artifact 001 Card -->
-            <a href="./artifact-001.html" class="block p-4 rounded-lg bg-[#070b14] border border-white/[0.08] hover:border-brand-goldDated transition-all group">
-              <div class="flex items-baseline justify-between mb-1.5">
-                <h4 class="text-sm font-medium text-slate-200 group-hover:text-brand-goldGlow transition-colors font-sans">
-                  Artifact 001: When the Internet Pretended to Be a Phone Call
-                </h4>
-                <span class="text-[11px] font-mono text-slate-500 shrink-0 ml-3">June 2002</span>
+            <a href="./artifact-001.html"
+               class="group block rounded-lg border border-white/[.08] bg-[#070b14] p-4 transition hover:border-oa-brass">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <span class="font-mono text-[9px] uppercase tracking-wider text-oa-brass">Artifact 001</span>
+                  <h3 class="mt-1 text-sm font-medium text-slate-200 group-hover:text-oa-brassLight">
+                    When the Internet Pretended to Be a Phone Call
+                  </h3>
+                  <p class="mt-2 font-mono text-[10px] leading-relaxed text-slate-500">
+                    Sprint LTD / AOL dial-up routing, Most Idle hunting and glare avoidance.
+                  </p>
+                </div>
+                <span class="font-mono text-[10px] text-slate-600">2002</span>
               </div>
-              <p class="text-xs text-slate-400 line-clamp-1 font-mono">
-                Primary Artifact &bull; 2002 Sprint LTD / AOL dial-up trunk routing sheets, Most Idle hunting, and glare avoidance.
-              </p>
             </a>
 
           </div>
-        </div>
-
-        <div class="mt-8 pt-4 border-t border-white/[0.08] text-right">
-          <a href="./send-it-to-translations.html" class="inline-flex items-center space-x-2 text-xs uppercase tracking-[0.2em] font-semibold text-brand-neonCyan hover:text-white transition-colors">
-            <span>View All Field Notes</span>
-            <span>&rarr;</span>
-          </a>
-        </div>
+        </article>
 
       </div>
+    </section>
 
-    </div>
-  </section>
+    <!-- ROB -->
+    <section id="archeologist" class="py-24">
+      <div class="mx-auto max-w-7xl space-y-10 px-4 sm:px-6 lg:px-8">
 
-  <!-- THE LEAD ARCHEOLOGIST: CARRIER BEDROCK TO AI ORCHESTRATION -->
-  <section id="archeologist" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-    
-    <!-- Wide Cinema Comparison Frame -->
-    <div class="rounded-2xl overflow-hidden border border-white/[0.12] shadow-2xl bg-[#060a12]">
-      <img 
-        src="./image.jpg" 
-        alt="Telecom Systems Early Career vs Modern AI Research Operational Archeology" 
-        class="w-full h-auto object-cover object-center"
-        loading="lazy"
-      />
-      <div class="p-5 sm:p-6 bg-[#070b14] border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div class="flex items-center space-x-3">
-          <span class="w-2 h-2 rounded-full bg-brand-goldDated shadow-[0_0_8px_#c59b27]"></span>
-          <span class="text-xs font-mono text-slate-300 uppercase tracking-wider">
-            NOC Operations (1999) &bull; TDM / SS7 / SIP-T &rarr; Agent Orchestration (Present)
-          </span>
-        </div>
-        <span class="text-xs font-mono text-brand-neonCyan font-bold tracking-widest uppercase">
-          Different Vocabulary. Same Underlying Physics.
-        </span>
-      </div>
-    </div>
-
-    <!-- Dossier Master Card -->
-    <div class="neon-card-future rounded-2xl p-8 sm:p-14 relative overflow-hidden">
-      
-      <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        
-        <!-- Left: Systems Architect Record -->
-        <div class="lg:col-span-8 space-y-6">
-          
-          <div class="flex items-center space-x-3">
-            <span class="text-xs uppercase tracking-[0.25em] font-mono text-brand-neonCyan font-bold flex items-center">
-              <span class="w-2 h-2 rounded-full bg-brand-neonCyan mr-2 shadow-[0_0_8px_#00f0ff]"></span>
-              Lead Investigator &bull; Field Dossier
+        <div class="overflow-hidden rounded-2xl border border-white/[.12] bg-[#060a12] shadow-2xl">
+          <img src="./image.jpg"
+               alt="Rob Surls telecom systems work and modern AI orchestration"
+               class="h-auto w-full object-cover"
+               loading="lazy" />
+          <div class="flex flex-col justify-between gap-4 border-t border-white/[.08] bg-[#070b14] p-5 sm:flex-row sm:items-center sm:p-6">
+            <span class="font-mono text-[10px] uppercase tracking-[.15em] text-slate-400">
+              Carrier operations → AI orchestration
+            </span>
+            <span class="font-mono text-[10px] font-bold uppercase tracking-[.15em] text-oa-cyan">
+              Different vocabulary. Same underlying physics.
             </span>
           </div>
-
-          <div class="space-y-2">
-            <h2 class="text-3xl sm:text-4xl font-bold font-serif text-white tracking-tight">
-              Rob Surls
-            </h2>
-            <p class="text-sm font-mono text-brand-goldGlow uppercase tracking-widest font-semibold">
-              Founder, TexttASKAI &bull; Systems Architect &bull; Telecom Veteran
-            </p>
-          </div>
-
-          <p class="text-slate-300 text-sm sm:text-base leading-relaxed font-sans">
-            Operational Archeology was founded by Rob Surls after more than two decades in carrier-grade telecommunications engineering (Sprint, Ericsson). From early dial-up routing and SS7 signaling to SIP-T encapsulation and multi-vendor RAN integration, his focus has always been on what actually happens at the operational interface when systems collide on the live wire.
-          </p>
-
-          <p class="text-slate-400 text-sm leading-relaxed font-sans">
-            Today, through <strong class="text-slate-200">TexttASKAI</strong>, he applies these battle-tested telecom physics to modern AI orchestration—decoupling transport from identity, eliminating point-to-point binding fragility, and building stable interface contracts for multi-agent systems.
-          </p>
-
-          <!-- Carrier Scale Metrics -->
-          <div class="grid grid-cols-3 gap-4 pt-4 border-t border-white/[0.08] font-mono">
-            <div class="bg-[#050912] p-4 rounded-lg border border-brand-goldDated/30">
-              <span class="block text-2xl font-bold text-brand-goldDated">20+ Yrs</span>
-              <span class="text-[10px] text-brand-slate uppercase tracking-wider">Network Routing</span>
-            </div>
-            <div class="bg-[#050912] p-4 rounded-lg border border-brand-neonCyan/30 shadow-[0_0_15px_rgba(0,240,255,0.08)]">
-              <span class="block text-2xl font-bold text-brand-neonCyan">2B+ Min</span>
-              <span class="text-[10px] text-brand-slate uppercase tracking-wider">SIP Deployments</span>
-            </div>
-            <div class="bg-[#050912] p-4 rounded-lg border border-brand-goldDated/30">
-              <span class="block text-2xl font-bold text-brand-goldDated">89M+</span>
-              <span class="text-[10px] text-brand-slate uppercase tracking-wider">Translations</span>
-            </div>
-          </div>
-
         </div>
 
-        <!-- Right: Verified LinkedIn Connect Terminal -->
-        <div class="lg:col-span-4 flex flex-col items-center justify-center p-8 bg-[#040812] rounded-xl border border-brand-neonCyan/40 text-center space-y-6 shadow-[0_0_30px_rgba(0,240,255,0.12)]">
-          
-          <div class="w-16 h-16 rounded-full bg-[#0a66c2]/20 border border-brand-neonCyan flex items-center justify-center text-brand-neonCyan shadow-[0_0_20px_rgba(0,240,255,0.3)]">
-            <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24">
-              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.63 1.63 0 1 0 0-3.26 1.63 1.63 0 0 0 0 3.26m1.4 9.74V10.13H5.06v8.37h2.8z"/>
-            </svg>
+        <div class="future rounded-2xl p-8 sm:p-12 lg:p-14">
+          <div class="grid items-center gap-12 lg:grid-cols-12">
+
+            <div class="space-y-6 lg:col-span-8">
+              <p class="eyebrow flex items-center font-bold text-oa-cyan">
+                <span class="mr-2 h-2 w-2 rounded-full bg-oa-cyan shadow-[0_0_8px_#00f0ff]"></span>
+                The person doing the digging
+              </p>
+
+              <div>
+                <h2 class="font-serif text-3xl font-bold tracking-tight text-white sm:text-4xl">Rob Surls</h2>
+                <p class="mt-2 font-mono text-[10px] font-semibold uppercase tracking-[.18em] text-oa-brassLight">
+                  Telecom veteran · systems architect · founder
+                </p>
+              </div>
+
+              <p class="text-sm leading-relaxed text-slate-300 sm:text-base">
+                I spent decades around carrier-grade systems where a tiny piece of state could travel through half a network before anyone discovered why the call failed. The lesson wasn't that the systems were old. The lesson was that complex systems leave evidence.
+              </p>
+
+              <p class="text-sm leading-relaxed text-slate-400">
+                Operational Archeology is where I follow that evidence into today's systems. Through TexttASKAI, the same ideas are being applied to AI orchestration: boundaries, transport, identity, state, contracts and the failure modes that appear when no single component sees the whole system.
+              </p>
+
+              <div class="grid grid-cols-3 gap-3 border-t border-white/[.08] pt-5">
+                <div class="rounded-lg border border-oa-brass/25 bg-[#050912] p-4">
+                  <span class="block font-mono text-xl font-bold text-oa-brass">20+</span>
+                  <span class="mt-1 block font-mono text-[8px] uppercase tracking-wider text-oa-slate">Years in telecom</span>
+                </div>
+                <div class="rounded-lg border border-oa-cyan/25 bg-[#050912] p-4">
+                  <span class="block font-mono text-xl font-bold text-oa-cyan">Live</span>
+                  <span class="mt-1 block font-mono text-[8px] uppercase tracking-wider text-oa-slate">Systems mindset</span>
+                </div>
+                <div class="rounded-lg border border-oa-brass/25 bg-[#050912] p-4">
+                  <span class="block font-mono text-xl font-bold text-oa-brass">Now</span>
+                  <span class="mt-1 block font-mono text-[8px] uppercase tracking-wider text-oa-slate">AI orchestration</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="rounded-xl border border-oa-cyan/35 bg-[#040812] p-8 text-center shadow-[0_0_30px_rgba(0,240,255,.08)] lg:col-span-4">
+              <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-oa-cyan bg-[#0a66c2]/20 font-mono text-xl text-oa-cyan shadow-[0_0_20px_rgba(0,240,255,.2)]">
+                RS
+              </div>
+              <h3 class="mt-6 font-serif text-base font-semibold text-white">Follow the excavation</h3>
+              <p class="mt-2 text-xs leading-relaxed text-slate-500">
+                Field notes, systems archaeology and the occasional reminder that the dashboard isn't the system.
+              </p>
+              <a href="https://www.linkedin.com/in/rob-surls-1b912ab"
+                 target="_blank" rel="noopener noreferrer"
+                 class="mt-6 inline-flex w-full items-center justify-center rounded bg-[#0a66c2] px-5 py-3 font-mono text-[10px] font-bold uppercase tracking-wider text-white transition hover:bg-oa-cyan hover:text-black">
+                View LinkedIn Profile ↗
+              </a>
+            </div>
+
           </div>
-
-          <div class="space-y-1.5">
-            <h3 class="text-base font-semibold text-white font-serif">Connect on LinkedIn</h3>
-            <p class="text-xs text-slate-400 font-sans leading-relaxed">
-              Follow live field excavations, failure mode debriefs, and AI systems architecture.
-            </p>
-          </div>
-
-          <a href="https://www.linkedin.com/in/rob-surls-1b912ab" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center space-x-2 px-6 py-3.5 bg-gradient-to-r from-[#0a66c2] to-cyan-600 hover:from-[#004182] hover:to-cyan-500 text-white font-bold text-xs tracking-wider uppercase rounded transition-all shadow-[0_0_20px_rgba(0,240,255,0.3)]">
-            <span>View LinkedIn Profile</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-            </svg>
-          </a>
-
-          <div class="text-[11px] font-mono text-slate-500">
-            rob-surls-1b912ab &bull; Kansas City Area
-          </div>
-
         </div>
-
       </div>
+    </section>
 
-    </div>
-  </section>
+  </main>
 
   <!-- FOOTER -->
-  <footer class="border-t border-white/[0.06] bg-[#020306] py-14 text-xs">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-slate-500 font-mono">
-      
-      <div class="tracking-widest text-[11px] uppercase">
-        &copy; 2024–2026 OPERATIONAL ARCHEOLOGY
-      </div>
-
-      <div class="font-serif tracking-[0.25em] uppercase text-brand-goldDated text-[11px]">
-        Excavate. Understand. Operate.
-      </div>
-
-      <div class="flex items-center space-x-6 tracking-wider text-[11px] uppercase">
-        <a href="https://www.linkedin.com/in/rob-surls-1b912ab" target="_blank" rel="noopener noreferrer" class="hover:text-brand-neonCyan transition-colors flex items-center space-x-1.5">
-          <svg class="w-3.5 h-3.5 fill-current text-[#0a66c2]" viewBox="0 0 24 24">
-            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.63 1.63 0 1 0 0-3.26 1.63 1.63 0 0 0 0 3.26m1.4 9.74V10.13H5.06v8.37h2.8z"/>
-          </svg>
-          <span>LinkedIn</span>
-        </a>
-        <span>&bull;</span>
-        <span>Built for Truth. Designed for Impact.</span>
-      </div>
-
+  <footer class="border-t border-white/[.07] bg-[#020306] py-12">
+    <div class="mx-auto flex max-w-7xl flex-col gap-5 px-4 text-center sm:px-6 md:flex-row md:items-center md:justify-between md:text-left lg:px-8">
+      <span class="font-mono text-[9px] uppercase tracking-[.18em] text-slate-600">© 2024–2026 Operational Archeology</span>
+      <span class="font-serif text-[10px] uppercase tracking-[.25em] text-oa-brass">Excavate. Understand. Operate.</span>
+      <a href="https://www.linkedin.com/in/rob-surls-1b912ab" target="_blank" rel="noopener noreferrer"
+         class="font-mono text-[9px] uppercase tracking-[.18em] text-slate-500 transition hover:text-oa-cyan">
+        LinkedIn ↗
+      </a>
     </div>
   </footer>
 
