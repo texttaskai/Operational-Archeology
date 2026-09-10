@@ -434,7 +434,7 @@
             <div class="flex items-center justify-between border-b border-oa-cyan/20 pb-4">
               <div>
                 <p class="eyebrow font-bold text-oa-cyan">Input Terminal</p>
-                <p class="mt-1 font-mono text-[9px] uppercase tracking-wider text-slate-600">OA-SBX-V1 / Deterministic</p>
+                <p class="mt-1 font-mono text-[9px] uppercase tracking-wider text-slate-600">OA-SBX-V1 / Deterministic<p id="oaContractStatus" class="font-mono text-[9px] uppercase tracking-wider text-slate-600">OA-SBX-V1 / CONTRACT LOADING</p></p>
               </div>
               <div class="flex items-center gap-2 font-mono text-[9px] uppercase tracking-wider text-emerald-400">
                 <span class="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399]"></span>
@@ -785,7 +785,14 @@ async function loadFrameworkContract() {
     }
 
     OA_FRAMEWORK_CONTRACT = await response.json();
+const statusEl = document.getElementById('oaContractStatus');
 
+if (statusEl) {
+  statusEl.textContent =
+    `OA-SBX-V1 / ${OA_FRAMEWORK_CONTRACT.framework?.id} / ${OA_FRAMEWORK_CONTRACT.framework?.version}`;
+  statusEl.classList.remove('text-slate-600');
+  statusEl.classList.add('text-emerald-400');
+}
     console.log(
       'Operational Archeology framework loaded:',
       OA_FRAMEWORK_CONTRACT.framework?.id,
@@ -795,6 +802,13 @@ async function loadFrameworkContract() {
     return OA_FRAMEWORK_CONTRACT;
   } catch (error) {
     console.error('Unable to load framework-court.json', error);
+    const statusEl = document.getElementById('oaContractStatus');
+
+if (statusEl) {
+  statusEl.textContent = 'OA-SBX-V1 / CONTRACT LOAD FAILED';
+  statusEl.classList.remove('text-slate-600');
+  statusEl.classList.add('text-red-400');
+}
     return null;
   }
 } 
