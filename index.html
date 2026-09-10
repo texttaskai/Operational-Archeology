@@ -842,12 +842,17 @@ loadFrameworkContract().then((framework) => {
       title: "Workflow fails intermittently",
       problem: "An automated workflow completes successfully most of the day but fails unpredictably under heavier traffic.",
       lanes: {
-        advocate: "The workflow is fundamentally viable because successful executions prove the path can complete. The failure may be a capacity or timing condition rather than broken business logic.",
-        challenger: "Intermittent success is not reliability. The system may be masking contention, timeout stacking, race conditions, stale locks, or an upstream dependency that only fails under load.",
-        : "Replay production-like traffic with controlled concurrency. Capture queue depth, latency, retries, locks, external API timing, and state transitions before and during failure.",
-        risk: "Retries can amplify load and turn a localized delay into cascading contention. Partial completion may also leave downstream systems in conflicting states.",
-        emotionless_analysis: "Known: failure correlates with heavier traffic. Unknown: whether traffic is causal or merely coincident with another scheduled dependency."
-      },
+        lanes: {
+  advocate: "Give the strongest conventional AI answer using the human's case data plus general model knowledge. Be helpful, casual, confident, and choose one best position. Fill plausible gaps without labeling assumptions. Do not recommend execution.",
+
+  challenger: "Give the strongest principled progressive-values position. Prioritize values, inclusion, equity, access, social consequence, and human impact over fiscal or operational practicality when they conflict. Use factual support where available. One best position only.",
+
+  risk: "Identify the single most material inward-facing risk. Focus only on financial exposure, credibility or embarrassment, and whether the risk is NOW, LATER, BOTH, or NO RISK. Do not score probability, recommend mitigation, or analyze opportunity cost.",
+
+  assumption: "State one best relevant WHAT IF that could materially change the analysis. It may be unlikely and may involve human, technical, or environmental behavior, but it must remain relevant and cannot contradict established case facts. State the hypothetical and stop.",
+
+  emotionless_analysis: "Produce the most bias-stripped, factually reliable architectural position. Separate supported fact from plausible but unverified claims, conflicting evidence, insufficient evidence, and false or unsupported claims. Preserve sound conclusions, strip weak reasoning, and return one best and final position."
+},
       synthesis: {
         majority: "Instrument the boundary conditions around failure and test load, concurrency, timeout, and retry behavior independently.",
         dissent: "Load may be a false lead. A scheduled job, token refresh, cache expiry, or external service cycle could share the same timing pattern.",
