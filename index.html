@@ -1165,7 +1165,44 @@ open_court: {
   court_closed: false
 }
 };
+function recordCourtReaction(laneKey, position, reason = "") {
+  const court = window.OA_COURT_STATE?.open_court;
 
+  if (!court || court.status !== "ready") return false;
+
+  const normalized = String(position).toUpperCase();
+
+  if (normalized !== "CONCUR" && normalized !== "DISSENT") {
+    return false;
+  }
+
+  court.live_positions[laneKey] = {
+    position: normalized,
+    reason
+  };
+
+  const positions = Object.values(court.live_positions);
+
+  court.live_vote_count = {
+    concur: positions.filter(item => item.position === "CONCUR").length,
+    dissent: positions.filter(item => item.position === "DISSENT").length
+  };
+
+  const requiredJustices = court.review_order || [];
+
+  court.each_justice_has_reacted =
+    requiredJustices.every(key => court.live_positions[key]);
+
+  court.closure_eligible = court.each_justice_has_reacted;
+
+  court.arguments.push({
+    lane: laneKey,
+    position: normalized,
+    reason
+  });
+
+  return true;
+}
 console.log("OA Court State:", window.OA_COURT_STATE);
     renderCase(data, isCustom ? "custom" : "preset");
   });
