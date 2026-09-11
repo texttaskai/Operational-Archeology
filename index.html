@@ -818,6 +818,7 @@ if (statusEl) {
 loadFrameworkContract().then((framework) => {
   if (framework?.framework?.id) {
     CONTRACT = framework.framework.id;
+    hydrateLaneMetaFromContract();
   }
 });
   const scenarios = {
@@ -895,13 +896,29 @@ loadFrameworkContract().then((framework) => {
     }
   };
 
-  const laneMeta = [
+  let laneMeta = [
   ["advocate", "ADVOCATE", "Strongest conventional AI answer", "text-emerald-400", "border-emerald-400/30"],
   ["challenger", "CHALLENGER", "Strongest principled values position", "text-red-400", "border-red-400/30"],
   ["risk", "RISK", "Single most material inward risk", "text-amber-400", "border-amber-400/30"],
   ["assumption", "ASSUMPTION", "One best relevant WHAT IF", "text-cyan-400", "border-cyan-400/30"],
   ["emotionless_analysis", "EMOTIONLESS ANALYSIS", "Bias-stripped architectural reliability", "text-slate-300", "border-slate-400/30"]
 ];
+
+function hydrateLaneMetaFromContract() {
+  if (!OA_FRAMEWORK_CONTRACT?.lanes) return;
+
+  laneMeta = laneMeta.map(([key, label, fallback, textClass, borderClass]) => {
+    const lane = OA_FRAMEWORK_CONTRACT.lanes[key];
+
+    return [
+      key,
+      lane?.name?.toUpperCase() || label,
+      lane?.role || fallback,
+      textClass,
+      borderClass
+    ];
+  });
+}
 
   const scenario = document.getElementById("oaScenario");
   const problem = document.getElementById("oaProblem");
