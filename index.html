@@ -958,8 +958,24 @@ function getLaneDoctrine(key) {
 
   return parts.filter(Boolean).join(' ');
 }
-  function customCase(text) {
-    return {
+function getSynthesisDoctrine() {
+  const synthesis = OA_FRAMEWORK_CONTRACT?.synthesis;
+
+  if (!synthesis) return '';
+
+    const parts = [
+    `Trigger: ${synthesis.trigger}.`,
+    ...(synthesis.rules || []),
+    ...(synthesis.proposed_decision_style || []).map(
+      rule => `Decision style: ${rule}.`
+    )
+  ];
+
+  return parts.filter(Boolean).join(' ');
+}
+
+function customCase(text) {
+  return {
       title: "Custom operational case",
       problem: text,
 lanes: {
@@ -969,11 +985,11 @@ lanes: {
   assumption: getLaneDoctrine('assumption'),
   emotionless_analysis: getLaneDoctrine('emotionless_analysis')
 },
-      synthesis: {
-        majority: "V1 does not infer domain facts from free text. It demonstrates the jurisdictional sequence: strongest case, strongest contradiction, controlled test, consequence map, then evidence-only synthesis.",
-        dissent: "A framework can organize reasoning without discovering facts. The quality of the result is still bounded by the quality of the evidence supplied.",
-        decision_posture: "Do not force certainty. Improve the evidence until the decision becomes defensible."
-      }
+    synthesis: {
+  majority: getSynthesisDoctrine(),
+  dissent: "Open Court review occurs after the proposed Synthesis decision.",
+  decision_posture: "Emotionless Analysis completes last and triggers Synthesis."
+}  
     };
   }
 
