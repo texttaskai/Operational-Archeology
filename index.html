@@ -1203,8 +1203,33 @@ function recordCourtReaction(laneKey, position, reason = "") {
 
   return true;
 }
+function runInitialCourtPass() {
+  const court = window.OA_COURT_STATE?.open_court;
+
+  if (!court || court.status !== "ready") return false;
+
+  const reviewOrder = court.review_order || [];
+
+  reviewOrder.forEach((laneKey) => {
+    if (court.live_positions[laneKey]) return;
+
+    recordCourtReaction(
+      laneKey,
+      "CONCUR",
+      "Initial Open Court reaction."
+    );
+  });
+
+  return court.each_justice_has_reacted;
+}
+ 
+if (window.OA_COURT_STATE?.open_court?.status === "ready") {
+  runInitialCourtPass();
+}
+
 console.log("OA Court State:", window.OA_COURT_STATE);
-    renderCase(data, isCustom ? "custom" : "preset");
+
+renderCase(data, isCustom ? "custom" : "preset");  
   });
 
   reset.addEventListener("click", () => {
