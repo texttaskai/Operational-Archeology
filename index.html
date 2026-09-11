@@ -1139,7 +1139,30 @@ synthesis: proposedDecision,
 },
 
 open_court: {
-  status: "not_started"
+  status: proposedDecision.status === "proposed" ? "ready" : "not_started",
+
+  doctrine: OA_FRAMEWORK_CONTRACT?.open_court || null,
+
+  review_order:
+    OA_FRAMEWORK_CONTRACT?.open_court?.review_order || laneOrder,
+
+  minimum_deliberation:
+    OA_FRAMEWORK_CONTRACT?.open_court?.minimum_deliberation || "",
+
+  live_positions: {},
+
+  live_vote_count: {
+    concur: 0,
+    dissent: 0
+  },
+
+  arguments: [],
+
+  each_justice_has_reacted: false,
+
+  closure_eligible: false,
+
+  court_closed: false
 }
 };
 
