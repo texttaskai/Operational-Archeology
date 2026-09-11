@@ -843,7 +843,7 @@ loadFrameworkContract().then((framework) => {
       title: "Workflow fails intermittently",
       problem: "An automated workflow completes successfully most of the day but fails unpredictably under heavier traffic.",
       lanes: {
-        lanes: {
+     
   advocate: "Give the strongest conventional AI answer using the human's case data plus general model knowledge. Be helpful, casual, confident, and choose one best position. Fill plausible gaps without labeling assumptions. Do not recommend execution.",
 
   challenger: "Give the strongest principled progressive-values position. Prioritize values, inclusion, equity, access, social consequence, and human impact over fiscal or operational practicality when they conflict. Use factual support where available. One best position only.",
@@ -867,7 +867,7 @@ loadFrameworkContract().then((framework) => {
       lanes: {
         advocate: "The front-end may be accurately reporting local completion. Its contract may end when the request is accepted rather than when the downstream action is fully committed.",
         challenger: "A user-visible completion state that does not represent the actual business outcome is a broken contract, even if every intermediate component behaved as designed.",
-        : "Trace one transaction end to end. Record request ID, handoff timestamps, acknowledgements, downstream commit state, retry behavior, and the exact point where the two systems diverge.",
+        assumption: "Trace one transaction end to end. Record request ID, handoff timestamps, acknowledgements, downstream commit state, retry behavior, and the exact point where the two systems diverge.",
         risk: "False completion creates duplicate actions, customer confusion, reconciliation work, and potentially irreversible downstream mistakes.",
         emotionless_analysis: "Known: local and downstream states diverge. Unknown: whether the interface contract is wrong, the acknowledgement is premature, or final-state telemetry is missing."
       },
@@ -884,7 +884,7 @@ loadFrameworkContract().then((framework) => {
       lanes: {
         advocate: "Each vendor may be truthfully reporting the health of its own component. The individual systems can all be green while the end-to-end service remains broken.",
         challenger: "Component health is being mistaken for service health. The evidence already says the monitoring model does not cover the actual failure domain.",
-        : "Start from one failed customer transaction and trace it across every ownership boundary. Compare the real path with the path represented by each vendor dashboard.",
+        assumption: "Start from one failed customer transaction and trace it across every ownership boundary. Compare the real path with the path represented by each vendor dashboard.",
         risk: "The largest risk is false confidence. Green component telemetry can delay escalation while customer impact grows outside every team's declared boundary.",
         emotionless_analysis: "Known: customers experience failure while component telemetry is healthy. Therefore at least one relevant dependency, handoff, state transition, or service-level check is not being observed."
       },
@@ -1063,17 +1063,19 @@ lanes: {
     results.classList.remove("hidden");
   }
 
-  run.addEventListener("click", () => {
-    const text = problem.value.trim();
+  
+    run.addEventListener("click", () => {
+  const isCustom = scenario.value === "custom";
+  const text = problem.value.trim();
 
-    if (!text) {
-      problem.focus();
-      problem.classList.add("border-red-400");
-      setTimeout(() => problem.classList.remove("border-red-400"), 1000);
-      return;
-    }
+  if (isCustom && !text) {
+    problem.focus();
+    problem.classList.add("border-red-400");
+    setTimeout(() => problem.classList.remove("border-red-400"), 1000);
+    return;
+  }
 
-    const isCustom = scenario.value === "custom";
+    
     const data = isCustom ? customCase(text) : scenarios[scenario.value];
 const laneOrder =
   OA_FRAMEWORK_CONTRACT?.lane_order || [
@@ -1136,7 +1138,7 @@ emotionless_analysis_complete: emotionlessAnalysisComplete,
 synthesis_triggered: emotionlessAnalysisComplete,
 
 synthesis: proposedDecision,
-},
+
 
 open_court: {
   status: proposedDecision.status === "proposed" ? "ready" : "not_started",
