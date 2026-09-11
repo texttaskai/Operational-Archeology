@@ -1095,7 +1095,26 @@ laneOrder.forEach((laneKey) => {
 
 const emotionlessAnalysisComplete =
   bestAndFinals.emotionless_analysis?.status === "complete";
+const synthesisDoctrine = OA_FRAMEWORK_CONTRACT?.synthesis || null;
 
+const proposedDecision = emotionlessAnalysisComplete
+  ? {
+      status: "proposed",
+      justice_agnostic: true,
+      source_positions: laneOrder.map((laneKey) => ({
+        lane: laneKey,
+        position: bestAndFinals[laneKey]?.position || ""
+      })),
+      doctrine: synthesisDoctrine,
+      decision: data.synthesis?.majority || ""
+    }
+  : {
+      status: "waiting",
+      justice_agnostic: true,
+      source_positions: [],
+      doctrine: synthesisDoctrine,
+      decision: ""
+    };
 window.OA_COURT_STATE = {
   contract: CONTRACT,
   case: {
@@ -1116,8 +1135,7 @@ emotionless_analysis_complete: emotionlessAnalysisComplete,
 
 synthesis_triggered: emotionlessAnalysisComplete,
 
-synthesis: {
-  status: emotionlessAnalysisComplete ? "ready" : "waiting"
+synthesis: proposedDecision,
 },
 
 open_court: {
