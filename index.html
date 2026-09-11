@@ -776,8 +776,8 @@ let OA_FRAMEWORK_CONTRACT = null;
 
 async function loadFrameworkContract() {
   try {
-    const response = await fetch('./framework-court.json', {
-      cache: 'no-store'
+const response = await fetch('./framework-court-1.json', {      
+  cache: 'no-store'
     });
 
     if (!response.ok) {
@@ -801,7 +801,7 @@ if (statusEl) {
 
     return OA_FRAMEWORK_CONTRACT;
   } catch (error) {
-    console.error('Unable to load framework-court.json', error);
+    console.error('Unable to load framework-court-1.json', error);
     const statusEl = document.getElementById('oaContractStatus');
 
 if (statusEl) {
