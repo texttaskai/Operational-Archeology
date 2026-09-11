@@ -1075,7 +1075,57 @@ lanes: {
 
     const isCustom = scenario.value === "custom";
     const data = isCustom ? customCase(text) : scenarios[scenario.value];
+const laneOrder =
+  OA_FRAMEWORK_CONTRACT?.lane_order || [
+    "advocate",
+    "challenger",
+    "risk",
+    "assumption",
+    "emotionless_analysis"
+  ];
 
+const bestAndFinals = {};
+
+laneOrder.forEach((laneKey) => {
+  bestAndFinals[laneKey] = {
+    status: "complete",
+    position: data.lanes?.[laneKey] || ""
+  };
+});
+
+const emotionlessAnalysisComplete =
+  bestAndFinals.emotionless_analysis?.status === "complete";
+
+window.OA_COURT_STATE = {
+  contract: CONTRACT,
+  case: {
+    title: data.title,
+    problem: data.problem,
+    source: isCustom ? "custom" : "preset"
+  },
+
+  phase: emotionlessAnalysisComplete
+  ? "SYNTHESIS_READY"
+  : "BEST_AND_FINAL",
+
+lane_order: laneOrder,
+
+best_and_finals: bestAndFinals,
+
+emotionless_analysis_complete: emotionlessAnalysisComplete,
+
+synthesis_triggered: emotionlessAnalysisComplete,
+
+synthesis: {
+  status: emotionlessAnalysisComplete ? "ready" : "waiting"
+},
+
+open_court: {
+  status: "not_started"
+}
+};
+
+console.log("OA Court State:", window.OA_COURT_STATE);
     renderCase(data, isCustom ? "custom" : "preset");
   });
 
