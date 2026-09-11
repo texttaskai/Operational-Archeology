@@ -943,18 +943,32 @@ function hydrateLaneMetaFromContract() {
     }
     problem.value = scenarios[scenario.value].problem;
   }
+function getLaneDoctrine(key) {
+  const lane = OA_FRAMEWORK_CONTRACT?.lanes?.[key];
 
+  if (!lane) return '';
+
+  const parts = [
+    lane.role,
+    lane.voice ? `Voice: ${lane.voice}` : '',
+    ...(lane.behavior || []),
+    ...(lane.evidence_rules || []),
+    ...(lane.must_not || []).map(rule => `Do not: ${rule}`)
+  ];
+
+  return parts.filter(Boolean).join(' ');
+}
   function customCase(text) {
     return {
       title: "Custom operational case",
       problem: text,
-      lanes: {
-        advocate: "Assume there is a coherent reason the system reached this state. Build the strongest explanation that preserves the current architecture before proposing change.",
-        challenger: "Assume the obvious explanation is incomplete. Look for conflicting evidence, missing ownership boundaries, hidden dependencies, and conditions that would make the current story false.",
-        assumption: "Create the smallest safe reproduction of the problem. Freeze what can be frozen, change one variable at a time, and surface the strongest relevant WHAT IF.",
-        risk: "Map what can propagate, what can become irreversible, who or what is downstream, and which failure deserves containment before diagnosis is complete.",
-        emotionless_analysis: "Separate directly supported evidence from interpretation. Do not allow confidence, title, vendor reputation, or preferred outcome to cross between the two."
-      },
+lanes: {
+  advocate: getLaneDoctrine('advocate'),
+  challenger: getLaneDoctrine('challenger'),
+  risk: getLaneDoctrine('risk'),
+  assumption: getLaneDoctrine('assumption'),
+  emotionless_analysis: getLaneDoctrine('emotionless_analysis')
+},
       synthesis: {
         majority: "V1 does not infer domain facts from free text. It demonstrates the jurisdictional sequence: strongest case, strongest contradiction, controlled test, consequence map, then evidence-only synthesis.",
         dissent: "A framework can organize reasoning without discovering facts. The quality of the result is still bounded by the quality of the evidence supplied.",
