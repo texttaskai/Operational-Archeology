@@ -442,20 +442,8 @@
               </div>
             </div>
 
-            <label for="oaScenario" class="mt-6 block font-mono text-[9px] uppercase tracking-[.18em] text-slate-500">
-              Choose a test case
-            </label>
-            <select id="oaScenario"
-              class="mt-2 w-full rounded-lg border border-white/[.10] bg-[#050912] px-4 py-3 text-sm text-slate-200 outline-none transition focus:border-oa-cyan">
-              <option value="ai-inconsistent">AI gives inconsistent answers</option>
-              <option value="workflow-intermittent">Workflow fails intermittently</option>
-              <option value="state-disagreement">Two systems disagree about state</option>
-              <option value="vendor-green">Vendor says everything is green</option>
-              <option value="custom">Give me my own problem</option>
-            </select>
-
-            <label for="oaProblem" class="mt-5 block font-mono text-[9px] uppercase tracking-[.18em] text-slate-500">
-              Operational problem
+            <label for="oaProblem" class="mt-6 block font-mono text-[9px] uppercase tracking-[.18em] text-slate-500">
+              Give the system a problem
             </label>
             <textarea id="oaProblem" rows="7"
               class="mt-2 w-full resize-none rounded-lg border border-white/[.10] bg-[#050912] px-4 py-4 text-sm leading-relaxed text-slate-200 outline-none transition placeholder:text-slate-700 focus:border-oa-cyan"
@@ -488,14 +476,19 @@
                 <div class="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full border border-oa-cyan/30 bg-oa-cyan/5 font-mono text-lg text-oa-cyan">
                   5L
                 </div>
-                <h3 class="font-serif text-2xl uppercase text-white">No case loaded</h3>
+                <h3 class="font-serif text-2xl uppercase text-white">Give the system problems. See what survives.</h3>
                 <p class="mt-3 text-sm leading-relaxed text-slate-500">
-                  Choose a scenario, inspect the problem statement, then run it through the five jurisdictional lanes. The point is not instant agreement. The disagreement is part of the evidence.
+                  Describe the problem plainly, then run it through the five jurisdictional lanes. The point is not instant agreement. The disagreement is part of the evidence.
                 </p>
               </div>
             </div>
 
             <div id="oaResults" class="hidden space-y-4">
+
+              <div class="rounded-2xl border border-oa-cyan/20 bg-oa-cyan/[.04] p-5 sm:p-6">
+                <p id="oaQuickStatus" class="font-mono text-[10px] font-bold uppercase tracking-[.18em] text-oa-cyan"></p>
+                <p id="oaQuickReadout" class="mt-2 text-sm leading-relaxed text-white"></p>
+              </div>
 
               <div class="future rounded-2xl p-6 sm:p-7">
                 <div class="flex items-start justify-between gap-5">
@@ -940,7 +933,6 @@ function hydrateLaneMetaFromContract() {
   });
 }
 
-  const scenario = document.getElementById("oaScenario");
   const problem = document.getElementById("oaProblem");
   const run = document.getElementById("oaRunButton");
   const reset = document.getElementById("oaResetButton");
@@ -953,16 +945,7 @@ function hydrateLaneMetaFromContract() {
 
   let activeReceipt = null;
 
-  if (!scenario || !problem || !run || !reset || !empty || !results || !laneGrid) return;
-
-  function loadScenario() {
-    if (scenario.value === "custom") {
-      problem.value = "";
-      problem.focus();
-      return;
-    }
-    problem.value = scenarios[scenario.value].problem;
-  }
+  if (!problem || !run || !reset || !empty || !results || !laneGrid) return;
 function getLaneDoctrine(key) {
   const lane = OA_FRAMEWORK_CONTRACT?.lanes?.[key];
 
@@ -1079,16 +1062,35 @@ lanes: {
     receiptJson.classList.add("hidden");
     if (toggleReceipt) toggleReceipt.textContent = "View JSON";
 
+    const quickStatus = document.getElementById("oaQuickStatus");
+    const quickReadout = document.getElementById("oaQuickReadout");
+    const courtState = window.OA_COURT_STATE;
+
+    if (quickStatus && quickReadout) {
+      if (
+        courtState?.phase === "SYNTHESIS_READY" &&
+        courtState?.open_court?.status === "ready"
+      ) {
+        quickStatus.textContent = "Open Court Ready";
+        quickReadout.textContent =
+          "Problem accepted. Five jurisdictional lanes completed their initial review; the proposed synthesis is ready for Open Court.";
+      } else {
+        quickStatus.textContent = "Review In Progress";
+        quickReadout.textContent =
+          "Problem accepted. Jurisdictional review is still in progress.";
+      }
+    }
+
     empty.classList.add("hidden");
     results.classList.remove("hidden");
+    results.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
   
     run.addEventListener("click", () => {
-  const isCustom = scenario.value === "custom";
   const text = problem.value.trim();
 
-  if (isCustom && !text) {
+  if (!text) {
     problem.focus();
     problem.classList.add("border-red-400");
     setTimeout(() => problem.classList.remove("border-red-400"), 1000);
@@ -1096,7 +1098,7 @@ lanes: {
   }
 
     
-    const data = isCustom ? customCase(text) : scenarios[scenario.value];
+    const data = customCase(text);
 const laneOrder =
   OA_FRAMEWORK_CONTRACT?.lane_order || [
     "advocate",
@@ -1142,7 +1144,7 @@ window.OA_COURT_STATE = {
   case: {
     title: data.title,
     problem: data.problem,
-    source: isCustom ? "custom" : "preset"
+    source: "custom"
   },
 
   phase: emotionlessAnalysisComplete
@@ -1251,20 +1253,17 @@ if (window.OA_COURT_STATE?.open_court?.status === "ready") {
 
 console.log("OA Court State:", window.OA_COURT_STATE);
 
-renderCase(data, isCustom ? "custom" : "preset");  
+renderCase(data, "custom");
   });
 
   reset.addEventListener("click", () => {
-    scenario.value = "ai-inconsistent";
-    loadScenario();
+    problem.value = "";
     activeReceipt = null;
     receiptJson.textContent = "";
     receiptJson.classList.add("hidden");
     results.classList.add("hidden");
     empty.classList.remove("hidden");
   });
-
-  scenario.addEventListener("change", loadScenario);
 
   if (toggleReceipt) {
     toggleReceipt.addEventListener("click", () => {
@@ -1290,7 +1289,6 @@ renderCase(data, isCustom ? "custom" : "preset");
     });
   }
 
-  loadScenario();
 })();
 </script>
 
