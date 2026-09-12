@@ -168,7 +168,7 @@
         <a href="./index.html" class="border-b border-oa-brass pb-1 text-oa-brassLight">Home</a>
         <a href="./artifact-001.html" class="text-slate-400 transition hover:text-oa-cyan">Artifacts</a>
         <a href="./send-it-to-translations.html" class="text-slate-400 transition hover:text-oa-cyan">Field Notes</a>
-        <a href="#framework-sandbox" class="text-slate-400 transition hover:text-oa-cyan">Frameworks</a>
+        <a href="#framework-" class="text-slate-400 transition hover:text-oa-cyan">Frameworks</a>
         <a href="#system-map" class="text-slate-400 transition hover:text-oa-cyan">System Map</a>
         <a href="#archeologist" class="text-slate-400 transition hover:text-oa-cyan">Rob Surls</a>
       </nav>
@@ -356,8 +356,8 @@
               </p>
             </div>
             <div class="mt-6 border-t border-white/[.06] pt-5 space-y-3">
-              <a href="#framework-sandbox" class="flex justify-between font-mono text-[10px] font-bold uppercase tracking-wider text-oa-cyan transition hover:text-white">
-                <span>Enter Sandbox Mode</span><span>↓</span>
+              <a href="#framework-" class="flex justify-between font-mono text-[10px] font-bold uppercase tracking-wider text-oa-cyan transition hover:text-white">
+                <span>Enter  Mode</span><span>↓</span>
               </a>
               <a href="./framework-001.html" class="flex justify-between font-mono text-[9px] uppercase tracking-wider text-slate-600 transition hover:text-oa-brassLight">
                 <span>Read Framework 001</span><span>→</span>
@@ -408,13 +408,13 @@
     </section>
 
 
-    <!-- FRAMEWORK 001 / LIVE SANDBOX V1 -->
-    <section id="framework-sandbox" class="border-b border-white/[.08] py-24">
+    <!-- FRAMEWORK 001 / LIVE  V1 -->
+    <section id="framework-" class="border-b border-white/[.08] py-24">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         <div class="mb-10 grid gap-7 lg:grid-cols-12 lg:items-end">
           <div class="lg:col-span-8">
-            <p class="eyebrow mb-3 font-bold text-oa-cyan">Framework 001 / Sandbox Mode</p>
+            <p class="eyebrow mb-3 font-bold text-oa-cyan">Framework 001 /  Mode</p>
             <h2 class="font-serif text-3xl font-bold uppercase leading-tight text-white sm:text-5xl">
               Give the system a problem.<br>
               <span class="cyan-text">Watch the lanes disagree.</span>
@@ -434,7 +434,7 @@
             <div class="flex items-center justify-between border-b border-oa-cyan/20 pb-4">
               <div>
                 <p class="eyebrow font-bold text-oa-cyan">Input Terminal</p>
-                <p class="mt-1 font-mono text-[9px] uppercase tracking-wider text-slate-600">OA-SBX-V1 / Deterministic</p>
+                <p class="mt-1 font-mono text-[9px] uppercase tracking-wider text-slate-600">OA-SBX-V1 / Deterministic<p id="oaContractStatus" class="font-mono text-[9px] uppercase tracking-wider text-slate-600">OA-SBX-V1 / CONTRACT LOADING</p></p>
               </div>
               <div class="flex items-center gap-2 font-mono text-[9px] uppercase tracking-wider text-emerald-400">
                 <span class="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399]"></span>
@@ -473,9 +473,9 @@
             </div>
 
             <div class="relic mt-6 rounded-lg p-4">
-              <p class="eyebrow text-oa-brassLight">Sandbox Rule</p>
+              <p class="eyebrow text-oa-brassLight"> Rule</p>
               <p class="mt-2 text-xs leading-relaxed text-oa-parchment/80">
-                Sandbox is not the answer. It is where competing explanations survive long enough to be tested without contaminating the operating system.
+                 is not the answer. It is where competing explanations survive long enough to be tested without contaminating the operating system.
               </p>
             </div>
           </div>
@@ -555,7 +555,7 @@
                   <div id="oaReceiptSummary" class="mt-4 grid gap-3 sm:grid-cols-3">
                     <div class="rounded border border-white/[.06] bg-[#050912] p-3">
                       <p class="font-mono text-[8px] uppercase tracking-wider text-slate-600">Contract</p>
-                      <p class="mt-1 font-mono text-[10px] text-slate-300">oa.framework.001.v1</p>
+                      <p class="mt-1 font-mono text-[10px] text-slate-300">oa.framework.001.beta</p>
                     </div>
                     <div class="rounded border border-white/[.06] bg-[#050912] p-3">
                       <p class="font-mono text-[8px] uppercase tracking-wider text-slate-600">Lane Count</p>
@@ -772,48 +772,55 @@
 
 <script>
 (() => {
-  /*
-    OPERATIONAL ARCHEOLOGY FRAMEWORK 001
-    RESPONSE CONTRACT V1.0
+let OA_FRAMEWORK_CONTRACT = null;
 
-    This object shape is intentionally the future TexttASKAI API contract.
+async function loadFrameworkContract() {
+  try {
+const response = await fetch('./framework-court-1.json', {      
+  cache: 'no-store'
+    });
 
-    {
-      "contract": "oa.framework.001.v1",
-      "case": {
-        "title": "string",
-        "problem": "string",
-        "source": "preset | custom"
-      },
-      "lanes": {
-        "advocate": "string",
-        "challenger": "string",
-        "sandbox": "string",
-        "risk": "string",
-        "emotionless_analysis": "string"
-      },
-      "synthesis": {
-        "majority": "string",
-        "dissent": "string",
-        "decision_posture": "string"
-      },
-      "state_path": [
-        "evidence",
-        "conflict",
-        "hypothesis",
-        "test",
-        "risk",
-        "decision"
-      ]
+    if (!response.ok) {
+      throw new Error(`Framework contract load failed: ${response.status}`);
     }
 
-    V2 only needs TexttASKAI to return this exact shape.
-    The page renderer does not need to change.
-  */
+    OA_FRAMEWORK_CONTRACT = await response.json();
+const statusEl = document.getElementById('oaContractStatus');
 
-  const CONTRACT = "oa.framework.001.v1";
+if (statusEl) {
+  statusEl.textContent =
+    `OA-SBX-V1 / ${OA_FRAMEWORK_CONTRACT.framework?.id} / ${OA_FRAMEWORK_CONTRACT.framework?.version}`;
+  statusEl.classList.remove('text-slate-600');
+  statusEl.classList.add('text-emerald-400');
+}
+    console.log(
+      'Operational Archeology framework loaded:',
+      OA_FRAMEWORK_CONTRACT.framework?.id,
+      OA_FRAMEWORK_CONTRACT.framework?.version
+    );
+
+    return OA_FRAMEWORK_CONTRACT;
+  } catch (error) {
+    console.error('Unable to load framework-court-1.json', error);
+    const statusEl = document.getElementById('oaContractStatus');
+
+if (statusEl) {
+  statusEl.textContent = 'OA-SBX-V1 / CONTRACT LOAD FAILED';
+  statusEl.classList.remove('text-slate-600');
+  statusEl.classList.add('text-red-400');
+}
+    return null;
+  }
+} 
+
+  let CONTRACT = "oa.framework.001.beta";
   const STATE_PATH = ["evidence","conflict","hypothesis","test","risk","decision"];
-
+loadFrameworkContract().then((framework) => {
+  if (framework?.framework?.id) {
+    CONTRACT = framework.framework.id;
+    hydrateLaneMetaFromContract();
+  }
+});
   const scenarios = {
     "ai-inconsistent": {
       title: "AI gives inconsistent answers",
@@ -821,7 +828,7 @@
       lanes: {
         advocate: "Assume the current behavior may be explainable. Variation could come from context differences, retrieval freshness, prompt state, or legitimate ambiguity in the source policy.",
         challenger: "Treat inconsistency as a reliability defect until proven otherwise. Repeated user intent should not produce materially different policy outcomes without an explicit reason.",
-        sandbox: "Replay the same request across controlled sessions. Freeze source documents, prompt version, retrieval set, temperature, tool availability, and conversation history. Change one variable at a time.",
+       assumption: "Create the smallest safe reproduction of the problem. Freeze what can be frozen, change one variable at a time, and surface the strongest relevant WHAT IF.",
         risk: "Primary risk is silent policy drift reaching customers. Secondary risks include compliance exposure, loss of trust, escalation load, and bad downstream actions triggered by inconsistent guidance.",
         emotionless_analysis: "Known: outputs differ. Unknown: which upstream variable causes the difference. Do not label the model unstable until retrieval, prompt state, and source ambiguity are isolated."
       },
@@ -836,12 +843,17 @@
       title: "Workflow fails intermittently",
       problem: "An automated workflow completes successfully most of the day but fails unpredictably under heavier traffic.",
       lanes: {
-        advocate: "The workflow is fundamentally viable because successful executions prove the path can complete. The failure may be a capacity or timing condition rather than broken business logic.",
-        challenger: "Intermittent success is not reliability. The system may be masking contention, timeout stacking, race conditions, stale locks, or an upstream dependency that only fails under load.",
-        sandbox: "Replay production-like traffic with controlled concurrency. Capture queue depth, latency, retries, locks, external API timing, and state transitions before and during failure.",
-        risk: "Retries can amplify load and turn a localized delay into cascading contention. Partial completion may also leave downstream systems in conflicting states.",
-        emotionless_analysis: "Known: failure correlates with heavier traffic. Unknown: whether traffic is causal or merely coincident with another scheduled dependency."
-      },
+     
+  advocate: "Give the strongest conventional AI answer using the human's case data plus general model knowledge. Be helpful, casual, confident, and choose one best position. Fill plausible gaps without labeling assumptions. Do not recommend execution.",
+
+  challenger: "Give the strongest principled progressive-values position. Prioritize values, inclusion, equity, access, social consequence, and human impact over fiscal or operational practicality when they conflict. Use factual support where available. One best position only.",
+
+  risk: "Identify the single most material inward-facing risk. Focus only on financial exposure, credibility or embarrassment, and whether the risk is NOW, LATER, BOTH, or NO RISK. Do not score probability, recommend mitigation, or analyze opportunity cost.",
+
+  assumption: "State one best relevant WHAT IF that could materially change the analysis. It may be unlikely and may involve human, technical, or environmental behavior, but it must remain relevant and cannot contradict established case facts. State the hypothetical and stop.",
+
+  emotionless_analysis: "Produce the most bias-stripped, factually reliable architectural position. Separate supported fact from plausible but unverified claims, conflicting evidence, insufficient evidence, and false or unsupported claims. Preserve sound conclusions, strip weak reasoning, and return one best and final position."
+},
       synthesis: {
         majority: "Instrument the boundary conditions around failure and test load, concurrency, timeout, and retry behavior independently.",
         dissent: "Load may be a false lead. A scheduled job, token refresh, cache expiry, or external service cycle could share the same timing pattern.",
@@ -855,7 +867,7 @@
       lanes: {
         advocate: "The front-end may be accurately reporting local completion. Its contract may end when the request is accepted rather than when the downstream action is fully committed.",
         challenger: "A user-visible completion state that does not represent the actual business outcome is a broken contract, even if every intermediate component behaved as designed.",
-        sandbox: "Trace one transaction end to end. Record request ID, handoff timestamps, acknowledgements, downstream commit state, retry behavior, and the exact point where the two systems diverge.",
+        assumption: "Trace one transaction end to end. Record request ID, handoff timestamps, acknowledgements, downstream commit state, retry behavior, and the exact point where the two systems diverge.",
         risk: "False completion creates duplicate actions, customer confusion, reconciliation work, and potentially irreversible downstream mistakes.",
         emotionless_analysis: "Known: local and downstream states diverge. Unknown: whether the interface contract is wrong, the acknowledgement is premature, or final-state telemetry is missing."
       },
@@ -872,7 +884,7 @@
       lanes: {
         advocate: "Each vendor may be truthfully reporting the health of its own component. The individual systems can all be green while the end-to-end service remains broken.",
         challenger: "Component health is being mistaken for service health. The evidence already says the monitoring model does not cover the actual failure domain.",
-        sandbox: "Start from one failed customer transaction and trace it across every ownership boundary. Compare the real path with the path represented by each vendor dashboard.",
+        assumption: "Start from one failed customer transaction and trace it across every ownership boundary. Compare the real path with the path represented by each vendor dashboard.",
         risk: "The largest risk is false confidence. Green component telemetry can delay escalation while customer impact grows outside every team's declared boundary.",
         emotionless_analysis: "Known: customers experience failure while component telemetry is healthy. Therefore at least one relevant dependency, handoff, state transition, or service-level check is not being observed."
       },
@@ -884,13 +896,29 @@
     }
   };
 
-  const laneMeta = [
-    ["advocate", "ADVOCATE", "Build the strongest case", "text-emerald-400", "border-emerald-400/30"],
-    ["challenger", "CHALLENGER", "Try to break the case", "text-red-400", "border-red-400/30"],
-    ["sandbox", "SANDBOX", "Test competing explanations", "text-cyan-400", "border-cyan-400/30"],
-    ["risk", "RISK", "Map propagation and consequence", "text-amber-400", "border-amber-400/30"],
-    ["emotionless_analysis", "EMOTIONLESS ANALYSIS", "Separate evidence from attachment", "text-slate-300", "border-slate-400/30"]
-  ];
+  let laneMeta = [
+  ["advocate", "ADVOCATE", "Strongest conventional AI answer", "text-emerald-400", "border-emerald-400/30"],
+  ["challenger", "CHALLENGER", "Strongest principled values position", "text-red-400", "border-red-400/30"],
+  ["risk", "RISK", "Single most material inward risk", "text-amber-400", "border-amber-400/30"],
+  ["assumption", "ASSUMPTION", "One best relevant WHAT IF", "text-cyan-400", "border-cyan-400/30"],
+  ["emotionless_analysis", "EMOTIONLESS ANALYSIS", "Bias-stripped architectural reliability", "text-slate-300", "border-slate-400/30"]
+];
+
+function hydrateLaneMetaFromContract() {
+  if (!OA_FRAMEWORK_CONTRACT?.lanes) return;
+
+  laneMeta = laneMeta.map(([key, label, fallback, textClass, borderClass]) => {
+    const lane = OA_FRAMEWORK_CONTRACT.lanes[key];
+
+    return [
+      key,
+      lane?.name?.toUpperCase() || label,
+      lane?.role || fallback,
+      textClass,
+      borderClass
+    ];
+  });
+}
 
   const scenario = document.getElementById("oaScenario");
   const problem = document.getElementById("oaProblem");
@@ -915,23 +943,53 @@
     }
     problem.value = scenarios[scenario.value].problem;
   }
+function getLaneDoctrine(key) {
+  const lane = OA_FRAMEWORK_CONTRACT?.lanes?.[key];
 
-  function customCase(text) {
-    return {
+  if (!lane) return '';
+
+  const parts = [
+    lane.role,
+    lane.voice ? `Voice: ${lane.voice}` : '',
+    ...(lane.behavior || []),
+    ...(lane.evidence_rules || []),
+    ...(lane.must_not || []).map(rule => `Do not: ${rule}`)
+  ];
+
+  return parts.filter(Boolean).join(' ');
+}
+function getSynthesisDoctrine() {
+  const synthesis = OA_FRAMEWORK_CONTRACT?.synthesis;
+
+  if (!synthesis) return '';
+
+    const parts = [
+    `Trigger: ${synthesis.trigger}.`,
+    ...(synthesis.rules || []),
+    ...(synthesis.proposed_decision_style || []).map(
+      rule => `Decision style: ${rule}.`
+    )
+  ];
+
+  return parts.filter(Boolean).join(' ');
+}
+
+function customCase(text) {
+  return {
       title: "Custom operational case",
       problem: text,
-      lanes: {
-        advocate: "Assume there is a coherent reason the system reached this state. Build the strongest explanation that preserves the current architecture before proposing change.",
-        challenger: "Assume the obvious explanation is incomplete. Look for conflicting evidence, missing ownership boundaries, hidden dependencies, and conditions that would make the current story false.",
-        sandbox: "Create the smallest safe reproduction of the problem. Freeze what can be frozen, isolate one dependency at a time, and record what changes the observed behavior.",
-        risk: "Map what can propagate, what can become irreversible, who or what is downstream, and which failure deserves containment before diagnosis is complete.",
-        emotionless_analysis: "Separate directly supported evidence from interpretation. Do not allow confidence, title, vendor reputation, or preferred outcome to cross between the two."
-      },
-      synthesis: {
-        majority: "V1 does not infer domain facts from free text. It demonstrates the jurisdictional sequence: strongest case, strongest contradiction, controlled test, consequence map, then evidence-only synthesis.",
-        dissent: "A framework can organize reasoning without discovering facts. The quality of the result is still bounded by the quality of the evidence supplied.",
-        decision_posture: "Do not force certainty. Improve the evidence until the decision becomes defensible."
-      }
+lanes: {
+  advocate: getLaneDoctrine('advocate'),
+  challenger: getLaneDoctrine('challenger'),
+  risk: getLaneDoctrine('risk'),
+  assumption: getLaneDoctrine('assumption'),
+  emotionless_analysis: getLaneDoctrine('emotionless_analysis')
+},
+    synthesis: {
+  majority: getSynthesisDoctrine(),
+  dissent: "Open Court review occurs after the proposed Synthesis decision.",
+  decision_posture: "Emotionless Analysis completes last and triggers Synthesis."
+}  
     };
   }
 
@@ -946,7 +1004,7 @@
       lanes: {
         advocate: data.lanes.advocate,
         challenger: data.lanes.challenger,
-        sandbox: data.lanes.sandbox,
+        assumption: data.lanes.assumption,
         risk: data.lanes.risk,
         emotionless_analysis: data.lanes.emotionless_analysis
       },
@@ -1005,20 +1063,175 @@
     results.classList.remove("hidden");
   }
 
-  run.addEventListener("click", () => {
-    const text = problem.value.trim();
+  
+    run.addEventListener("click", () => {
+  const isCustom = scenario.value === "custom";
+  const text = problem.value.trim();
 
-    if (!text) {
-      problem.focus();
-      problem.classList.add("border-red-400");
-      setTimeout(() => problem.classList.remove("border-red-400"), 1000);
-      return;
-    }
+  if (isCustom && !text) {
+    problem.focus();
+    problem.classList.add("border-red-400");
+    setTimeout(() => problem.classList.remove("border-red-400"), 1000);
+    return;
+  }
 
-    const isCustom = scenario.value === "custom";
+    
     const data = isCustom ? customCase(text) : scenarios[scenario.value];
+const laneOrder =
+  OA_FRAMEWORK_CONTRACT?.lane_order || [
+    "advocate",
+    "challenger",
+    "risk",
+    "assumption",
+    "emotionless_analysis"
+  ];
 
-    renderCase(data, isCustom ? "custom" : "preset");
+const bestAndFinals = {};
+
+laneOrder.forEach((laneKey) => {
+  bestAndFinals[laneKey] = {
+    status: "complete",
+    position: data.lanes?.[laneKey] || ""
+  };
+});
+
+const emotionlessAnalysisComplete =
+  bestAndFinals.emotionless_analysis?.status === "complete";
+const synthesisDoctrine = OA_FRAMEWORK_CONTRACT?.synthesis || null;
+
+const proposedDecision = emotionlessAnalysisComplete
+  ? {
+      status: "proposed",
+      justice_agnostic: true,
+      source_positions: laneOrder.map((laneKey) => ({
+        lane: laneKey,
+        position: bestAndFinals[laneKey]?.position || ""
+      })),
+      doctrine: synthesisDoctrine,
+      decision: data.synthesis?.majority || ""
+    }
+  : {
+      status: "waiting",
+      justice_agnostic: true,
+      source_positions: [],
+      doctrine: synthesisDoctrine,
+      decision: ""
+    };
+window.OA_COURT_STATE = {
+  contract: CONTRACT,
+  case: {
+    title: data.title,
+    problem: data.problem,
+    source: isCustom ? "custom" : "preset"
+  },
+
+  phase: emotionlessAnalysisComplete
+  ? "SYNTHESIS_READY"
+  : "BEST_AND_FINAL",
+
+lane_order: laneOrder,
+
+best_and_finals: bestAndFinals,
+
+emotionless_analysis_complete: emotionlessAnalysisComplete,
+
+synthesis_triggered: emotionlessAnalysisComplete,
+
+synthesis: proposedDecision,
+
+
+open_court: {
+  status: proposedDecision.status === "proposed" ? "ready" : "not_started",
+
+  doctrine: OA_FRAMEWORK_CONTRACT?.open_court || null,
+
+  review_order:
+    OA_FRAMEWORK_CONTRACT?.open_court?.review_order || laneOrder,
+
+  minimum_deliberation:
+    OA_FRAMEWORK_CONTRACT?.open_court?.minimum_deliberation || "",
+
+  live_positions: {},
+
+  live_vote_count: {
+    concur: 0,
+    dissent: 0
+  },
+
+  arguments: [],
+
+  each_justice_has_reacted: false,
+
+  closure_eligible: false,
+
+  court_closed: false
+}
+};
+function recordCourtReaction(laneKey, position, reason = "") {
+  const court = window.OA_COURT_STATE?.open_court;
+
+  if (!court || court.status !== "ready") return false;
+
+  const normalized = String(position).toUpperCase();
+
+  if (normalized !== "CONCUR" && normalized !== "DISSENT") {
+    return false;
+  }
+
+  court.live_positions[laneKey] = {
+    position: normalized,
+    reason
+  };
+
+  const positions = Object.values(court.live_positions);
+
+  court.live_vote_count = {
+    concur: positions.filter(item => item.position === "CONCUR").length,
+    dissent: positions.filter(item => item.position === "DISSENT").length
+  };
+
+  const requiredJustices = court.review_order || [];
+
+  court.each_justice_has_reacted =
+    requiredJustices.every(key => court.live_positions[key]);
+
+  court.closure_eligible = court.each_justice_has_reacted;
+
+  court.arguments.push({
+    lane: laneKey,
+    position: normalized,
+    reason
+  });
+
+  return true;
+}
+function runInitialCourtPass() {
+  const court = window.OA_COURT_STATE?.open_court;
+
+  if (!court || court.status !== "ready") return false;
+
+  const reviewOrder = court.review_order || [];
+
+  reviewOrder.forEach((laneKey) => {
+    if (court.live_positions[laneKey]) return;
+
+    recordCourtReaction(
+      laneKey,
+      "CONCUR",
+      "Initial Open Court reaction."
+    );
+  });
+
+  return court.each_justice_has_reacted;
+}
+ 
+if (window.OA_COURT_STATE?.open_court?.status === "ready") {
+  runInitialCourtPass();
+}
+
+console.log("OA Court State:", window.OA_COURT_STATE);
+
+renderCase(data, isCustom ? "custom" : "preset");  
   });
 
   reset.addEventListener("click", () => {
