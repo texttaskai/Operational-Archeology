@@ -555,7 +555,7 @@
                   <div id="oaReceiptSummary" class="mt-4 grid gap-3 sm:grid-cols-3">
                     <div class="rounded border border-white/[.06] bg-[#050912] p-3">
                       <p class="font-mono text-[8px] uppercase tracking-wider text-slate-600">Contract</p>
-                      <p class="mt-1 font-mono text-[10px] text-slate-300">oa.framework.001.v1</p>
+                      <p class="mt-1 font-mono text-[10px] text-slate-300">oa.framework.001.beta</p>
                     </div>
                     <div class="rounded border border-white/[.06] bg-[#050912] p-3">
                       <p class="font-mono text-[8px] uppercase tracking-wider text-slate-600">Lane Count</p>
@@ -813,7 +813,7 @@ if (statusEl) {
   }
 } 
 
-  let CONTRACT = "oa.framework.001.v1";
+  let CONTRACT = "oa.framework.001.beta";
   const STATE_PATH = ["evidence","conflict","hypothesis","test","risk","decision"];
 loadFrameworkContract().then((framework) => {
   if (framework?.framework?.id) {
