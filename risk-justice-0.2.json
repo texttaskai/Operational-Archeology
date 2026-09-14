@@ -89,6 +89,13 @@
             "NO RISK"
           ]
         }
+      },
+      "consistency_contract": {
+        "selector": "finding_status",
+        "constraints": [
+          "risk_type",
+          "timing"
+        ]
       }
     },
     "behavior": [
@@ -126,6 +133,34 @@
         "track_prohibited_behavior_changes": true
       },
       "interpretation_boundary": "A telemetry delta is an observation, not by itself a finding of harmful drift or incorrect reasoning."
+    },
+    "capsule_contract": {
+      "reasoning_case_fields": [
+        "case_id",
+        "problem"
+      ],
+      "reasoning_justice_fields": [
+        "name",
+        "id",
+        "version",
+        "jurisdiction",
+        "authority",
+        "evidence_doctrine",
+        "pillars",
+        "scope",
+        "must_not",
+        "inputs",
+        "output",
+        "behavior"
+      ],
+      "fixture_contract": {
+        "case_id_field": "case_id",
+        "target_state_field": "target_state",
+        "required_state_path": [
+          "validation",
+          "required_finding_status"
+        ]
+      }
     }
   }
 }
