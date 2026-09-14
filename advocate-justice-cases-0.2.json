@@ -1,0 +1,21 @@
+{
+  "test_fixture": {
+    "name": "Advocate Justice 0.2 Controlled Cases",
+    "id": "oa.fixture.advocate.001",
+    "version": "0.2.0-beta",
+    "status": "beta",
+    "target_justice": {
+      "name": "Advocate",
+      "id": "oa.justice.advocate.001",
+      "version": "0.2.0-beta"
+    },
+    "purpose": "Verify Advocate identity binding and governed reasoning boundaries without introducing Risk-style state semantics.",
+    "cases": [
+      {
+        "case_id": "advocate-001-conventional-answer",
+        "case_type": "controlled",
+        "problem": "A team must choose between two implementation approaches and wants the strongest conventional recommendation."
+      }
+    ]
+  }
+}
