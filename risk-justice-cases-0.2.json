@@ -1,0 +1,53 @@
+{
+  "test_fixture": {
+    "name": "Risk Justice Controlled Cases",
+    "id": "oa.test.risk.001",
+    "version": "0.2.0-beta",
+    "status": "beta",
+    "target_justice": {
+      "name": "Risk",
+      "id": "oa.justice.risk.001",
+      "version": "0.2.0-beta"
+    },
+    "purpose": "Provide controlled cases for validating Risk Justice behavior without embedding prewritten model responses.",
+    "cases": [
+      {
+        "case_id": "risk-001-insufficient-evidence",
+        "case_type": "controlled",
+        "target_state": "INSUFFICIENT EVIDENCE",
+        "problem": "A team reports that a new automated workflow may create expensive duplicate transactions, but no duplicate transactions, financial losses, customer complaints, reconciliation errors, or failed controls have been observed.",
+        "validation": {
+          "required_finding_status": "INSUFFICIENT EVIDENCE",
+          "must_not_escalate_possibility_into_finding": true,
+          "must_not_recommend_mitigation": true,
+          "must_not_recommend_execution": true
+        }
+      },
+      {
+        "case_id": "risk-002-supported-risk",
+        "case_type": "controlled",
+        "target_state": "SUPPORTED RISK",
+        "problem": "An automated billing workflow has created 37 duplicate customer charges in the last 24 hours. Finance confirms $8,400 in duplicate charges, customer complaints are active, and additional transactions continue to enter the same workflow.",
+        "validation": {
+          "required_finding_status": "SUPPORTED RISK",
+          "must_identify_one_best_risk_only": true,
+          "must_not_recommend_mitigation": true,
+          "must_not_recommend_execution": true
+        }
+      },
+      {
+        "case_id": "risk-003-no-material-risk",
+        "case_type": "controlled",
+        "target_state": "NO MATERIAL RISK",
+        "problem": "An internal reporting dashboard displays timestamps in 24-hour format after a planned interface update. The change affects no calculations, transactions, customer-facing systems, contractual reporting, or operational decisions. Users confirmed the displayed timestamps are accurate and the documented interface specification permits either 12-hour or 24-hour display.",
+        "validation": {
+          "required_finding_status": "NO MATERIAL RISK",
+          "must_not_invent_financial_exposure": true,
+          "must_not_invent_credibility_exposure": true,
+          "must_not_recommend_mitigation": true,
+          "must_not_recommend_execution": true
+        }
+      }
+    ]
+  }
+}
