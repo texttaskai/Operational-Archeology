@@ -295,6 +295,70 @@ def self_test_blocked_executor():
         "BLOCKED EXECUTOR SELF-TEST FAIL: execution was not blocked"
     )
 
+
+def self_test_provider_unconfigured():
+    original_state = oa_provider.PROVIDER_CONFIGURED
+
+    try:
+        oa_provider.PROVIDER_CONFIGURED = False
+
+        expected_message = (
+            "PROVIDER ADAPTER BLOCKED: no provider configured"
+        )
+
+        try:
+            oa_provider.transport({
+                "justice": {},
+                "case": {},
+            })
+        except RuntimeError as exc:
+            if str(exc) == expected_message:
+                return
+
+            raise ValueError(
+                "PROVIDER UNCONFIGURED BAT FAIL: "
+                f"unexpected message {str(exc)!r}"
+            ) from exc
+
+        raise ValueError(
+            "PROVIDER UNCONFIGURED BAT FAIL: transport was not blocked"
+        )
+    finally:
+        oa_provider.PROVIDER_CONFIGURED = original_state
+
+
+def self_test_provider_configured_without_transport():
+    original_state = oa_provider.PROVIDER_CONFIGURED
+
+    try:
+        oa_provider.PROVIDER_CONFIGURED = True
+
+        expected_message = (
+            "PROVIDER TRANSPORT BLOCKED: "
+            "transport implementation not installed"
+        )
+
+        try:
+            oa_provider.transport({
+                "justice": {},
+                "case": {},
+            })
+        except RuntimeError as exc:
+            if str(exc) == expected_message:
+                return
+
+            raise ValueError(
+                "PROVIDER CONFIGURED BAT FAIL: "
+                f"unexpected message {str(exc)!r}"
+            ) from exc
+
+        raise ValueError(
+            "PROVIDER CONFIGURED BAT FAIL: "
+            "transport unexpectedly succeeded"
+        )
+    finally:
+        oa_provider.PROVIDER_CONFIGURED = original_state
+
 def main():
     justice = load_json(JUSTICE_PATH)["justice"]
     fixture = load_json(CASES_PATH)["test_fixture"]
@@ -314,6 +378,12 @@ def main():
 
     self_test_blocked_provider_adapter()
     print("BLOCKED PROVIDER ADAPTER SELF-TEST: PASS")
+
+    self_test_provider_unconfigured()
+    print("PROVIDER UNCONFIGURED BAT: PASS")
+
+    self_test_provider_configured_without_transport()
+    print("PROVIDER CONFIGURED / TRANSPORT BLOCKED BAT: PASS")
 
     self_test_authorized_executor_reaches_blocked_adapter()
     print("AUTHORIZED EXECUTOR HANDOFF SELF-TEST: PASS")
