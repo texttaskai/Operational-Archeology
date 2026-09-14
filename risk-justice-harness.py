@@ -297,10 +297,14 @@ def self_test_blocked_executor():
 
 
 def self_test_provider_unconfigured():
-    original_state = oa_provider.PROVIDER_CONFIGURED
+    original_state = dict(oa_provider.PROVIDER_CONFIG)
 
     try:
-        oa_provider.PROVIDER_CONFIGURED = False
+        oa_provider.PROVIDER_CONFIG.update({
+            "provider_name": None,
+            "model_id": None,
+            "configuration_version": None,
+        })
 
         expected_message = (
             "PROVIDER ADAPTER BLOCKED: no provider configured"
@@ -324,14 +328,19 @@ def self_test_provider_unconfigured():
             "PROVIDER UNCONFIGURED BAT FAIL: transport was not blocked"
         )
     finally:
-        oa_provider.PROVIDER_CONFIGURED = original_state
+        oa_provider.PROVIDER_CONFIG.clear()
+        oa_provider.PROVIDER_CONFIG.update(original_state)
 
 
 def self_test_provider_configured_without_transport():
-    original_state = oa_provider.PROVIDER_CONFIGURED
+    original_state = dict(oa_provider.PROVIDER_CONFIG)
 
     try:
-        oa_provider.PROVIDER_CONFIGURED = True
+        oa_provider.PROVIDER_CONFIG.update({
+            "provider_name": "synthetic-provider",
+            "model_id": "synthetic-model",
+            "configuration_version": "test",
+        })
 
         expected_message = (
             "PROVIDER TRANSPORT BLOCKED: "
@@ -357,7 +366,8 @@ def self_test_provider_configured_without_transport():
             "transport unexpectedly succeeded"
         )
     finally:
-        oa_provider.PROVIDER_CONFIGURED = original_state
+        oa_provider.PROVIDER_CONFIG.clear()
+        oa_provider.PROVIDER_CONFIG.update(original_state)
 
 def main():
     justice = load_json(JUSTICE_PATH)["justice"]
