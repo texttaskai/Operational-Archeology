@@ -54,6 +54,26 @@
       "id": "oa.framework.001.beta",
       "name": "Operational Archeology Court",
       "version": "0.1.0-beta"
+    },
+    "capsule_contract": {
+      "reasoning_case_fields": [
+        "case_id",
+        "problem"
+      ],
+      "reasoning_justice_fields": [
+        "name",
+        "id",
+        "version",
+        "role",
+        "voice",
+        "beta_orientation",
+        "inputs",
+        "values_scope",
+        "behavior",
+        "evidence_rules",
+        "must_not",
+        "output"
+      ]
     }
   }
 }

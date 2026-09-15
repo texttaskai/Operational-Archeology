@@ -1,0 +1,21 @@
+{
+  "test_fixture": {
+    "name": "Challenger Justice 0.2 Controlled Cases",
+    "id": "oa.fixture.challenger.001",
+    "version": "0.2.0-beta",
+    "status": "beta",
+    "target_justice": {
+      "name": "Challenger",
+      "id": "oa.justice.challenger.001",
+      "version": "0.2.0-beta"
+    },
+    "purpose": "Verify Challenger identity binding and governed reasoning boundaries without inventing unsupported state semantics.",
+    "cases": [
+      {
+        "case_id": "challenger-001-values-position",
+        "case_type": "controlled",
+        "problem": "A public institution must choose between a lower-cost operationally simpler option and a more inclusive option that imposes higher cost and complexity; determine the strongest principled values-based position."
+      }
+    ]
+  }
+}
