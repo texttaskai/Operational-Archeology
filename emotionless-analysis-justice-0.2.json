@@ -52,6 +52,24 @@
         "position": "string",
         "citations": "array"
       }
+    },
+    "capsule_contract": {
+      "reasoning_case_fields": [
+        "case_id",
+        "problem"
+      ],
+      "reasoning_justice_fields": [
+        "name",
+        "id",
+        "version",
+        "role",
+        "voice",
+        "inputs",
+        "behavior",
+        "truth_states",
+        "must_not",
+        "output"
+      ]
     }
   }
 }
